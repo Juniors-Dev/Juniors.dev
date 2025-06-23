@@ -4,12 +4,13 @@ import discordLogo from './assets/Discord-Symbol-Blurple.svg';
 import jiraLogo from './assets/Jira mark brand RGB.svg';
 import figmaLogo from './assets/Figma-logo.svg.png';
 import githubLogo from './assets/github-mark.svg';
+import codingDucky from './assets/coding-ducky.png';
 
 function App() {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-center text-white">
       <div className="mb-8 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Juniors.Dev</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 tracking-tight bg-gradient-to-r from-blue-300 via-blue-200 to-[var(--color-offwhite)] bg-clip-text text-transparent">Juniors.Dev</h1>
         <p className="text-lg md:text-xl font-mono">console.log('Hello world')</p>
       </div>
       <main className="w-full max-w-3xl rounded-3xl p-8 shadow-2xl border border-white/10 backdrop-blur-md bg-offwhite">
@@ -25,6 +26,9 @@ function App() {
             Our interns (and their rubber ducks) are working hard on it...<br/>
             In the meantime, check out what we're about below!
           </p>
+          <div className="flex justify-center">
+            <img src={codingDucky} alt="Coding Ducky" className="w-40 h-auto mt-2" />
+          </div>
         </section>
         <hr className="my-6 border-primary/20" />
         <section className="mb-6">
