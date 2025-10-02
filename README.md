@@ -23,6 +23,50 @@ This repository contains the code for the Juniors.dev website, a platform dedica
    npm start
    ```
 
+## Project Structure
+
+```perl
+src/
+├── components/              # Reusable, presentation-only building blocks
+│   └── ui/                  # Buttons, inputs, cards, etc.
+│
+├── sections/                # Page-level assemblies (Hero, Footer, Mission, etc.)
+│   ├── home/
+│   │   ├── Hero.jsx
+│   │   ├── Mission.jsx
+│   │   └── Roadmap.jsx
+│   └── contact/
+│       └── ContactSection.jsx
+│
+├── features/                # Self-contained feature modules
+│   ├── roadmap/
+│   │   ├── components/
+│   │   │   └── RoadmapTimeline.jsx
+│   │   ├── hooks/
+│   │   │   └── useRoadmapData.js
+│   │   ├── state/
+│   │   │   └── roadmapStore.js
+│   │   └── index.js
+│   └── contact/
+│       ├── components/
+│       │   └── ContactForm.jsx
+│       └── state/
+│           └── contactStore.js
+│
+├── hooks/                   # Truly global hooks (useLocalStorage, useLocalStorageListener, etc..)
+│
+├── state/                   # Global Zustand/Context slices (theme, auth, language)
+│
+├── utils/                   # Pure helper functions (validation, formatting)
+│
+├── assets/                  # Static assets (icons, images, svgs)
+│
+├── styles/                  # Tailwind config, global styles
+│
+├── App.jsx                  # Root component
+└── main.jsx                 # ReactDOM.createRoot entry
+```
+
 ## Git Workflow & Commit Rules
 
 This project uses Husky + Commitlint to enforce commit message conventions and code quality before changes are pushed.
