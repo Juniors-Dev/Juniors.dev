@@ -1,18 +1,33 @@
 import { useLanguageStore } from "@/state/languageStore";
-import styles from "./LanguageToggle.module.css";
 
 function LanguageToggle() {
   const { language, toggleLanguage } = useLanguageStore();
 
   return (
-    <button
-      onClick={toggleLanguage}
-      className={`${styles.button} ${styles.fancy} px-3 py-1`} // Tailwind + CSS Module
-    >
-      <span className={styles.fancy}>
-        {language === "en" ? "English" : "Norsk"}
-      </span>
-    </button>
+    <label className="relative inline-flex items-center cursor-pointer">
+      <input
+        type="checkbox"
+        checked={language === "no"}
+        onChange={toggleLanguage}
+        className="sr-only peer"
+      />
+      <div
+        className="w-14 h-8 rounded-full bg-neutral-200 dark:bg-neutral-800
+               peer-checked:bg-neutral-700 transition-colors duration-300"
+      ></div>
+      <div
+        className="absolute left-1 top-1 w-6 h-6 rounded-full bg-cover bg-center
+               transition-transform duration-300
+               peer-checked:translate-x-6"
+        style={{
+          backgroundImage: `url(${
+            language === "en"
+              ? "src/assets/emojione_flag-for-united-kingdom.png"
+              : "src/assets/emojione_flag-for-norway.png"
+          })`,
+        }}
+      ></div>
+    </label>
   );
 }
 

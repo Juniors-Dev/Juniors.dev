@@ -1,13 +1,16 @@
 import styles from "../Roadmap.module.css";
 import { RoadmapCard } from "./RoadmapCard";
-
-const phases = [
-  { phase: "Phase 1", description: "Initial project setup", status: "done" },
-  { phase: "Phase 2", description: "Add basic features", status: "in-progress" },
-  { phase: "Phase 3", description: "Polish and refine", status: "todo" },
-];
+import { useTranslation } from "../../../hooks/useTranslation";
 
 export function RoadmapTimeline() {
+  const { t } = useTranslation();
+
+  const phases = [
+    { phase: t("phase1"), description: t("phase1Description"), status: "done" },
+    { phase: t("phase2"), description: t("phase2Description"), status: "in-progress" },
+    { phase: t("phase3"), description: t("phase3Description"), status: "todo" },
+  ];
+
   return (
     <div className={styles.timeline}>
       {phases.map((item, idx) => (
