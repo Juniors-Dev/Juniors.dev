@@ -1,0 +1,21 @@
+@import "../../index.css";
+
+.button {
+  @apply rounded-lg border transition-colors;
+  @apply bg-white hover:bg-gray-300;
+  @apply dark:bg-blue-700 dark:hover:bg-gray-600;
+}
+
+.fancy:hover {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
