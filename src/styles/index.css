@@ -1,16 +1,24 @@
 @import "tailwindcss";
 
 /* Headings = Sora Bold */
-.heading {
-  font-family: "Sora", sans-serif;
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Sora", system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-style: bold;
 }
 /* Text = Noto Sans */
-.text {
-  font-family: "Noto Sans", sans-serif;
+.text,
+p {
+  font-family: "Noto Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
+  color: var(--color-accent-eggshell-hex);
 }
 
 @theme {
@@ -50,30 +58,29 @@
   --color-alert-grass-cmyk: 80, 0, 24, 35;
 
   /* Font Sizes */
-  --text-h1: 40px;
-  --text-h2: 32px;
-  --text-h3: 24px;
-  --text-h4: 20px;
-  --text-h5: 18px;
-  --text-body: 16px;
-  --text-caption: 12px;
+  --h1-size: 3rem; /* 40 px */
+  --h2-size: 2rem; /* 32 px */
+  --h3-size: 1.5rem; /* 24 px */
+  --h4-size: 1.3rem; /* 20 px */
+  --h5-size: 1.1rem; /* 18 px */
+  --text-body-size: 1rem; /* 16 px */
+  --text-caption-size: 0.75rem; /*12 px */
 }
 
-/* Desktop overrides for heading size */
+/* Desktop overrides for font sizes */
 @media (min-width: var(--breakpoint-lg)) {
   :root {
-    --text-h1: 81px;
-    --text-h2: 54px;
-    --text-h3: 36px;
-    --text-h4: 24px;
-    --text-h5: 22px;
-    --text-body: 16px;
-    --text-caption: 12px;
+    --h1-size: 5.063rem; /* 81px */
+    --h2-size: 3.375rem; /* 54px */
+    --h3-size: 2.25rem; /* 36px */
+    --h4-size: 1.5rem; /* 24px */
+    --h5-size: 1.375rem; /* 22px */
+    --text-body-size: 1rem; /* 16px */
+    --text-caption-size: 0.75rem; /* 12px */
   }
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -87,11 +94,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #646cff; /* update when design is ready*/
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #535bf2; /* update when design is ready*/
 }
 
 body {
@@ -102,7 +109,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: var(--h1-size);
   line-height: 1.1;
 }
 
@@ -110,15 +117,16 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  font-size: var(--text-body-size);
+  font-weight: 700;
+  font-family: "Noto Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--color-primary-featherflame-hex);
+  color: var(--color-primary-nightwing-hex);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #646cff; /* update when design is ready*/
 }
 button:focus,
 button:focus-visible {
@@ -131,9 +139,6 @@ button:focus-visible {
     background-color: var(--color-accent-eggshell-hex);
   }
   a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: var(--color-primary-featherflame-hex);
+    color: #747bff; /* update when design is ready*/
   }
 }
