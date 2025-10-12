@@ -92,6 +92,12 @@ p {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.light {
+  color-scheme: light;
+  color: var(--color-primary-nightwing-hex);
+  background-color: var(--color-accent-eggshell-hex);
+}
+
 a {
   font-weight: 500;
   color: #646cff; /* update when design is ready*/
@@ -131,14 +137,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--color-primary-nightwing-hex);
-    background-color: var(--color-accent-eggshell-hex);
-  }
-  a:hover {
-    color: #747bff; /* update when design is ready*/
-  }
 }
