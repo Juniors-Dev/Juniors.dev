@@ -1,12 +1,25 @@
 @import "tailwindcss";
 
+/* Headings = Sora Bold */
+.heading {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-style: bold;
+}
+/* Text = Noto Sans */
+.text {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme {
   /* Primary Colors */
-  --color-primary-featherflame-hex: #fd940c;
+  --color-primary-featherflame-hex: #fd940c; /* Orange button mobile MVP */
   --color-primary-featherflame-rgb: 253, 148, 12;
   --color-primary-featherflame-cmyk: 0, 42, 95, 1;
 
-  --color-primary-nightwing-hex: #012238;
+  --color-primary-nightwing-hex: #012238; /* Background color mobile MVP (darmode)*/
   --color-primary-nightwing-rgb: 1, 34, 56;
   --color-primary-nightwing-cmyk: 98, 39, 0, 78;
 
@@ -19,7 +32,7 @@
   --color-accent-duskwater-rgb: 79, 80, 117;
   --color-accent-duskwater-cmyk: 32, 31, 0, 54;
 
-  --color-accent-eggshell-hex: #fdfbe2;
+  --color-accent-eggshell-hex: #fdf8e2; /* Text color mobile MVP (darkmode) */
   --color-accent-eggshell-rgb: 253, 248, 226;
   --color-accent-eggshell-cmyk: 0, 2, 11, 1;
 
@@ -64,8 +77,8 @@
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-accent-eggshell-hex);
+  background-color: var(--color-primary-nightwing-hex);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -100,7 +113,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-primary-featherflame-hex);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -114,13 +127,13 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--color-primary-nightwing-hex);
+    background-color: var(--color-accent-eggshell-hex);
   }
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--color-primary-featherflame-hex);
   }
 }
