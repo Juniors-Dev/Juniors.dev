@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: oklch(0.1934 0.0692 271.06); /* deep blue, matches #0a1033 */
   --color-offwhite: oklch(0.9676 0.0148 271.05); /* soft off-white */

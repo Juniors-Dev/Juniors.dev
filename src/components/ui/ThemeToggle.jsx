@@ -6,9 +6,9 @@ function ThemeToggle() {
 
   useEffect(() => {
     if (theme === "dark") {
-      document.body.classList.add("darkmode");
+      document.body.classList.add("dark");
     } else {
-      document.body.classList.remove("darkmode");
+      document.body.classList.remove("dark");
     }
   }, [theme]);
 
