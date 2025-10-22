@@ -21,6 +21,8 @@ p {
   color: var(--color-primary-nightwing-hex);
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Primary Colors */
   --color-primary-featherflame-hex: #fd940c; /* Orange button mobile MVP */
