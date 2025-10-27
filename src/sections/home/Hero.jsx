@@ -1,3 +1,8 @@
+//import button when the PR is approved
+
+//to do:
+// add spacing, button which scrolls down to the contact form on the bottom
+// button = primary, text = contact us
 function Hero() {
   return (
     <section>
