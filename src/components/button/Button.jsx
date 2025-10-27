@@ -22,7 +22,7 @@ function Button({ text, onClick, variant = "primary", size = "md" }) {
   return (
     <button
       onClick={onClick}
-      className={`rounded-lg border border-transparent font-bold curson-pointer transition-all duration-250
+      className={`rounded-lg border border-transparent font-bold cursor-pointer transition-all duration-250
         ${variants[variant]}
         ${sizes[size]}`}
     >
