@@ -6,9 +6,8 @@ export const useLanguageStore = create(
     (set) => ({
       language: "en",
       setLanguage: (lang) => set({ language: lang }),
-      toggleLanguage: () =>
-        set((state) => ({ language: state.language === "en" ? "no" : "en" })),
+      toggleLanguage: () => set((state) => ({ language: state.language === "en" ? "no" : "en" })),
     }),
-    { name: "language-storage" } // key in localStorage it will handle storing and retrieving on reload 😉
+    { name: "language-storage" }
   )
 );
