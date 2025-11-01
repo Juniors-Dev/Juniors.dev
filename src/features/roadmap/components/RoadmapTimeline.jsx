@@ -1,14 +1,19 @@
 import styles from "../Roadmap.module.css";
 import { RoadmapCard } from "./RoadmapCard";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { roadmapTranslations } from "../translations";
 
 export function RoadmapTimeline() {
-  const { t } = useTranslation();
+  const { translate } = useTranslation(roadmapTranslations);
 
   const phases = [
-    { phase: t("phase1"), description: t("phase1Description"), status: "done" },
-    { phase: t("phase2"), description: t("phase2Description"), status: "in-progress" },
-    { phase: t("phase3"), description: t("phase3Description"), status: "todo" },
+    { phase: translate("phase1"), description: translate("phase1Description"), status: "done" },
+    {
+      phase: translate("phase2"),
+      description: translate("phase2Description"),
+      status: "in-progress",
+    },
+    { phase: translate("phase3"), description: translate("phase3Description"), status: "todo" },
   ];
 
   return (
@@ -24,7 +29,7 @@ export function RoadmapTimeline() {
                   : "bg-yellow-500"
             }`}
           />
-          <RoadmapCard {...item} />
+          <RoadmapCard {...item} translate={translate} />
         </div>
       ))}
     </div>

@@ -1,23 +1,16 @@
 import { useLanguageStore } from "@/state/languageStore";
-import { translations } from "@/translations";
 
-export const useTranslation = () => {
+export const useTranslation = (translations) => {
+  if (!translations) {
+    console.warn("useTranslation: missing translations input");
+  }
+
   const { language } = useLanguageStore();
 
-  const t = (key, fallback = "") => {
-    const keys = key.split(".");
-    let value = translations[language];
-
-    for (const k of keys) {
-      if (value && typeof value === "object" && k in value) {
-        value = value[k];
-      } else {
-        return fallback || key;
-      }
-    }
-
-    return value || fallback || key;
+  const translate = (key, fallback = `[missing:${key}]`) => {
+    const value = translations?.[language]?.[key];
+    return value ?? fallback;
   };
 
-  return { t, language };
+  return { translate, language };
 };
