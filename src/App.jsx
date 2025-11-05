@@ -34,6 +34,7 @@ function App() {
         <ThemeToggle />
       </div>
       <main>
+        <Header />
         <Hero />
         <Mission />
         <Expect />
