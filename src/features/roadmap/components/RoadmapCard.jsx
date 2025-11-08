@@ -1,6 +1,5 @@
 import styles from "../Roadmap.module.css";
 
-// Status constants (outside component to avoid recreation)
 const STATUS_TYPES = {
   DONE: "done",
   IN_PROGRESS: "in-progress",
@@ -28,13 +27,11 @@ const STATUS_CONFIG = {
   },
 };
 
-// Support multiple status format variations
 const normalizeStatus = (status) => {
   const normalized = status?.toLowerCase().replace(/\s+/g, "-");
   return STATUS_CONFIG[normalized] ? normalized : STATUS_TYPES.TODO;
 };
 
-// CSS class constants
 const CLASSES = {
   cardContainer: "bg-white/5 dark:bg-transparent",
   iconWrapper: "mb-4",
