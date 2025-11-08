@@ -1,5 +1,5 @@
 import styles from "../Roadmap.module.css";
-import { RoadmapCard, STATUS_TYPES } from "./RoadmapCard";
+import { RoadmapCard } from "./RoadmapCard";
 import { useTranslation } from "@/hooks/useTranslation";
 import { roadmapTranslations } from "../translations";
 import usersIcon from "@/assets/users.svg";
@@ -36,37 +36,37 @@ const createPhaseData = (translate) => [
     icon: PHASE_ICONS.users,
     title: translate(TRANSLATION_KEYS.PHASE_1),
     text: translate(`${TRANSLATION_KEYS.PHASE_1}Description`),
-    status: STATUS_TYPES.DONE,
+    status: "done",
   },
   {
     icon: PHASE_ICONS.rocket,
     title: translate(TRANSLATION_KEYS.PHASE_2),
     text: translate(`${TRANSLATION_KEYS.PHASE_2}Description`),
-    status: STATUS_TYPES.IN_PROGRESS,
+    status: "in-progress",
   },
   {
     icon: PHASE_ICONS.search,
     title: translate(TRANSLATION_KEYS.PHASE_3),
     text: translate(`${TRANSLATION_KEYS.PHASE_3}Description`),
-    status: STATUS_TYPES.TODO,
+    status: "todo",
   },
   {
     icon: PHASE_ICONS.settings,
     title: translate(TRANSLATION_KEYS.PHASE_4),
     text: translate(`${TRANSLATION_KEYS.PHASE_4}Description`),
-    status: STATUS_TYPES.TODO,
+    status: "todo",
   },
   {
     icon: PHASE_ICONS.fileUser,
     title: translate(TRANSLATION_KEYS.PHASE_5),
     text: translate(`${TRANSLATION_KEYS.PHASE_5}Description`),
-    status: STATUS_TYPES.TODO,
+    status: "todo",
   },
   {
     icon: PHASE_ICONS.mountain,
     title: translate(TRANSLATION_KEYS.PHASE_6),
     text: translate(`${TRANSLATION_KEYS.PHASE_6}Description`),
-    status: STATUS_TYPES.TODO,
+    status: "todo",
   },
 ];
 

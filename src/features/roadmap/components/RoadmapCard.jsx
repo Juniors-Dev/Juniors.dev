@@ -81,5 +81,3 @@ export function RoadmapCard({ icon, title, text, status, translate }) {
     </div>
   );
 }
-
-export { STATUS_TYPES };
