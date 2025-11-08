@@ -25,13 +25,13 @@ export const roadmapTranslations = {
     phase1Description: "Fullfør testprosjekt og form et komplett team.",
     phase2: "Fase 2",
     phase2Description:
-      "Lansér merkevare, nettside, pitch deck, onboarding-flyt og interne verktøy.",
+      "Lanser merkevare, nettside, pitch deck, onboarding-flyt og interne verktøy.",
     phase3: "Fase 3",
     phase3Description:
       "Test onboarding med små prosjekter, mentorer, tilbakemeldinger og sporingssystemer.",
     phase4: "Fase 4",
     phase4Description:
-      "Raffinér systemer, oppdatér onboarding, forbedr verktøy og forbered skalering.",
+      "Raffinér systemer, oppdater onboarding, forbedr verktøy og forbered skalering.",
     phase5: "Fase 5",
     phase5Description:
       "Skalér studenter, mentorer og partnerskap; forbedr sporing, insentiver og dokumentasjon.",
