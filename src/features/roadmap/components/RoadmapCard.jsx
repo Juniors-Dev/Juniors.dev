@@ -37,10 +37,8 @@ const CLASSES = {
   iconWrapper: "mb-4",
   iconImage: "w-12 h-12 filter dark:brightness-0 dark:invert",
   iconComponent: "text-gray-900 dark:text-white text-3xl",
-  title:
-    "!text-[var(--color-primary-nightwing-hex)] dark:!text-[var(--color-accent-eggshell-hex)] mb-2",
-  description:
-    "text-sm !text-gray-700 dark:!text-[var(--color-accent-eggshell-hex)] mb-4 leading-relaxed",
+  title: "text-fg mb-2",
+  description: "text-sm text-fg mb-4 leading-relaxed",
   statusContainer: "flex items-center gap-2",
   statusIcon: "text-lg font-bold",
   statusLabel: "text-sm font-semibold",
