@@ -75,6 +75,9 @@ p {
   --h5-size: 1.1rem; /* 18 px */
   --text-body-size: 1rem; /* 16 px */
   --text-caption-size: 0.75rem; /*12 px */
+
+  /* Breakpoint */
+  --breakpoint-xs: 500px;
 }
 
 /* Desktop overrides for font sizes */
