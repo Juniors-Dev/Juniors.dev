@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./styles/App.css";
 import Header from "./components/ui/Header";
 import Hero from "./sections/home/Hero";
 import Mission from "./sections/home/Mission";
