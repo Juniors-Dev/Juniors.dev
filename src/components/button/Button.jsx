@@ -33,7 +33,7 @@
 function Button({ children, onClick, variant = "primary", size = "md", disabled = false }) {
   const variants = {
     //primary variant
-    primary: "bg-[var(--color-primary-featherflame-hex)] text-[var(--color-primary-nightwing-hex)]",
+    primary: "bg-featherflame text-fg",
 
     //secondary variant ?
     // accent variant ?
@@ -45,9 +45,9 @@ function Button({ children, onClick, variant = "primary", size = "md", disabled 
   };
 
   const sizes = {
-    sm: "px-3 py-1.5 text-[var(--text-caption-size)]",
-    md: "px-5 py-2.5 text-[var(--text-body-size)]",
-    lg: "px-6 py-3 text-[var(--h5-size)]",
+    sm: "px-3 py-1.5 text-caption",
+    md: "px-5 py-2.5 text-body",
+    lg: "px-6 py-3 text-h5",
   };
 
   return (
