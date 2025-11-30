@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Header from "./components/ui/Header";
 import Hero from "./sections/home/Hero";
 import Mission from "./sections/home/Mission";
-import Expect from "./sections/home/Expect";
 import Roadmap from "./sections/home/Roadmap";
 import Contact from "./sections/home/Contact";
 import Footer from "./components/ui/Footer";
@@ -36,7 +35,6 @@ function App() {
       <main>
         <Hero />
         <Mission />
-        <Expect />
         <Roadmap />
         <Contact />
       </main>
