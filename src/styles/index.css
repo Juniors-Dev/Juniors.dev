@@ -96,6 +96,9 @@
   --text-caption: 0.75rem; /* 12px */
   --text-caption--line-height: 1rem;
   --text-caption--font-weight: 400;
+
+  /* Breakpoint */
+  --breakpoint-xs: 450px;
 }
 
 @layer theme {
