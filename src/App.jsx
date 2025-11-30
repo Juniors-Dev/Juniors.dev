@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./styles/App.css";
 import Header from "./components/ui/Header";
 import Hero from "./sections/home/Hero";
 import Mission from "./sections/home/Mission";
@@ -7,6 +6,7 @@ import Expect from "./sections/home/Expect";
 import Roadmap from "./sections/home/Roadmap";
 import Contact from "./sections/home/Contact";
 import Footer from "./components/ui/Footer";
+import LanguageToggle from "./components/ui/LanguageToggle";
 import ThemeToggle from "./components/ui/ThemeToggle";
 
 function App() {
@@ -27,7 +27,9 @@ function App() {
   }, []);
   return (
     <>
-      <div className="fixed top-4 left-4 z-50">
+      {/* Language Toggle - Top Right */}
+      <div className="fixed top-4 right-4 z-50">
+        <LanguageToggle />
         <ThemeToggle />
       </div>
       <Header />

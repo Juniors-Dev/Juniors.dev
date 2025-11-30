@@ -1,0 +1,26 @@
+export const roadmapTranslations = {
+  en: {
+    roadmap: "Project Roadmap",
+    phase1: "Phase 1",
+    phase1Description: "Initial project setup",
+    phase2: "Phase 2",
+    phase2Description: "Add basic features",
+    phase3: "Phase 3",
+    phase3Description: "Polish and refine",
+    done: "Done",
+    "in-progress": "In progress",
+    todo: "To do",
+  },
+  no: {
+    roadmap: "Veikart",
+    phase1: "Fase 1",
+    phase1Description: "Innledende prosjektoppsett",
+    phase2: "Fase 2",
+    phase2Description: "Legg til grunnleggende funksjoner",
+    phase3: "Fase 3",
+    phase3Description: "Polering og forbedring",
+    done: "Ferdig",
+    "in-progress": "Pågår",
+    todo: "Planlagt",
+  },
+};
