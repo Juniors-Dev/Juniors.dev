@@ -1,21 +1,16 @@
+import { Users, Rocket, TextSearch, Cog, FileUser, MountainSnow } from "lucide-react";
 import styles from "../Roadmap.module.css";
 import { RoadmapCard } from "./RoadmapCard";
 import { useTranslation } from "@/hooks/useTranslation";
 import { roadmapTranslations } from "../translations";
-import usersIcon from "@/assets/users.svg";
-import rocketIcon from "@/assets/rocket.svg";
-import searchIcon from "@/assets/text-search.svg";
-import settingsIcon from "@/assets/cog.svg";
-import fileUserIcon from "@/assets/file-user.svg";
-import mountainIcon from "@/assets/mountain-snow.svg";
 
 const PHASE_ICONS = {
-  users: usersIcon,
-  rocket: rocketIcon,
-  search: searchIcon,
-  settings: settingsIcon,
-  fileUser: fileUserIcon,
-  mountain: mountainIcon,
+  users: Users,
+  rocket: Rocket,
+  search: TextSearch,
+  settings: Cog,
+  fileUser: FileUser,
+  mountain: MountainSnow,
 };
 
 const TRANSLATION_KEYS = {

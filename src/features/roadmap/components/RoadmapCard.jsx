@@ -1,3 +1,4 @@
+import { CheckCircle2, Clock, Circle, Pencil } from "lucide-react";
 import styles from "../Roadmap.module.css";
 
 const STATUS_TYPES = {
@@ -8,19 +9,19 @@ const STATUS_TYPES = {
 
 const STATUS_CONFIG = {
   [STATUS_TYPES.DONE]: {
-    icon: "✓",
+    icon: CheckCircle2,
     color: "text-green-600 dark:text-green-500",
     translationKey: "done",
     fallbackLabel: "Done!",
   },
   [STATUS_TYPES.IN_PROGRESS]: {
-    icon: "○",
+    icon: Clock,
     color: "text-blue-600 dark:text-blue-500",
     translationKey: "in-progress",
     fallbackLabel: "In progress",
   },
   [STATUS_TYPES.TODO]: {
-    icon: "✎",
+    icon: Pencil,
     color: "text-orange-600 dark:text-orange-500",
     translationKey: "todo",
     fallbackLabel: "To do",
@@ -36,27 +37,28 @@ const CLASSES = {
   cardContainer: "bg-white/5 dark:bg-transparent",
   iconWrapper: "mb-4",
   iconImage: "w-12 h-12 filter dark:brightness-0 dark:invert",
-  iconComponent: "text-gray-900 dark:text-white text-3xl",
+  iconComponent: "w-12 h-12 text-gray-900 dark:text-white",
   title: "text-fg mb-2",
   description: "text-sm text-fg mb-4 leading-relaxed",
   statusContainer: "flex items-center gap-2",
-  statusIcon: "text-lg font-bold",
+  statusIcon: "w-5 h-5 stroke-2",
   statusLabel: "text-sm font-semibold",
 };
 
-export function RoadmapCard({ icon, title, text, status, translate }) {
+export function RoadmapCard({ icon: Icon, title, text, status, translate }) {
   const normalizedStatus = normalizeStatus(status);
   const statusData = STATUS_CONFIG[normalizedStatus];
+  const StatusIcon = statusData.icon;
   const statusLabel = translate?.(statusData.translationKey) ?? statusData.fallbackLabel;
 
   return (
     <div className={`${styles.card} ${CLASSES.cardContainer}`}>
-      {icon && (
+      {Icon && (
         <div className={CLASSES.iconWrapper}>
-          {typeof icon === "string" ? (
-            <img src={icon} alt="" className={CLASSES.iconImage} aria-hidden="true" />
+          {typeof Icon === "string" ? (
+            <img src={Icon} alt="" className={CLASSES.iconImage} aria-hidden="true" />
           ) : (
-            <div className={CLASSES.iconComponent}>{icon}</div>
+            <Icon className={CLASSES.iconComponent} strokeWidth={1} aria-hidden="true" />
           )}
         </div>
       )}
@@ -70,7 +72,7 @@ export function RoadmapCard({ icon, title, text, status, translate }) {
         role="status"
         aria-label={`Status: ${statusLabel}`}
       >
-        <span className={CLASSES.statusIcon}>{statusData.icon}</span>
+        <StatusIcon className={CLASSES.statusIcon} aria-hidden="true" />
         <span className={CLASSES.statusLabel}>{statusLabel}</span>
       </div>
     </div>
