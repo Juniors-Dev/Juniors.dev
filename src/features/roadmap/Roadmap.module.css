@@ -1,20 +1,21 @@
 @reference "../../styles/index.css"
+
 .card {
-  @apply rounded-lg shadow-md p-4 transition-colors duration-300;
+  @apply rounded-lg p-6 transition-colors duration-300;
 }
 
 .title {
-  @apply text-lg font-bold;
+  @apply text-xl font-bold;
 }
 
 .timeline {
-  @apply flex flex-col gap-6 border-l border-gray-300 pl-4;
+  @apply flex flex-col gap-8 border-l-2 border-gray-300 dark:border-white/30 pl-8;
 }
 
 .phase {
-  @apply relative pl-6;
+  @apply relative;
 }
 
 .icon {
-  @apply absolute -left-3 top-1 w-6 h-6 rounded-full flex items-center justify-center;
+  @apply absolute -left-10 top-2 w-4 h-4 rounded-full bg-gray-400 dark:bg-white;
 }
