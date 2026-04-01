@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoDark from "../../assets/SVG-logo-darkmode.svg";
-import { useLanguageStore } from "../../stores/languageStore";
+import { useT } from "../../stores/languageStore";
 import { translations } from "./translations/ui";
 import LanguageToggle from "./LanguageToggle";
 
@@ -15,8 +15,7 @@ const navLinks = [
 ];
 
 function Header() {
-  const { language } = useLanguageStore();
-  const t = translations[language];
+  const t = useT(translations);
 
   const [menuOpen, setMenuOpen] = useState(false);
 

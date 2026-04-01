@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { useLanguageStore } from "../../stores/languageStore";
+import { useT } from "../../stores/languageStore";
 import { translations } from "./translations/ui";
 import logoDark from "../../assets/SVG-logo-darkmode.svg";
 
@@ -18,8 +18,7 @@ const socialLinks = [
 ];
 
 function Footer() {
-  const { language } = useLanguageStore();
-  const t = translations[language];
+  const t = useT(translations);
   const year = new Date().getFullYear();
 
   return (
