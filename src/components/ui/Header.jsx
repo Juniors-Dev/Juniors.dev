@@ -2,15 +2,22 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoDark from "../../assets/SVG-logo-darkmode.svg";
+import { useLanguageStore } from "../../stores/languageStore";
+import { translations } from "./translations/ui";
+import LanguageToggle from "./LanguageToggle";
 
 const navLinks = [
-  { to: "/", label: "Home", end: true },
-  { to: "/projects", label: "Projects" },
-  { to: "/about", label: "About us" },
-  { to: "/work-with-us", label: "Work with us" },
+  { to: "/", key: "home", end: true },
+  { to: "/projects", key: "projects" },
+  { to: "/about", key: "about" },
+  { to: "/work-with-us", key: "work" },
+  { to: "/contact", key: "contact" },
 ];
 
 function Header() {
+  const { language } = useLanguageStore();
+  const t = translations[language];
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
@@ -28,17 +35,20 @@ function Header() {
 
         <nav className="hidden lg:block" aria-label="Main navigation">
           <ul className="flex items-center gap-8">
-            {navLinks.map(({ to, label, end }) => (
+            {navLinks.map(({ to, key, end }) => (
               <li key={to}>
                 <NavLink
                   to={to}
                   end={end}
                   className={({ isActive }) => `nav-link ${isActive ? "nav-link--active" : ""}`}
                 >
-                  {label}
+                  {t.nav[key]}
                 </NavLink>
               </li>
             ))}
+            <li>
+              <LanguageToggle />
+            </li>
           </ul>
         </nav>
 
@@ -61,7 +71,7 @@ function Header() {
           aria-label="Mobile navigation"
         >
           <ul className="flex flex-col gap-4 pt-4">
-            {navLinks.map(({ to, label, end }) => (
+            {navLinks.map(({ to, key, end }) => (
               <li key={to}>
                 <NavLink
                   to={to}
@@ -71,10 +81,13 @@ function Header() {
                     `mobile-nav-link ${isActive ? "mobile-nav-link--active" : ""}`
                   }
                 >
-                  {label}
+                  {t.nav[key]}
                 </NavLink>
               </li>
             ))}
+            <li>
+              <LanguageToggle />
+            </li>
           </ul>
         </nav>
       )}

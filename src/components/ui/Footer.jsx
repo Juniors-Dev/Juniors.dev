@@ -1,11 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
+import { useLanguageStore } from "../../stores/languageStore";
+import { translations } from "./translations/ui";
 import logoDark from "../../assets/SVG-logo-darkmode.svg";
 
 const navLinks = [
-  { to: "/", label: "Home", end: true },
-  { to: "/work-with-us", label: "Work with us" },
-  { to: "/about", label: "About us" },
-  { to: "/projects", label: "Projects" },
+  { to: "/", key: "home", end: true },
+  { to: "/projects", key: "projects" },
+  { to: "/about", key: "about" },
+  { to: "/work-with-us", key: "work" },
+  { to: "/contact", key: "contact" },
 ];
 
 const socialLinks = [
@@ -15,6 +18,8 @@ const socialLinks = [
 ];
 
 function Footer() {
+  const { language } = useLanguageStore();
+  const t = translations[language];
   const year = new Date().getFullYear();
 
   return (
@@ -31,7 +36,7 @@ function Footer() {
         <div className="footer-columns">
           <nav aria-label="Footer navigation">
             <ul className="footer-list">
-              {navLinks.map(({ to, label, end }) => (
+              {navLinks.map(({ to, key, end }) => (
                 <li key={to}>
                   <NavLink
                     to={to}
@@ -40,7 +45,7 @@ function Footer() {
                       `footer-link ${isActive ? "footer-link--active" : ""}`
                     }
                   >
-                    {label}
+                    {t.nav[key]}
                   </NavLink>
                 </li>
               ))}
@@ -49,7 +54,7 @@ function Footer() {
 
           <section className="footer-contact" aria-labelledby="footer-contact-title">
             <h2 id="footer-contact-title" className="footer-contact-title">
-              Contact us
+              {t.footer.contact}
             </h2>
             <a
               href="mailto:email@hotmail.com"
@@ -78,7 +83,7 @@ function Footer() {
         </div>
 
         <p className="footer-copyright">
-          © {year} Juniors.dev <span className="footer-divider">|</span> All rights reserved
+          © {year} Juniors.dev <span className="footer-divider">|</span> {t.footer.rights}
         </p>
       </div>
     </footer>
