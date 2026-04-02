@@ -1,4 +1,4 @@
-import { useLanguageStore } from "../../stores/languageStore";
+import { useLanguageStore } from "../../../stores/languageStore";
 
 function LanguageToggle() {
   const { language, toggleLanguage } = useLanguageStore();

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoDark from "../../assets/SVG-logo-darkmode.svg";
-import { useT } from "../../stores/languageStore";
-import { translations } from "./translations/ui";
-import LanguageToggle from "./LanguageToggle";
+import logoDark from "../../../assets/SVG-logo-darkmode.svg";
+import { useT } from "../../../stores/languageStore";
+import { translations } from "../translations/ui";
+import LanguageToggle from "../LanguageToggle.jsx/LanguageToggle";
 
 const navLinks = [
   { to: "/", key: "home", end: true },

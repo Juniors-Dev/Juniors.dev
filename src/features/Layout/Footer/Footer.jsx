@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
-import { useT } from "../../stores/languageStore";
-import { translations } from "./translations/ui";
-import logoDark from "../../assets/SVG-logo-darkmode.svg";
+import { useT } from "../../../stores/languageStore";
+import { translations } from "../translations/ui";
+import logoDark from "../../../assets/SVG-logo-darkmode.svg";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
