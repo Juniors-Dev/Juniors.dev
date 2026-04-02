@@ -169,6 +169,10 @@ main {
   flex-grow: 1;
 }
 
+.max-w-app {
+  max-width: 1440px;
+}
+
 .text-paragraph,
 p {
   font-family: var(--font-body);
