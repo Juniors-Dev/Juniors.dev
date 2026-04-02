@@ -11,7 +11,6 @@ const navLinks = [
   { to: "/projects", key: "projects" },
   { to: "/about", key: "about" },
   { to: "/work-with-us", key: "work" },
-  { to: "/contact", key: "contact" },
 ];
 
 function Header() {

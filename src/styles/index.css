@@ -467,14 +467,14 @@ label {
     background-color: var(--color-primary-100);
   }
 
-  .project-card__image {
-    @apply block w-full rounded-[0.1875rem] object-cover;
-    aspect-ratio: 21.25 / 10.2;
-    background-color: #d1d1d1;
+  .project-card__content {
+    @apply py-5;
   }
 
-  .project-card__content {
-    @apply p-4;
+  .project-card__image {
+    @apply block w-full rounded-[0.3125rem] object-cover;
+    aspect-ratio: 20 / 9;
+    background-color: var(--color-grey-100);
   }
 
   .project-card .project-card__subtitle {
@@ -497,8 +497,8 @@ label {
   }
 
   @media (min-width: 768px) {
-    .project-card__content {
-      @apply p-5;
+    .project-card {
+      @apply p-3;
     }
 
     .project-card .project-card__subtitle {
@@ -555,6 +555,10 @@ label {
   }
 
   @media (min-width: 1024px) {
+    .project-card {
+      @apply p-4.5;
+    }
+
     .project-card .project-card__subtitle {
       font-size: 1.25rem !important;
     }
