@@ -1,4 +1,6 @@
 import { useLanguageStore } from "../../../stores/languageStore";
+import ukFlag from "../../../assets/emojione_flag-for-united-kingdom.png";
+import noFlag from "../../../assets/emojione_flag-for-norway.png";
 
 function LanguageToggle() {
   const { language, toggleLanguage } = useLanguageStore();
@@ -20,11 +22,7 @@ function LanguageToggle() {
                transition-transform duration-300
                peer-checked:translate-x-6"
         style={{
-          backgroundImage: `url(${
-            language === "en"
-              ? "src/assets/emojione_flag-for-united-kingdom.png"
-              : "src/assets/emojione_flag-for-norway.png"
-          })`,
+          backgroundImage: `url(${language === "en" ? ukFlag : noFlag})`,
         }}
       ></div>
     </label>
