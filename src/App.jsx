@@ -1,40 +1,24 @@
-import { useEffect } from "react";
-import Header from "./components/ui/Header";
-import Hero from "./sections/home/Hero";
-import Mission from "./sections/home/Mission";
-import Expect from "./sections/home/Expect";
-import Roadmap from "./sections/home/Roadmap";
-import Contact from "./sections/home/Contact";
-import Footer from "./components/ui/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/ui/Layout";
+import Home from "./pages/Home";
+import Projects from "./pages/Projects";
+import ProjectDetails from "./pages/ProjectDetails";
+import About from "./pages/About";
+import WorkWithUs from "./pages/WorkWithUs";
 
 function App() {
-  useEffect(() => {
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Welcome to Juniors.Dev, a creative community and collaboration hub built to give junior developers real-world experience through teamwork, hands-on learning, and ship-worthy projects."
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Welcome to Juniors.Dev, a creative community and collaboration hub built to give junior developers real-world experience through teamwork, hands-on learning, and ship-worthy projects.";
-      document.head.appendChild(meta);
-    }
-  }, []);
   return (
-    <>
-      <main>
-        <Header />
-        <Hero />
-        <Mission />
-        <Expect />
-        <Roadmap />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/work-with-us" element={<WorkWithUs />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

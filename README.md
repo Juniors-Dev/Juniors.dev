@@ -30,6 +30,13 @@ src/
 ├── components/              # Reusable, presentation-only building blocks
 │   └── ui/                  # Buttons, inputs, cards, etc.
 │
+├── pages/                # The main pages of the site (Home, About, Projects, etc.)
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Projects.jsx
+│   ├── Team.jsx
+│   └── Contact.jsx
+|
 ├── sections/                # Page-level assemblies (Hero, Footer, Mission, etc.)
 │   ├── home/
 │   │   ├── Hero.jsx

@@ -11,3 +11,8 @@ export const useLanguageStore = create(
     { name: "language-storage" }
   )
 );
+
+export function useT(scope) {
+  const language = useLanguageStore((state) => state.language);
+  return scope[language];
+}
