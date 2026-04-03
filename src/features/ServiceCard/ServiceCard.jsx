@@ -30,8 +30,8 @@ function ServiceCard({
         <h3 className="service-card__title">{title}</h3>
         <p className="service-card__details">{details}</p>
         <div className="service-card__tags">
-          {tags.map((tag) => (
-            <Tag key={tag} className={tagClassName}>
+          {tags.map((tag, index) => (
+            <Tag key={tag + index} className={tagClassName}>
               {tag}
             </Tag>
           ))}

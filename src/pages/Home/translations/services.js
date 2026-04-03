@@ -15,12 +15,12 @@ export const serviceCards = [
     en: {
       title: "UX/UI",
       details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      tags: ["Website", "Website", "Website"],
     },
     no: {
       title: "UX/UI",
       details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-primary-500 hover:bg-primary-600 text-off-white",
     tagClassName: "bg-primary-700 text-primary-100",
@@ -35,7 +35,7 @@ export const serviceCards = [
     no: {
       title: "Frontend",
       details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-secondary-500 hover:bg-secondary-600 text-primary-900",
     tagClassName: "bg-secondary-200 text-primary-900",
@@ -50,7 +50,7 @@ export const serviceCards = [
     no: {
       title: "Backend",
       details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-primary-200 hover:bg-primary-300 text-primary-900",
     tagClassName: "bg-primary-100 text-primary-900",
@@ -63,9 +63,9 @@ export const serviceCards = [
       tags: ["Web site", "Web site", "Web site"],
     },
     no: {
-      title: "Coaching",
+      title: "Veiledning",
       details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-primary-900 hover:bg-primary-600 text-off-white",
     tagClassName: "bg-primary-700 text-primary-100",
