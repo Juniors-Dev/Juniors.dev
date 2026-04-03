@@ -31,7 +31,7 @@ function OurProjects() {
   const t = useT(projects);
   return (
     <Section>
-      <h2>{t.heading}</h2>
+      <h2 className="text-primary-800">{t.heading}</h2>
 
       <div className="projects-grid mt-8 grid gap-6">
         {featuredProjects.map((project) => (
