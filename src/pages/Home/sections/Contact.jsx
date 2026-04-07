@@ -98,13 +98,12 @@ function ContactSection() {
                 {...register("message")}
                 inputClassName="resize-none"
               />
+              <div className="contact-form__actions">
+                <SubmitButton variant="primary" type="submit" icon={true}>
+                  Send
+                </SubmitButton>
+              </div>
             </div>
-          </div>
-
-          <div className="contact-form__actions">
-            <SubmitButton variant="primary" type="submit" icon={true}>
-              Send
-            </SubmitButton>
           </div>
         </form>
       </div>

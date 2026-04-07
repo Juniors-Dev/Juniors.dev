@@ -23,16 +23,20 @@ function Footer() {
   return (
     <footer className="bg-primary-800 text-off-white">
       <div className="mx-auto max-w-app px-8 py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
-        <Link to="/" className="footer-logo-link">
-          <img
-            src={logoDark}
-            className="h-auto w-[210px] md:w-[260px]"
-            alt="Juniors.dev logo. The dot in the logo is an image of a tiny yellow rubber duck."
-          />
-        </Link>
-
+        <div className="text-center md:text-start">
+          <Link to="/" className="footer-logo-link text-center md:text-start">
+            <img
+              src={logoDark}
+              className="h-auto w-[210px] md:w-[260px] "
+              alt="Juniors.dev logo. The dot in the logo is an image of a tiny yellow rubber duck."
+            />
+          </Link>
+        </div>
         <div className="footer-columns">
           <nav aria-label="Footer navigation">
+            <h2 id="footer-navigation-title" className="footer-navigation-title">
+              {t.footer.navigation}
+            </h2>
             <ul className="footer-list">
               {navLinks.map(({ to, key, end }) => (
                 <li key={to}>
@@ -63,20 +67,25 @@ function Footer() {
           </section>
 
           <section aria-label="Social media links">
-            <ul className="footer-list md:items-end">
-              {socialLinks.map(({ href, label }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="footer-link footer-link--underline"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="socials-container">
+              <h2 id="footer-social-title" className="footer-social-title">
+                {t.footer.social}
+              </h2>
+              <ul className="footer-list-socials ">
+                {socialLinks.map(({ href, label }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="footer-link footer-link--underline"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </section>
         </div>
 
