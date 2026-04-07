@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { Send } from "lucide-react";
 
 /**
  * Navigation-style button with optional icon.
  *
  * Renders as:
- * - <Link> when `to` is provided (internal routing)
- * - <a> when `href` is provided (external link)
  * - <button> as fallback
  *
  * Designed for CTA usage (e.g. hero, cards) where the button includes
@@ -34,37 +32,21 @@ import { ArrowUpRight } from "lucide-react";
  *   View repo
  * </NavIconButton>
  */
-function NavIconButton({ children, to, href, variant = "primary", icon = false, className = "" }) {
-  const classes = `btn btn-${variant} ${icon ? "btn-with-icon" : ""} ${className}`;
+function SubmitButton({ children, variant = "primary", icon = false, className = "" }) {
+  const classes = `btn btn-${variant} ${icon ? "btn-submit-with-icon" : ""} ${className}`;
 
   const content = (
     <>
-      <span className="btn__label">{children}</span>
       {icon && (
-        <span className="btn__icon-wrap" aria-hidden="true">
-          <ArrowUpRight className="btn__icon" />
+        <span className="" aria-hidden="true">
+          <Send className="btn__icon-submit" />
         </span>
       )}
+      <span className="btn__label">{children}</span>
     </>
   );
-
-  if (to) {
-    return (
-      <Link to={to} className={classes}>
-        {content}
-      </Link>
-    );
-  }
-
-  if (href) {
-    return (
-      <a href={href} rel="noreferrer" target="_blank" className={classes}>
-        {content}
-      </a>
-    );
-  }
 
   return <button className={classes}>{content}</button>;
 }
 
-export default NavIconButton;
+export default SubmitButton;
