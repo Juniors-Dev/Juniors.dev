@@ -10,6 +10,8 @@ export const translations = {
     },
     footer: {
       contact: "Contact us",
+      navigation: "Explore",
+      social: "Follow us",
       rights: "All rights reserved",
     },
   },
@@ -23,6 +25,8 @@ export const translations = {
     },
     footer: {
       contact: "Kontakt oss",
+      navigation: "Utforske",
+      social: "Følg oss",
       rights: "Alle rettigheter reservert",
     },
   },
