@@ -1,14 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
-import { useT } from "../../stores/languageStore";
-import { translations } from "./translations/ui";
-import logoDark from "../../assets/SVG-logo-darkmode.svg";
+import { useT } from "../../../stores/languageStore";
+import { translations } from "../translations/ui";
+import logoDark from "../../../assets/SVG-logo-darkmode.svg";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
   { to: "/projects", key: "projects" },
   { to: "/about", key: "about" },
   { to: "/work-with-us", key: "work" },
-  { to: "/contact", key: "contact" },
 ];
 
 const socialLinks = [
@@ -23,7 +22,7 @@ function Footer() {
 
   return (
     <footer className="bg-primary-800 text-off-white">
-      <div className="mx-auto max-w-screen-2xl px-8 py-10 md:px-12 md:py-14 lg:px-16 lg:py-16">
+      <div className="mx-auto max-w-app px-8 py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
         <Link to="/" className="footer-logo-link">
           <img
             src={logoDark}

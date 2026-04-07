@@ -1,7 +1,6 @@
-import Section from "../../components/section/Section";
-import NavIconButton from "../../components/button/NavIconButton";
-import { hero } from "./translations/hero";
-import { useT } from "../../stores/languageStore";
+import { Section, NavIconButton } from "../../../features/UI";
+import { hero } from "../translations/hero";
+import { useT } from "../../../stores/languageStore";
 
 function HeroSection() {
   const t = useT(hero);

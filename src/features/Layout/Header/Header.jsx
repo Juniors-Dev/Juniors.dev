@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoDark from "../../assets/SVG-logo-darkmode.svg";
-import { useT } from "../../stores/languageStore";
-import { translations } from "./translations/ui";
-import LanguageToggle from "./LanguageToggle";
+import logoDark from "../../../assets/SVG-logo-darkmode.svg";
+import { useT } from "../../../stores/languageStore";
+import { translations } from "../translations/ui";
+import LanguageToggle from "../LanguageToggle.jsx/LanguageToggle";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
   { to: "/projects", key: "projects" },
   { to: "/about", key: "about" },
   { to: "/work-with-us", key: "work" },
-  { to: "/contact", key: "contact" },
 ];
 
 function Header() {
@@ -23,7 +22,7 @@ function Header() {
 
   return (
     <header className="bg-primary-800 text-off-white">
-      <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-6 py-6 lg:px-12">
+      <div className="mx-auto flex max-w-app items-center justify-between px-8 md:px-10 py-6 lg:px-12">
         <Link to="/" className="shrink-0" onClick={closeMenu}>
           <img
             src={logoDark}
