@@ -27,35 +27,49 @@ This repository contains the code for the Juniors.dev website, a platform dedica
 
 ```perl
 src/
-├── components/              # Reusable, presentation-only building blocks
-│   └── ui/                  # Buttons, inputs, cards, etc.
-│
-├── sections/                # Page-level assemblies (Hero, Footer, Mission, etc.)
-│   ├── home/
-│   │   ├── Hero.jsx
-│   │   ├── Mission.jsx
-│   │   └── Roadmap.jsx
-│   └── contact/
-│       └── ContactSection.jsx
+├── pages/                # The main pages of the site (Home, About, Projects, etc.)
+│   ├── Home
+│   │   ├── sections       # Page-specific sections (Hero, Mission, Roadmap, etc.)
+│   │   │   ├── Hero.jsx
+│   │   │   ├── Projects.jsx
+│   │   │   ├── Services.jsx
+│   │   │   └── Contact.jsx
+│   │   ├── translations   # Page-specific translations (Hero, Mission, Roadmap, etc.)
+│   │   │   ├── Hero.js
+│   │   │   ├── Projects.js
+│   │   │   ├── Services.js
+│   │   │   └── Contact.js
+│   │   └── Home.jsx
+│   ├── About
+│   ├── Projects
+│   ├── Team
+│   └── Contact
 │
 ├── features/                # Self-contained feature modules
-│   ├── roadmap/
-│   │   ├── components/
-│   │   │   └── RoadmapTimeline.jsx
-│   │   ├── hooks/
-│   │   │   └── useRoadmapData.js
-│   │   ├── state/
-│   │   │   └── roadmapStore.js
-│   │   └── index.js
-│   └── contact/
-│       ├── components/
-│       │   └── ContactForm.jsx
-│       └── state/
-│           └── contactStore.js
+│   ├── UI/                 # Reusable, presentation-only building blocks eg.Buttons, inputs, cards, etc.
+│   │   ├── Button/
+│   │   │   └── Button.jsx
+│   │   ├── Section/
+│   │   │   └── Section.jsx
+│   │   ├── Tag/
+│   │   │   └── Tag.jsx
+│   │   └── index.js     # Barrel export for all UI components/hooks/state
+│   ├── Layout/
+│   │   ├── Header/
+│   │   │   └── Header.jsx
+│   │   ├── Footer/
+│   │   │   └── Footer.jsx
+│   │   ├── LanguageToggle/
+│   │   │   └── LanguageToggle.jsx
+│   │   ├── translations/
+│   │   └── Layout.jsx # Main layout component that composes Header, Footer, etc.
+│   ├── ProjectCard/  # Composite feature modules that combine UI components + state + accept translations as props
+│   ├── ServiceCard/
+│   └── ExpectCard/
 │
 ├── hooks/                   # Truly global hooks (useLocalStorage, useLocalStorageListener, etc..)
 │
-├── state/                   # Global Zustand/Context slices (theme, auth, language)
+├── stores/                   # Global Zustand/Context slices (theme, auth, language)
 │
 ├── utils/                   # Pure helper functions (validation, formatting)
 │

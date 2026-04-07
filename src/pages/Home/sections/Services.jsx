@@ -1,0 +1,41 @@
+import { Section, NavIconButton } from "../../../features/UI";
+import ServiceCard from "../../../features/ServiceCard/ServiceCard";
+import { services, serviceCards } from "../translations/services";
+import { useT, useLanguageStore } from "../../../stores/languageStore";
+
+function OurServices() {
+  const t = useT(services);
+  const language = useLanguageStore((state) => state.language);
+  return (
+    <Section className="bg-primary-100 relative">
+      <h2 className="text-primary-800">{t.heading}</h2>
+
+      <div className="relative services-section__container">
+        <div className="services-rail relative md:me-6">
+          {serviceCards.map((card) => {
+            const content = card[language];
+
+            return (
+              <ServiceCard
+                key={card.id}
+                id={card.id}
+                title={content.title}
+                details={content.details}
+                tags={content.tags}
+                panelClassName={card.panelClassName}
+                tagClassName={card.tagClassName}
+              />
+            );
+          })}
+        </div>
+      </div>
+      {/* <div className="mt-10 flex justify-center">
+        <NavIconButton to="/projects" variant="nav" icon>
+          {t.cta}
+        </NavIconButton>
+      </div> */}
+    </Section>
+  );
+}
+
+export default OurServices;
