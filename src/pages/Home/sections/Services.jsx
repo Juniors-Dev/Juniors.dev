@@ -11,7 +11,7 @@ function OurServices() {
       <h2 className="text-primary-800">{t.heading}</h2>
 
       <div className="relative services-section__container">
-        <div className="services-rail relative md:me-6">
+        <div className="services-rail relative">
           {serviceCards.map((card) => {
             const content = card[language];
 
