@@ -1,38 +1,12 @@
-import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
 
 /**
- * Navigation-style button with optional icon.
+ * Submit button with optional Send icon.
  *
- * Renders as:
- * - <button> as fallback
- *
- * Designed for CTA usage (e.g. hero, cards) where the button includes
- * a split layout with text and optional icon container.
- *
- * @component
- *
- * @param {object} props
- * @param {React.ReactNode} props.children - Button label content
- * @param {string} [props.to] - Internal route path (react-router)
- * @param {string} [props.href] - External URL
- * @param {"primary" | "secondary" | "nav"} [props.variant="primary"] - Visual style variant
- * @param {boolean} [props.icon=false] - Whether to render the icon
- * @param {string} [props.className=""] - Additional class names
- *
- * @returns {JSX.Element}
- *
- * @example
- * <NavIconButton to="/contact" variant="nav" icon>
- *   Contact us
- * </NavIconButton>
- *
- * @example
- * <NavIconButton href="https://github.com" variant="secondary">
- *   View repo
- * </NavIconButton>
+ * Forwards all additional props (e.g. disabled, type) to the
+ * underlying <button> element.
  */
-function SubmitButton({ children, variant = "primary", icon = false, className = "" }) {
+function SubmitButton({ children, variant = "primary", icon = false, className = "", ...rest }) {
   const classes = `btn btn-${variant} ${icon ? "btn-submit-with-icon" : ""} ${className}`;
 
   const content = (
@@ -46,7 +20,11 @@ function SubmitButton({ children, variant = "primary", icon = false, className =
     </>
   );
 
-  return <button className={classes}>{content}</button>;
+  return (
+    <button className={classes} {...rest}>
+      {content}
+    </button>
+  );
 }
 
 export default SubmitButton;
