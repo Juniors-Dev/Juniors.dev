@@ -906,7 +906,7 @@ label {
     color: var(--color-error-500);
   }
 
-  /* Phone: flag + chevron + dial + number; optional boxed chrome (match EmailInput) */
+  /* Phone: flag + chevron + dial + number (underline style aligned with InputField) */
   .phone-field__control {
     @apply relative flex min-w-0 flex-row items-center gap-3 pe-0 ps-0;
   }
@@ -915,151 +915,20 @@ label {
     @apply pe-7;
   }
 
-  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
-      .phone-field__control--boxed
-    ):hover {
+  .phone-field__control:hover {
     background-color: transparent;
   }
 
-  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
-      .phone-field__control--boxed
-    ):focus-within {
+  .phone-field__control:focus-within {
     background-color: transparent;
     box-shadow: none;
     border-bottom-color: var(--color-primary-900);
   }
 
-  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
-      .phone-field__control--boxed
-    ).input-field__control--error:focus-within {
+  .phone-field__control.input-field__control--error:focus-within {
     border-bottom-color: var(--color-error-400);
   }
 
-  .phone-field__control.phone-field__control--boxed-on-focus:hover {
-    background-color: var(--color-secondary-200);
-  }
-
-  .phone-field__control.phone-field__control--boxed-on-focus.input-field__control--error:hover {
-    background-color: transparent;
-  }
-
-  .phone-field__control--boxed-on-focus {
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      border-radius 0.2s ease;
-  }
-
-  .phone-field__control.phone-field__control--boxed-on-focus:focus-within {
-    border-bottom: none;
-    border-radius: 0.25rem;
-    @apply border border-solid;
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-tone="neutral"]:focus-within {
-    background-color: var(--color-secondary-200);
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-tone="yellow"]:focus-within {
-    background-color: var(--color-warning-50);
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-border="ring"]:focus-within {
-    box-shadow: 0 0 0 2px var(--color-primary-500);
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-border="none"]:focus-within {
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-border="navy"]:focus-within {
-    border-width: 2px;
-    border-color: var(--color-primary-900);
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed-on-focus.input-field__control--error:focus-within {
-    border-color: var(--color-error-400);
-    box-shadow: none;
-    background-color: transparent;
-  }
-
-  .phone-field__control--boxed-on-focus[data-boxed-border="navy"].input-field__control--success:focus-within {
-    border-color: var(--color-primary-900);
-  }
-
-  .phone-field__control--boxed {
-    border-bottom: none;
-    border-radius: 0.25rem;
-    @apply border border-solid;
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed:hover {
-    background-color: var(--color-secondary-200);
-  }
-
-  .phone-field__control--boxed:focus-within {
-    background-color: var(--color-secondary-200);
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed-neutral {
-    background-color: var(--color-primary-100);
-  }
-
-  .phone-field__control--boxed-yellow {
-    background-color: var(--color-warning-50);
-  }
-
-  .phone-field__control--boxed-ring:focus-within {
-    box-shadow: 0 0 0 2px var(--color-primary-500);
-  }
-
-  .phone-field__control--boxed-none {
-    border-color: transparent;
-  }
-
-  .phone-field__control--boxed-navy {
-    border-width: 2px;
-    border-color: var(--color-primary-900);
-  }
-
-  .phone-field__control--boxed.input-field__control--error {
-    border-color: var(--color-error-400);
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed.input-field__control--error:focus-within {
-    box-shadow: none;
-  }
-
-  .phone-field__control--boxed.input-field__control--success {
-    border-color: transparent;
-  }
-
-  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--success {
-    border-color: var(--color-primary-900);
-  }
-
-  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--error {
-    border-color: var(--color-error-400);
-  }
-
-  .email-field__control {
-    @apply flex min-w-0 flex-row items-center gap-2 ps-3;
-  }
-
-  .email-field__control--no-leading {
-    @apply ps-0;
-  }
-
-  .email-field__control .input-field__icon,
   .phone-field__control .input-field__icon {
     @apply bottom-auto top-1/2 -translate-y-1/2;
   }
@@ -1101,120 +970,6 @@ label {
     font-size: var(--text-input);
     line-height: 1.2;
     font-weight: 400;
-  }
-
-  /* Email: boxed chrome while input is focused */
-  .email-field__control--boxed-on-focus {
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease,
-      border-radius 0.2s ease;
-  }
-
-  .email-field__control.email-field__control--boxed-on-focus:focus-within {
-    border-bottom: none;
-    border-radius: 0.25rem;
-    @apply border border-solid;
-    border-color: transparent;
-    /* Override generic .input-field__control:focus-within inset ring */
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-tone="neutral"]:focus-within {
-    background-color: var(--color-secondary-200);
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-tone="yellow"]:focus-within {
-    background-color: var(--color-warning-50);
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-border="ring"]:focus-within {
-    box-shadow: 0 0 0 2px var(--color-primary-500);
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-border="none"]:focus-within {
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-border="navy"]:focus-within {
-    border-width: 2px;
-    border-color: var(--color-primary-900);
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed-on-focus.input-field__control--error:focus-within {
-    border-color: var(--color-error-400);
-    box-shadow: none;
-    background-color: transparent;
-  }
-
-  .email-field__control.email-field__control--boxed-on-focus.input-field__control--error:hover {
-    background-color: transparent;
-  }
-
-  .email-field__control--boxed-on-focus[data-boxed-border="navy"].input-field__control--success:focus-within {
-    border-color: var(--color-primary-900);
-  }
-
-  .email-field__control--boxed {
-    border-bottom: none;
-    border-radius: 0.25rem;
-    @apply border border-solid;
-    border-color: transparent;
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed:hover {
-    background-color: var(--color-secondary-200);
-  }
-
-  .email-field__control--boxed:focus-within {
-    background-color: var(--color-secondary-200);
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed-neutral {
-    background-color: var(--color-primary-100);
-  }
-
-  .email-field__control--boxed-yellow {
-    background-color: var(--color-warning-50);
-  }
-
-  .email-field__control--boxed-ring:focus-within {
-    box-shadow: 0 0 0 2px var(--color-primary-500);
-  }
-
-  .email-field__control--boxed-none {
-    border-color: transparent;
-  }
-
-  .email-field__control--boxed-navy {
-    border-width: 2px;
-    border-color: var(--color-primary-900);
-  }
-
-  .email-field__control--boxed.input-field__control--error {
-    border-color: var(--color-error-400);
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed.input-field__control--error:focus-within {
-    box-shadow: none;
-  }
-
-  .email-field__control--boxed.input-field__control--success {
-    border-color: transparent;
-  }
-
-  .email-field__control--boxed.email-field__control--boxed-navy.input-field__control--success {
-    border-color: var(--color-primary-900);
-  }
-
-  .email-field__control--boxed.email-field__control--boxed-navy.input-field__control--error {
-    border-color: var(--color-error-400);
   }
 
   /* Buttons */

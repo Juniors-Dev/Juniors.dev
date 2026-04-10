@@ -4,4 +4,3 @@ export {
   phoneCountryCodes,
   phoneCountryOptions,
 } from "./phoneCountryOptions.js";
-export { phoneNumberFieldSchema } from "./phoneFieldSchema.js";
