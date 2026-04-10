@@ -869,12 +869,79 @@ label {
     border-bottom-color: var(--color-grey-500);
   }
 
+  .input-field__control--success {
+    border-bottom-color: var(--color-primary-900);
+  }
+
   .input-field__control--textarea {
     min-height: 8rem;
   }
 
+  .input-field__input::placeholder {
+    color: color-mix(in srgb, var(--color-primary-900) 42%, transparent);
+  }
+
   .phone-field__control {
     @apply overflow-visible;
+  }
+
+  /* Boxed phone field (optional variant for other layouts) */
+  .phone-field__control--boxed {
+    border: 1px solid color-mix(in srgb, var(--color-primary-900) 22%, transparent);
+    border-radius: 0.25rem;
+    padding-inline-end: 1.75rem;
+  }
+
+  .phone-field__control--boxed-neutral {
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control--boxed-yellow {
+    background-color: var(--color-warning-50);
+  }
+
+  .phone-field__control--boxed-border-none {
+    border-color: transparent;
+  }
+
+  .phone-field__control--boxed-border-navy {
+    border-color: var(--color-primary-900);
+  }
+
+  .phone-field__control--boxed:hover {
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control--boxed.phone-field__control--boxed-yellow:hover {
+    background-color: var(--color-warning-100);
+  }
+
+  .phone-field__control--boxed-border-none:hover {
+    border-color: color-mix(in srgb, var(--color-primary-900) 22%, transparent);
+  }
+
+  .phone-field__control--boxed:focus-within {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 1px var(--color-primary-500);
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control--boxed.phone-field__control--boxed-yellow:focus-within {
+    background-color: var(--color-warning-50);
+  }
+
+  .phone-field__control--boxed.input-field__control--error:focus-within {
+    border-color: var(--color-error-400);
+    box-shadow: 0 0 0 1px var(--color-error-400);
+  }
+
+  .phone-field__control--boxed.input-field__control--error {
+    border-color: var(--color-error-400);
+  }
+
+  .phone-field__control--boxed.input-field__control--success:focus-within {
+    border-color: var(--color-primary-900);
+    box-shadow: 0 0 0 1px var(--color-primary-900);
   }
 
   .phone-field__country {

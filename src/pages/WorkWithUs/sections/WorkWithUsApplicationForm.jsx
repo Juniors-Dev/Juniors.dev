@@ -108,6 +108,7 @@ function WorkWithUsApplicationForm({ form, onSubmit }) {
               errors={errors}
               touchedFields={touchedFields}
               isSubmitted={isSubmitted}
+              placeholder={t.phonePlaceholder}
               labels={{
                 phone: t.phone,
                 phoneCountry: t.phoneCountryLabel,
