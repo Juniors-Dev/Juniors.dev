@@ -4,3 +4,6 @@ export { default as Button } from "./Buttons/Button";
 export { default as NavIconButton } from "./Buttons/NavIconButton";
 export { default as InputField } from "./forms/InputField";
 export { default as SubmitButton } from "./Buttons/SubmitButton";
+export { default as FeatureHighlightCard } from "../FeatureHighlightCard/FeatureHighlightCard";
+export { default as PhoneNumberInput } from "../PhoneNumberInput/PhoneNumberInput";
+export { default as SplitContentSection } from "../SplitContentSection/SplitContentSection";
