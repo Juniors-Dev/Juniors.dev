@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Send } from "lucide-react";
 
 /**
@@ -32,7 +31,7 @@ import { Send } from "lucide-react";
  *   View repo
  * </NavIconButton>
  */
-function SubmitButton({ children, variant = "primary", icon = false, className = "" }) {
+function SubmitButton({ children, variant = "primary", icon = false, className = "", ...rest }) {
   const classes = `btn btn-${variant} ${icon ? "btn-submit-with-icon" : ""} ${className}`;
 
   const content = (
@@ -46,7 +45,11 @@ function SubmitButton({ children, variant = "primary", icon = false, className =
     </>
   );
 
-  return <button className={classes}>{content}</button>;
+  return (
+    <button className={classes} {...rest}>
+      {content}
+    </button>
+  );
 }
 
 export default SubmitButton;

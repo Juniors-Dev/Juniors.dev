@@ -1,0 +1,65 @@
+export const workWithUs = {
+  en: {
+    heroTitle: "Work at juniors.dev",
+    heroSubtitle:
+      "We are always looking for hungry developers and designers who want to grow and gain real work experience.",
+    introTitle: "Need real experience?",
+    introBody:
+      "We help you build hands-on experience by contributing to real projects—whether you lean toward frontend, backend, or UX/UI design.",
+    introAsideLead: "We offer real work experience so",
+    introAsideEmphasis: "YOU",
+    introAsideTail: "can land your dream job",
+    expectHeading: "What to expect",
+    learningTitle: "100% Learning-based",
+    learningBody:
+      "Hands-on work with guidance—you learn by doing, not by watching endless tutorials.",
+    weeklyTitle: "Weekly check-ins",
+    weeklyBody: "Structure, feedback, and a community that keeps you accountable and supported.",
+    techTitle: "Tech stack",
+    techBody: "React, Astro, Tailwind, GitHub, Vite, and more—tools you will use in real teams.",
+    projectTitle: "Real project experience",
+    projectBody: "Ship work in real-world workflows: branches, reviews, and collaboration.",
+    formHeading: "Sound interesting?",
+    formTagline:
+      "Well… what are you waiting for? Apply below, and tell us about your projects if you have any.",
+    firstName: "First name",
+    lastName: "Last name",
+    email: "Email",
+    phone: "Phone number",
+    message: "Message",
+    apply: "Apply now",
+    success: "Thank you—we have received your application.",
+  },
+  no: {
+    heroTitle: "Jobb hos juniors.dev",
+    heroSubtitle:
+      "Vi ser alltid etter sultne utviklere og designere som vil vokse og få ekte arbeidserfaring.",
+    introTitle: "Trenger du ekte erfaring?",
+    introBody:
+      "Vi hjelper deg å bygge praktisk erfaring gjennom ekte prosjekter—enten du liker frontend, backend eller UX/UI-design.",
+    introAsideLead: "Vi tilbyr ekte arbeidserfaring slik at",
+    introAsideEmphasis: "DU",
+    introAsideTail: "kan få drømmejobben",
+    expectHeading: "Dette kan du forvente",
+    learningTitle: "100 % læringsbasert",
+    learningBody:
+      "Praktisk arbeid med veiledning—du lærer ved å gjøre, ikke bare ved å se på tutorials.",
+    weeklyTitle: "Ukentlig oppfølging",
+    weeklyBody:
+      "Struktur, tilbakemeldinger og et fellesskap som holder deg ansvarlig og støtter deg.",
+    techTitle: "Teknologistack",
+    techBody: "React, Astro, Tailwind, GitHub, Vite med mer—verktøy du bruker i ekte team.",
+    projectTitle: "Ekte prosjekterfaring",
+    projectBody: "Erfaring fra virkelige arbeidsflyter: branches, reviews og samarbeid.",
+    formHeading: "Høres det interessant ut?",
+    formTagline:
+      "Hva venter du på? Søk nedenfor, og fortell gjerne om prosjektene dine hvis du har noen.",
+    firstName: "Fornavn",
+    lastName: "Etternavn",
+    email: "E-post",
+    phone: "Telefonnummer",
+    message: "Melding",
+    apply: "Søk nå",
+    success: "Takk—vi har mottatt din melding.",
+  },
+};
