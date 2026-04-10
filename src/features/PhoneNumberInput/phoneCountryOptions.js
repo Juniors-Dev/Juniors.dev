@@ -1,12 +1,12 @@
 import noFlag from "../../assets/emojione_flag-for-norway.png";
 import gbFlag from "../../assets/emojione_flag-for-united-kingdom.png";
 
-/** @typedef {{ code: string, dialCode: string, flagSrc: string }} PhoneCountryOption */
+/** @typedef {{ code: string, dialCode: string, flagSrc: string, flagEmoji: string }} PhoneCountryOption */
 
 /** @type {PhoneCountryOption[]} */
 export const phoneCountryOptions = [
-  { code: "no", dialCode: "+47", flagSrc: noFlag },
-  { code: "gb", dialCode: "+44", flagSrc: gbFlag },
+  { code: "no", dialCode: "+47", flagSrc: noFlag, flagEmoji: "🇳🇴" },
+  { code: "gb", dialCode: "+44", flagSrc: gbFlag, flagEmoji: "🇬🇧" },
 ];
 
 export const phoneCountryCodes = phoneCountryOptions.map((o) => o.code);

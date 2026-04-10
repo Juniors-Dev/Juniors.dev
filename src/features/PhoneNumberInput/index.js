@@ -1,6 +1,7 @@
-export { default } from "./PhoneNumberInput.jsx";
+export { default, default as PhoneNumberInput } from "./PhoneNumberInput.jsx";
 export {
   getPhoneCountryOption,
   phoneCountryCodes,
   phoneCountryOptions,
 } from "./phoneCountryOptions.js";
+export { phoneNumberFieldSchema } from "./phoneFieldSchema.js";

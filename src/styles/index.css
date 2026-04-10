@@ -865,6 +865,12 @@ label {
     border-bottom-color: var(--color-error-400);
   }
 
+  .input-field__control--error:hover,
+  .input-field__control--error:focus-within {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   .input-field__control--filled {
     border-bottom-color: var(--color-grey-500);
   }
@@ -900,8 +906,151 @@ label {
     color: var(--color-error-500);
   }
 
-  /* Phone number field (with country select) */
-  .phone-field__control,
+  /* Phone: flag + chevron + dial + number; optional boxed chrome (match EmailInput) */
+  .phone-field__control {
+    @apply relative flex min-w-0 flex-row items-center gap-3 pe-0 ps-0;
+  }
+
+  .phone-field__control.phone-field__control--with-trailing-icon {
+    @apply pe-7;
+  }
+
+  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
+      .phone-field__control--boxed
+    ):hover {
+    background-color: transparent;
+  }
+
+  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
+      .phone-field__control--boxed
+    ):focus-within {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom-color: var(--color-primary-900);
+  }
+
+  .phone-field__control:not(.phone-field__control--boxed-on-focus):not(
+      .phone-field__control--boxed
+    ).input-field__control--error:focus-within {
+    border-bottom-color: var(--color-error-400);
+  }
+
+  .phone-field__control.phone-field__control--boxed-on-focus:hover {
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control.phone-field__control--boxed-on-focus.input-field__control--error:hover {
+    background-color: transparent;
+  }
+
+  .phone-field__control--boxed-on-focus {
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      border-radius 0.2s ease;
+  }
+
+  .phone-field__control.phone-field__control--boxed-on-focus:focus-within {
+    border-bottom: none;
+    border-radius: 0.25rem;
+    @apply border border-solid;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-tone="neutral"]:focus-within {
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-tone="yellow"]:focus-within {
+    background-color: var(--color-warning-50);
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-border="ring"]:focus-within {
+    box-shadow: 0 0 0 2px var(--color-primary-500);
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-border="none"]:focus-within {
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-border="navy"]:focus-within {
+    border-width: 2px;
+    border-color: var(--color-primary-900);
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed-on-focus.input-field__control--error:focus-within {
+    border-color: var(--color-error-400);
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .phone-field__control--boxed-on-focus[data-boxed-border="navy"].input-field__control--success:focus-within {
+    border-color: var(--color-primary-900);
+  }
+
+  .phone-field__control--boxed {
+    border-bottom: none;
+    border-radius: 0.25rem;
+    @apply border border-solid;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed:hover {
+    background-color: var(--color-secondary-200);
+  }
+
+  .phone-field__control--boxed:focus-within {
+    background-color: var(--color-secondary-200);
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed-neutral {
+    background-color: var(--color-primary-100);
+  }
+
+  .phone-field__control--boxed-yellow {
+    background-color: var(--color-warning-50);
+  }
+
+  .phone-field__control--boxed-ring:focus-within {
+    box-shadow: 0 0 0 2px var(--color-primary-500);
+  }
+
+  .phone-field__control--boxed-none {
+    border-color: transparent;
+  }
+
+  .phone-field__control--boxed-navy {
+    border-width: 2px;
+    border-color: var(--color-primary-900);
+  }
+
+  .phone-field__control--boxed.input-field__control--error {
+    border-color: var(--color-error-400);
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed.input-field__control--error:focus-within {
+    box-shadow: none;
+  }
+
+  .phone-field__control--boxed.input-field__control--success {
+    border-color: transparent;
+  }
+
+  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--success {
+    border-color: var(--color-primary-900);
+  }
+
+  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--error {
+    border-color: var(--color-error-400);
+  }
+
   .email-field__control {
     @apply flex min-w-0 flex-row items-center gap-2 ps-3;
   }
@@ -910,40 +1059,51 @@ label {
     @apply ps-0;
   }
 
-  .phone-field__control .input-field__icon,
-  .email-field__control .input-field__icon {
+  .email-field__control .input-field__icon,
+  .phone-field__control .input-field__icon {
     @apply bottom-auto top-1/2 -translate-y-1/2;
   }
 
-  .phone-field__control .input-field__input,
-  .email-field__control--with-icon .input-field__input {
+  .phone-field__control .input-field__input {
     padding-left: 0;
     padding-right: 0.5rem;
+  }
+
+  .phone-field__input {
+    padding-left: 0.25rem;
   }
 
   .phone-field__flag {
     @apply shrink-0;
   }
 
-  .email-field__mail {
+  .phone-field__chevron {
     @apply shrink-0;
   }
 
+  /* One shared hit target: invisible native select over flag + dial + chevron */
   .phone-field__country-select {
-    @apply min-w-0 max-w-full cursor-pointer appearance-none bg-transparent pe-6 text-primary-900 outline-none;
-    font-family: var(--font-body);
+    @apply absolute inset-0 z-[1] m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
     font-size: var(--text-input);
     line-height: 1.2;
-    font-weight: 400;
-    border: none;
   }
 
   .phone-field__country-select:focus-visible {
     outline: none;
   }
 
-  /* Underlined by default; boxed chrome while input (or country select) is focused */
-  .phone-field__control--boxed-on-focus,
+  .phone-field__country-display {
+    @apply relative z-0 gap-1.5 pe-0.5;
+  }
+
+  .phone-field__dial {
+    font-family: var(--font-body);
+    font-size: var(--text-input);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  /* Email: boxed chrome while input is focused */
   .email-field__control--boxed-on-focus {
     transition:
       background-color 0.2s ease,
@@ -952,7 +1112,6 @@ label {
       border-radius 0.2s ease;
   }
 
-  .phone-field__control.phone-field__control--boxed-on-focus:focus-within,
   .email-field__control.email-field__control--boxed-on-focus:focus-within {
     border-bottom: none;
     border-radius: 0.25rem;
@@ -962,46 +1121,43 @@ label {
     box-shadow: none;
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-tone="neutral"]:focus-within,
   .email-field__control--boxed-on-focus[data-boxed-tone="neutral"]:focus-within {
     background-color: var(--color-secondary-200);
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-tone="yellow"]:focus-within,
   .email-field__control--boxed-on-focus[data-boxed-tone="yellow"]:focus-within {
     background-color: var(--color-warning-50);
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-border="ring"]:focus-within,
   .email-field__control--boxed-on-focus[data-boxed-border="ring"]:focus-within {
     box-shadow: 0 0 0 2px var(--color-primary-500);
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-border="none"]:focus-within,
   .email-field__control--boxed-on-focus[data-boxed-border="none"]:focus-within {
     border-color: transparent;
     box-shadow: none;
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-border="navy"]:focus-within,
   .email-field__control--boxed-on-focus[data-boxed-border="navy"]:focus-within {
     border-width: 2px;
     border-color: var(--color-primary-900);
     box-shadow: none;
   }
 
-  .phone-field__control--boxed-on-focus.input-field__control--error:focus-within,
   .email-field__control--boxed-on-focus.input-field__control--error:focus-within {
     border-color: var(--color-error-400);
     box-shadow: none;
+    background-color: transparent;
   }
 
-  .phone-field__control--boxed-on-focus[data-boxed-border="navy"].input-field__control--success:focus-within,
+  .email-field__control.email-field__control--boxed-on-focus.input-field__control--error:hover {
+    background-color: transparent;
+  }
+
   .email-field__control--boxed-on-focus[data-boxed-border="navy"].input-field__control--success:focus-within {
     border-color: var(--color-primary-900);
   }
 
-  .phone-field__control--boxed,
   .email-field__control--boxed {
     border-bottom: none;
     border-radius: 0.25rem;
@@ -1010,65 +1166,53 @@ label {
     box-shadow: none;
   }
 
-  .phone-field__control--boxed:hover,
   .email-field__control--boxed:hover {
     background-color: var(--color-secondary-200);
   }
 
-  .phone-field__control--boxed:focus-within,
   .email-field__control--boxed:focus-within {
     background-color: var(--color-secondary-200);
     box-shadow: none;
   }
 
-  .phone-field__control--boxed-neutral,
   .email-field__control--boxed-neutral {
     background-color: var(--color-primary-100);
   }
 
-  .phone-field__control--boxed-yellow,
   .email-field__control--boxed-yellow {
     background-color: var(--color-warning-50);
   }
 
-  .phone-field__control--boxed-ring:focus-within,
   .email-field__control--boxed-ring:focus-within {
     box-shadow: 0 0 0 2px var(--color-primary-500);
   }
 
-  .phone-field__control--boxed-none,
   .email-field__control--boxed-none {
     border-color: transparent;
   }
 
-  .phone-field__control--boxed-navy,
   .email-field__control--boxed-navy {
     border-width: 2px;
     border-color: var(--color-primary-900);
   }
 
-  .phone-field__control--boxed.input-field__control--error,
   .email-field__control--boxed.input-field__control--error {
     border-color: var(--color-error-400);
     box-shadow: none;
   }
 
-  .phone-field__control--boxed.input-field__control--error:focus-within,
   .email-field__control--boxed.input-field__control--error:focus-within {
     box-shadow: none;
   }
 
-  .phone-field__control--boxed.input-field__control--success,
   .email-field__control--boxed.input-field__control--success {
     border-color: transparent;
   }
 
-  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--success,
   .email-field__control--boxed.email-field__control--boxed-navy.input-field__control--success {
     border-color: var(--color-primary-900);
   }
 
-  .phone-field__control--boxed.phone-field__control--boxed-navy.input-field__control--error,
   .email-field__control--boxed.email-field__control--boxed-navy.input-field__control--error {
     border-color: var(--color-error-400);
   }

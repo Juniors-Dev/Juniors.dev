@@ -1,5 +1,3 @@
-import { Mail } from "lucide-react";
-
 /**
  * @param {object} props
  * @param {import("react-hook-form").UseFormRegister<any>} props.register
@@ -15,7 +13,6 @@ import { Mail } from "lucide-react";
  * @param {string} [props.placeholder=""]
  * @param {string} [props.emailFieldName="email"]
  * @param {boolean} [props.required=true]
- * @param {boolean} [props.showIcon=true] Leading mail icon (replaces the phone country selector).
  * @param {string} [props.className=""]
  */
 function EmailInput({
@@ -32,7 +29,6 @@ function EmailInput({
   placeholder = "",
   emailFieldName = "email",
   required = true,
-  showIcon = true,
   className = "",
 }) {
   const emailError = errors[emailFieldName]?.message;
@@ -50,7 +46,7 @@ function EmailInput({
   const controlClassName = [
     "input-field__control",
     "email-field__control",
-    showIcon ? "email-field__control--with-icon" : "email-field__control--no-leading",
+    "email-field__control--no-leading",
     showBoxedChrome && "email-field__control--boxed",
     showBoxedChrome && boxedTone === "neutral" && "email-field__control--boxed-neutral",
     showBoxedChrome && boxedTone === "yellow" && "email-field__control--boxed-yellow",
@@ -90,16 +86,6 @@ function EmailInput({
             }
           : {})}
       >
-        {showIcon ? (
-          <div className="email-field__leading flex min-w-0 shrink-0 items-center">
-            <Mail
-              className="email-field__mail size-6 shrink-0 text-primary-900"
-              aria-hidden
-              strokeWidth={2}
-            />
-          </div>
-        ) : null}
-
         <input
           {...inputRegister}
           id={inputId}
