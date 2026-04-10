@@ -17,7 +17,7 @@ export const contacts = {
   },
   no: {
     heading: "Kontakt oss",
-    tagLine1: "Nysgjerrig på oss?",
+    tagLine1: "Lurer du på noe?",
     tagLine2: "Ikke nøl med å sende oss en melding!",
     firstName: "Fornavn",
     lastName: "Etternavn",
