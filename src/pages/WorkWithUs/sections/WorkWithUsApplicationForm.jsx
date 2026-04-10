@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import { X } from "lucide-react";
 import { Section, InputField, SubmitButton, PhoneNumberInput } from "../../../features/UI";
 import { useT } from "../../../stores/languageStore";
 import { workWithUs } from "../translations/workWithUs";
@@ -8,18 +11,66 @@ function WorkWithUsApplicationForm({ form, onSubmit }) {
     register,
     handleSubmit,
     watch,
-    formState: { errors, touchedFields, isSubmitted, isSubmitSuccessful },
+    formState: { errors, touchedFields, isSubmitted, isSubmitSuccessful, isSubmitting },
   } = form;
+
+  function dismissSuccessModal() {
+    form.reset();
+  }
+
+  useEffect(() => {
+    if (!isSubmitSuccessful) return undefined;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isSubmitSuccessful]);
 
   return (
     <Section className="bg-off-white text-primary-900">
+      {isSubmitSuccessful
+        ? createPortal(
+            <div
+              className="success-modal-overlay"
+              role="presentation"
+              onClick={dismissSuccessModal}
+            >
+              <div
+                className="success-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="work-with-us-success-title"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  className="success-modal__close"
+                  onClick={dismissSuccessModal}
+                  aria-label={t.closeSuccessModal}
+                >
+                  <X className="size-5" strokeWidth={2} aria-hidden />
+                </button>
+                <p id="work-with-us-success-title" className="success-modal__message">
+                  {t.success}
+                </p>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
+
       <div className="contact-section">
         <div className="contact-section__intro">
           <h2>{t.formHeading}</h2>
           <p className="text-paragraph mt-4">{t.formTagline}</p>
         </div>
 
-        {isSubmitSuccessful ? <p className="contact-form__success mt-6">{t.success}</p> : null}
+        {errors.root?.message ? (
+          <p className="input-field__error mt-6" role="alert">
+            {errors.root.message}
+          </p>
+        ) : null}
 
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="contact-form__grid">
@@ -65,6 +116,19 @@ function WorkWithUsApplicationForm({ form, onSubmit }) {
               }}
             />
 
+            <InputField
+              className="md:col-span-2"
+              label={t.profileUrl}
+              name="profileUrl"
+              type="url"
+              inputMode="url"
+              autoComplete="url"
+              placeholder={t.profileUrlPlaceholder}
+              error={errors.profileUrl?.message}
+              success={!errors.profileUrl && (touchedFields.profileUrl || isSubmitted)}
+              {...register("profileUrl")}
+            />
+
             <div className="contact-form__message">
               <InputField
                 as="textarea"
@@ -78,7 +142,7 @@ function WorkWithUsApplicationForm({ form, onSubmit }) {
                 inputClassName="resize-none"
               />
               <div className="contact-form__actions">
-                <SubmitButton variant="primary" type="submit" icon>
+                <SubmitButton variant="primary" type="submit" icon disabled={isSubmitting}>
                   {t.apply}
                 </SubmitButton>
               </div>

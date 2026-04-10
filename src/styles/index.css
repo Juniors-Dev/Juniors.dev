@@ -877,6 +877,10 @@ label {
     @apply overflow-visible;
   }
 
+  .phone-field__country {
+    @apply min-w-0;
+  }
+
   .phone-field__flag {
     @apply inline-flex size-6 shrink-0 overflow-hidden rounded-full bg-primary-100 ring-1 ring-inset ring-primary-900/20;
   }
@@ -885,17 +889,20 @@ label {
     @apply h-full w-full object-contain object-center;
   }
 
+  .phone-field__flag-emoji {
+    @apply flex h-full w-full items-center justify-center text-[1.125rem] leading-none;
+  }
+
   .phone-field__country-select {
-    @apply max-w-[min(100%,10.5rem)] shrink-0 cursor-pointer rounded-sm border-0 bg-transparent py-2 pe-6 text-primary-900 outline-none;
+    @apply w-auto max-w-[4.75rem] shrink-0 cursor-pointer rounded-sm border-0 bg-transparent py-2 ps-0 pe-6 text-primary-900 outline-none;
     font-family: var(--font-body);
     font-size: var(--text-input);
     line-height: 1.2;
     font-weight: 400;
-    padding-inline-start: 0.125rem;
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23043065' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.125rem center;
+    background-position: right 0 center;
     background-size: 1rem 1rem;
   }
 
@@ -943,5 +950,31 @@ label {
     width: 1.25rem;
     height: 1.25rem;
     margin-right: 10px;
+  }
+
+  /* Work with us — success modal */
+  .success-modal-overlay {
+    @apply fixed inset-0 z-[100] flex items-center justify-center p-4;
+    background-color: color-mix(in srgb, var(--color-success-900) 28%, transparent);
+  }
+
+  .success-modal {
+    @apply relative w-full max-w-md rounded-2xl border border-success-200 shadow-lg;
+    background-color: var(--color-success-50);
+    padding: 2.5rem 1.75rem 1.75rem;
+  }
+
+  .success-modal__close {
+    @apply absolute top-3 right-3 inline-flex items-center justify-center rounded-full p-2 text-success-800 transition-colors;
+    @apply hover:bg-success-200/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-success-600;
+  }
+
+  .success-modal__message {
+    font-family: var(--font-body);
+    font-size: var(--text-paragraph);
+    line-height: var(--leading-body);
+    font-weight: 400;
+    color: var(--color-success-900);
+    padding-right: 1.5rem;
   }
 }

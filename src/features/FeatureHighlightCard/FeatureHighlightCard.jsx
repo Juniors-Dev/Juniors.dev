@@ -15,7 +15,7 @@ function FeatureHighlightCard({ tone, icon: Icon, title, description }) {
   return (
     <article
       className={`rounded-xl p-6 shadow-[0_1px_3px_rgba(4,48,101,0.08)] md:p-8 ${
-        isBlue ? "bg-primary-500 text-off-white" : "bg-secondary-500 text-primary-900"
+        isBlue ? "bg-primary-500 text-off-white" : "bg-secondary-300 text-primary-900"
       }`}
     >
       <div
@@ -30,7 +30,7 @@ function FeatureHighlightCard({ tone, icon: Icon, title, description }) {
         })}
       </div>
       <h3 className="text-subheading-1 mb-3">{title}</h3>
-      <p className="text-body text-pretty opacity-95">{description}</p>
+      <p className="text-body text-pretty">{description}</p>
     </article>
   );
 }

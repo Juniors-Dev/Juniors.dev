@@ -20,7 +20,7 @@ function PhoneNumberInput({
 
   const phoneControlClass = [
     "input-field__control",
-    "phone-field__control flex items-center gap-2 ps-2",
+    "phone-field__control flex items-center gap-2 ps-3",
     errors.phone
       ? "input-field__control--error"
       : !errors.phone && (touchedFields.phone || isSubmitted) && String(phoneValue || "").trim()
@@ -39,19 +39,20 @@ function PhoneNumberInput({
         {phoneLabel} *
       </label>
       <div className={phoneControlClass}>
-        <div className="flex shrink-0 items-center gap-1.5">
+        <div className="phone-field__country flex shrink-0 items-center gap-1">
           <span className="phone-field__flag" aria-hidden="true">
             <img src={selectedPhoneCountry.flagSrc} alt="" />
           </span>
           <select
             id="phoneCountry"
             className="phone-field__country-select"
-            aria-label={phoneCountryLabel}
+            aria-label={`${phoneCountryLabel}: ${countryLabel[selectedPhoneCountry.value]}`}
+            title={countryLabel[selectedPhoneCountry.value]}
             {...register("phoneCountry")}
           >
             {phoneCountryOptions.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.dialCode} · {countryLabel[c.value]}
+              <option key={c.value} value={c.value} title={countryLabel[c.value]}>
+                {c.dialCode}
               </option>
             ))}
           </select>

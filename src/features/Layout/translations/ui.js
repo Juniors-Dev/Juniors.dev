@@ -5,7 +5,7 @@ export const translations = {
       home: "Home",
       projects: "Projects",
       about: "About us",
-      work: "Work with us",
+      work: "Interested",
       contact: "Contact",
     },
     footer: {
