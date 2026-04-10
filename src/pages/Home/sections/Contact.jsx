@@ -77,12 +77,6 @@ function ContactSection() {
     }
   }
 
-  function handleReset() {
-    setSubmitStatus("idle");
-    setErrorMessage("");
-    reset();
-  }
-
   return (
     <Section className="bg-off-white">
       <div className="contact-section">
@@ -95,82 +89,77 @@ function ContactSection() {
           </p>
         </div>
 
-        {submitStatus === "success" ? (
-          <div className="contact-form__success" role="alert">
-            <p>{t.successMessage}</p>
-            <button type="button" className="btn btn-secondary mt-4" onClick={handleReset}>
-              {t.sendAnother}
-            </button>
-          </div>
-        ) : null}
+        <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+          {submitStatus === "success" ? (
+            <div className="contact-form__success" role="alert" aria-live="polite">
+              <p>{t.successMessage}</p>
+            </div>
+          ) : null}
 
-        {submitStatus !== "success" ? (
-          <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-            {submitStatus === "error" ? (
-              <div className="contact-form__error" role="alert" aria-live="assertive">
-                <p>{errorMessage}</p>
-              </div>
-            ) : null}
+          {submitStatus === "error" ? (
+            <div className="contact-form__error" role="alert" aria-live="assertive">
+              <p>{errorMessage}</p>
+            </div>
+          ) : null}
 
-            <div className="contact-form__grid">
+          <div className="contact-form__grid">
+            <InputField
+              label={t.firstName}
+              name="firstName"
+              required
+              error={errors.firstName?.message}
+              success={!errors.firstName && (touchedFields.firstName || isSubmitted)}
+              {...register("firstName")}
+            />
+
+            <InputField
+              label={t.lastName}
+              name="lastName"
+              required
+              error={errors.lastName?.message}
+              success={!errors.lastName && (touchedFields.lastName || isSubmitted)}
+              {...register("lastName")}
+            />
+
+            <InputField
+              label={t.email}
+              name="email"
+              type="email"
+              required
+              error={errors.email?.message}
+              success={!errors.email && (touchedFields.email || isSubmitted)}
+              {...register("email")}
+            />
+
+            <InputField
+              label={t.subject}
+              name="subject"
+              required
+              error={errors.subject?.message}
+              success={!errors.subject && (touchedFields.subject || isSubmitted)}
+              {...register("subject")}
+            />
+
+            <div className="contact-form__message">
               <InputField
-                label={t.firstName}
-                name="firstName"
+                as="textarea"
+                label={t.message}
+                name="message"
                 required
-                error={errors.firstName?.message}
-                success={!errors.firstName && (touchedFields.firstName || isSubmitted)}
-                {...register("firstName")}
+                rows={5}
+                error={errors.message?.message}
+                success={!errors.message && (touchedFields.message || isSubmitted)}
+                {...register("message")}
+                inputClassName="resize-none"
               />
-
-              <InputField
-                label={t.lastName}
-                name="lastName"
-                required
-                error={errors.lastName?.message}
-                success={!errors.lastName && (touchedFields.lastName || isSubmitted)}
-                {...register("lastName")}
-              />
-
-              <InputField
-                label={t.email}
-                name="email"
-                type="email"
-                required
-                error={errors.email?.message}
-                success={!errors.email && (touchedFields.email || isSubmitted)}
-                {...register("email")}
-              />
-
-              <InputField
-                label={t.subject}
-                name="subject"
-                required
-                error={errors.subject?.message}
-                success={!errors.subject && (touchedFields.subject || isSubmitted)}
-                {...register("subject")}
-              />
-
-              <div className="contact-form__message">
-                <InputField
-                  as="textarea"
-                  label={t.message}
-                  name="message"
-                  required
-                  rows={5}
-                  error={errors.message?.message}
-                  success={!errors.message && (touchedFields.message || isSubmitted)}
-                  {...register("message")}
-                  inputClassName="resize-none"
-                />
-                <div className="contact-form__actions">
-                  <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
-                    {isSubmitting ? t.sending : t.send}
-                  </SubmitButton>
-                </div>
+              <div className="contact-form__actions">
+                <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
+                  {isSubmitting ? t.sending : t.send}
+                </SubmitButton>
               </div>
             </div>
-          </form>
-        ) : null}
+          </div>
+        </form>
       </div>
     </Section>
   );
