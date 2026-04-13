@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Section, SubmitButton, InputField } from "../../../features/UI";
@@ -5,12 +6,19 @@ import { contactSchema } from "./schema/contactSchema";
 import { contacts } from "../translations/contact";
 import { useT } from "../../../stores/languageStore";
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+if (!ACCESS_KEY) {
+  console.error("VITE_WEB3FORMS_ACCESS_KEY is not set.");
+}
+
 function ContactSection() {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, touchedFields, isSubmitSuccessful, isSubmitted },
+    formState: { errors, touchedFields, isSubmitted, isSubmitting },
   } = useForm({
     resolver: zodResolver(contactSchema),
     mode: "onBlur",
@@ -24,11 +32,49 @@ function ContactSection() {
     },
   });
 
+  const [submitStatus, setSubmitStatus] = useState("idle"); // "idle" | "success" | "error"
+  const [errorMessage, setErrorMessage] = useState("");
+
   const t = useT(contacts);
 
-  function onSubmit(data) {
-    console.log(data);
-    reset();
+  async function onSubmit(data) {
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(WEB3FORMS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          from_name: "Juniors.dev website",
+          ...data,
+        }),
+      });
+
+      if (!response.ok) {
+        setSubmitStatus("error");
+        setErrorMessage(t.errorGeneric);
+        return;
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setErrorMessage("");
+        reset();
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage(t.errorGeneric);
+      }
+    } catch {
+      setSubmitStatus("error");
+      setErrorMessage(t.errorNetwork);
+    }
   }
 
   return (
@@ -37,17 +83,25 @@ function ContactSection() {
         <div className="contact-section__intro">
           <h2>{t.heading}</h2>
           <p className="text-paragraph">
-            {t.tagline1}
+            {t.tagLine1}
             <br />
-            {t.tagline2}
+            {t.tagLine2}
           </p>
         </div>
 
-        {isSubmitSuccessful ? (
-          <p className="contact-form__success">Your message has been sent successfully.</p>
-        ) : null}
-
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+          {submitStatus === "success" ? (
+            <div className="contact-form__success" role="alert" aria-live="polite">
+              <p>{t.successMessage}</p>
+            </div>
+          ) : null}
+
+          {submitStatus === "error" ? (
+            <div className="contact-form__error" role="alert" aria-live="assertive">
+              <p>{errorMessage}</p>
+            </div>
+          ) : null}
+
           <div className="contact-form__grid">
             <InputField
               label={t.firstName}
@@ -99,8 +153,8 @@ function ContactSection() {
                 inputClassName="resize-none"
               />
               <div className="contact-form__actions">
-                <SubmitButton variant="primary" type="submit" icon={true}>
-                  Send
+                <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
+                  {isSubmitting ? t.sending : t.send}
                 </SubmitButton>
               </div>
             </div>
