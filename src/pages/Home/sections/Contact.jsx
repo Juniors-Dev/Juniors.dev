@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Section, SubmitButton, InputField, EmailInput } from "../../../features/UI";
+import { Section, SubmitButton, InputField } from "../../../features/UI";
 import { contactSchema } from "./schema/contactSchema";
 import { contacts } from "../translations/contact";
 import { useT } from "../../../stores/languageStore";
@@ -67,9 +67,12 @@ function ContactSection() {
               {...register("lastName")}
             />
 
-            <EmailInput
+            <InputField
               label={t.email}
+              name="email"
+              type="email"
               required
+              autoComplete="email"
               error={errors.email?.message}
               success={!errors.email && (touchedFields.email || isSubmitted)}
               {...register("email")}

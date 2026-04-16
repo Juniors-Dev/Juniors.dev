@@ -10,4 +10,3 @@ export {
   phoneCountryCodes,
   phoneCountryOptions,
 } from "../PhoneNumberInput";
-export { default as EmailInput } from "../EmailInput";
