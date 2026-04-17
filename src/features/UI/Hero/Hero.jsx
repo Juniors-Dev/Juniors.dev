@@ -46,9 +46,11 @@ import Section from "../Section/Section.jsx";
 function Hero({ title, body, className = "", children }) {
   return (
     <Section className={className}>
-      <div className="mx-auto flex space-between max-w-4xl flex-col gap-14 text-left md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex space-between  flex-col gap-14 text-left md:flex-row md:items-center md:justify-between">
         <h1 className="max-w-[12ch]">{title}</h1>
-        <p className="text-subheading-2 max-w-3xl">{body}</p>
+        <p className="text-subheading-2 max-w-md md:max-w-2xl text-balance md:text-pretty">
+          {body}
+        </p>
       </div>
 
       {children && <div className="mx-auto mt-8 max-w-4xl">{children}</div>}
