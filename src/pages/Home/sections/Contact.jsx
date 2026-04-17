@@ -126,6 +126,7 @@ function ContactSection() {
               name="email"
               type="email"
               required
+              autoComplete="email"
               error={errors.email?.message}
               success={!errors.email && (touchedFields.email || isSubmitted)}
               {...register("email")}

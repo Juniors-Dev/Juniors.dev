@@ -885,7 +885,17 @@ label {
     border-bottom-color: var(--color-error-400);
   }
 
+  .input-field__control--error:hover,
+  .input-field__control--error:focus-within {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   .input-field__control--filled {
+    border-bottom-color: var(--color-grey-500);
+  }
+
+  .input-field__control--success {
     border-bottom-color: var(--color-grey-500);
   }
 
@@ -914,6 +924,72 @@ label {
     line-height: 1.2;
     font-weight: 400;
     color: var(--color-error-500);
+  }
+
+  /* Phone: flag + chevron + dial + number (underline style aligned with InputField) */
+  .phone-field__control {
+    @apply relative flex min-w-0 flex-row items-center gap-3 pe-0 ps-0;
+  }
+
+  .phone-field__control.phone-field__control--with-trailing-icon {
+    @apply pe-7;
+  }
+
+  .phone-field__control:hover {
+    background-color: transparent;
+  }
+
+  .phone-field__control:focus-within {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom-color: var(--color-primary-900);
+  }
+
+  .phone-field__control.input-field__control--error:focus-within {
+    border-bottom-color: var(--color-error-400);
+  }
+
+  .phone-field__control .input-field__icon {
+    @apply bottom-auto top-1/2 -translate-y-1/2;
+  }
+
+  .phone-field__control .input-field__input {
+    padding-left: 0;
+    padding-right: 0.5rem;
+  }
+
+  .phone-field__input {
+    padding-left: 0.25rem;
+  }
+
+  .phone-field__flag {
+    @apply shrink-0;
+  }
+
+  .phone-field__chevron {
+    @apply shrink-0;
+  }
+
+  /* One shared hit target: invisible native select over flag + dial + chevron */
+  .phone-field__country-select {
+    @apply absolute inset-0 z-[1] m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
+    font-size: var(--text-input);
+    line-height: 1.2;
+  }
+
+  .phone-field__country-select:focus-visible {
+    outline: none;
+  }
+
+  .phone-field__country-display {
+    @apply relative z-0 gap-1.5 pe-0.5;
+  }
+
+  .phone-field__dial {
+    font-family: var(--font-body);
+    font-size: var(--text-input);
+    line-height: 1.2;
+    font-weight: 400;
   }
 
   /* Buttons */
