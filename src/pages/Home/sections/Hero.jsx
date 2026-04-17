@@ -7,10 +7,9 @@ function HeroSection() {
   return (
     <Section className="bg-primary-800 text-off-white">
       <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-        <h1 className="max-w-[12ch]">{t.title}</h1>
+        <h1 className="max-w-[12ch] text-balance">{t.title}</h1>
 
-        <p className="text-subheading-2 mt-6 max-w-3xl">{t.body}</p>
-
+        <p className="text-subheading-2 mt-6 max-w-3xl text-balance">{t.body}</p>
         <NavIconButton to="#contact" variant="nav" icon className="mt-8">
           {t.cta}
         </NavIconButton>
