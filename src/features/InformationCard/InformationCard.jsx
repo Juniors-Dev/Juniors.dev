@@ -45,7 +45,7 @@ function InformationCard({ title, body, icon, variant = "blue", className = "" }
     },
     green: {
       card: "bg-secondary-300 text-primary-900 border-secondary-600",
-      iconBox: "bg-secondary-100 border-secondary-200 text-primary-900",
+      iconBox: "bg-secondary-100 border-secondary-600 text-primary-900",
     },
   };
 
