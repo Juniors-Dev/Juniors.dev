@@ -10,3 +10,4 @@ export {
   phoneCountryCodes,
   phoneCountryOptions,
 } from "../PhoneNumberInput";
+export { default as InformationCard } from "./InformationCard/InformationCard.jsx";
