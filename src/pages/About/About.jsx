@@ -1,6 +1,25 @@
+import { TextSection, TextSectionQuoteAside } from "../../features/UI";
+import { mission } from "./translations/mission";
+import { useT } from "../../stores/languageStore";
+
 function About() {
+  const tMission = useT(mission);
+
   return (
     <>
+      <TextSection
+        title={tMission.title}
+        intro={tMission.intro}
+        paragraphs={[tMission.body]}
+        paragraphClassName="text-body text-grey-700 text-pretty"
+        aside={
+          <TextSectionQuoteAside
+            quote={tMission.quote}
+            attribution={tMission.attribution}
+            initials={tMission.initials}
+          />
+        }
+      />
       <div className="flex flex-col baseline-start gap-4">
         {/* <img src="/src/assets/placeholder-img.png" alt="placeholder image" /> */}
         <h1 className="text-h1 text-fg text-pretty text-left xs:text-center sm:text-center">
