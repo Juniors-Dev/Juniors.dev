@@ -8,9 +8,8 @@ function RealExperienceSection() {
   return (
     <TextSection
       title={t.title}
-      titleClassName="text-h2 w-fit text-pretty text-primary-650"
+      titleClassName="text-h2 w-fit text-pretty text-primary-800"
       paragraphs={t.paragraphs}
-      asideClassName="w-full shrink-0 md:max-w-[340px] lg:max-w-md xl:max-w-xl"
       aside={
         <TextSectionBraceAside
           sentence={t.highlightSentence}
