@@ -1010,3 +1010,71 @@ label {
     margin-right: 10px;
   }
 }
+/* Reusable form styling (currently used in apply-form, exchange contact-form with these neutral once when time) */
+
+.site-form-section {
+  @apply flex flex-col gap-8;
+}
+
+.site-form-section__intro {
+  @apply max-w-2xl;
+}
+
+.site-form-section__intro p {
+  @apply mt-4;
+}
+
+.site-form {
+  @apply mt-2;
+}
+
+.site-form__grid {
+  @apply grid grid-cols-1 gap-x-8 gap-y-6;
+}
+
+.site-form__actions {
+  @apply mt-8 flex justify-center md:justify-end md:ms-auto;
+}
+
+.site-form__actions button {
+  @apply md:mb-6 md:mt-auto;
+}
+
+.site-form__error {
+  @apply rounded-md px-4 py-3 mb-4;
+  border: 1px solid var(--color-error-400);
+  background-color: var(--color-error-50);
+  color: var(--color-error-600);
+  font-family: var(--font-body);
+  font-size: var(--text-paragraph);
+  line-height: var(--leading-body);
+}
+
+.site-form__success {
+  @apply rounded-md px-4 py-3 mb-4;
+  border: 1px solid var(--color-success-400);
+  background-color: var(--color-success-50);
+  color: var(--color-success-700);
+  font-family: var(--font-body);
+  font-size: var(--text-paragraph);
+  line-height: var(--leading-body);
+}
+
+@media (min-width: 768px) {
+  .site-form__grid {
+    @apply grid-cols-2;
+  }
+}
+.site-form__message {
+  @apply col-span-1;
+}
+
+.site-form__message .input-field {
+  @apply w-full;
+}
+
+@media (min-width: 768px) {
+  .site-form__message {
+    @apply col-span-2;
+  }
+}
