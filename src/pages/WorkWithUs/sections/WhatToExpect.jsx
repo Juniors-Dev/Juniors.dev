@@ -12,7 +12,7 @@ function WhatToExpect() {
   const t4 = useT(expect4);
 
   return (
-    <Section className="bg-slate-50">
+    <Section className="bg-primary-100">
       <h2 className="text-heading-3 mb-8">{t0.headline}</h2>
       <div className="grid gap-6 md:grid-cols-2">
         <InformationCard
