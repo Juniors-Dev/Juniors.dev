@@ -27,7 +27,7 @@ const featuredProjects = [
   },
 ];
 
-function OurProjects() {
+function OurProjects({ showCta = true }) {
   const t = useT(projects);
   return (
     <Section>
@@ -39,11 +39,13 @@ function OurProjects() {
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
-        <NavIconButton to="/projects" variant="nav" icon>
-          {t.cta}
-        </NavIconButton>
-      </div>
+      {showCta && (
+        <div className="mt-10 flex justify-center">
+          <NavIconButton to="/projects" variant="nav" icon>
+            {t.cta}
+          </NavIconButton>
+        </div>
+      )}
     </Section>
   );
 }
