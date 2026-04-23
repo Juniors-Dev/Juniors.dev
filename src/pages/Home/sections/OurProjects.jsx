@@ -3,7 +3,7 @@ import ProjectCard from "../../../features/ProjectCard/ProjectCard";
 import { projects } from "../translations/projects";
 import { useT } from "../../../stores/languageStore";
 
-export const featuredProjects = [
+const featuredProjects = [
   {
     id: "productivity-graveyard",
     title: "Productivity Graveyard",
