@@ -1,3 +1,4 @@
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,6 +19,7 @@ function ContactSection() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, touchedFields, isSubmitted, isSubmitting },
   } = useForm({
     resolver: zodResolver(contactSchema),
@@ -37,7 +39,17 @@ function ContactSection() {
 
   const t = useT(contacts);
 
+  const onHCaptchaChange = (token) => {
+    setValue("h-captcha-response", token);
+  };
+
   async function onSubmit(data) {
+    const hCaptchaToken = data["h-captcha-response"];
+    if (!hCaptchaToken) {
+      setSubmitStatus("error");
+      setErrorMessage("Please complete the hCaptcha verification.");
+      return;
+    }
     setSubmitStatus("idle");
     setErrorMessage("");
 
@@ -154,6 +166,15 @@ function ContactSection() {
                 {...register("message")}
                 inputClassName="resize-none"
               />
+
+              <div className="contact-form__captcha">
+                <HCaptcha
+                  sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                  reCaptchaCompat={false}
+                  onVerify={onHCaptchaChange}
+                />
+              </div>
+
               <div className="contact-form__actions">
                 <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
                   {isSubmitting ? t.sending : t.send}
