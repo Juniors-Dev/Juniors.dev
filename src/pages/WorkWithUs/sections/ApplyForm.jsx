@@ -1,3 +1,4 @@
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -23,6 +24,7 @@ function ApplyForm() {
     handleSubmit,
     reset,
     watch,
+    setValue,
     formState: { errors, touchedFields, isSubmitted, isSubmitting },
   } = useForm({
     resolver: zodResolver(applySchema),
@@ -45,7 +47,17 @@ function ApplyForm() {
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const onHCaptchaChange = (token) => {
+    setValue("h-captcha-response", token);
+  };
+
   async function onSubmit(data) {
+    const hCaptchaToken = data["h-captcha-response"];
+    if (!hCaptchaToken) {
+      setSubmitStatus("error");
+      setErrorMessage("Please complete the hCaptcha verification.");
+      return;
+    }
     setSubmitStatus("idle");
     setErrorMessage("");
 
@@ -207,6 +219,14 @@ function ApplyForm() {
               success={!errors.message && (touchedFields.message || isSubmitted)}
               {...register("message")}
               inputClassName="resize-none"
+            />
+          </div>
+
+          <div className="site-form__captcha">
+            <HCaptcha
+              sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+              reCaptchaCompat={false}
+              onVerify={onHCaptchaChange}
             />
           </div>
 
