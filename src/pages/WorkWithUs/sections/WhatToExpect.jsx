@@ -30,13 +30,13 @@ function WhatToExpect() {
         <InformationCard
           title={t3.title}
           body={t3.body}
-          variant="blue"
+          variant="green"
           icon={<Code2 className="h-8 w-8" aria-hidden />}
         />
         <InformationCard
           title={t4.title}
           body={t4.body}
-          variant="green"
+          variant="blue"
           icon={<Folder className="h-8 w-8" aria-hidden />}
         />
       </div>
