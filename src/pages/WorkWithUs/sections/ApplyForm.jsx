@@ -59,6 +59,7 @@ function ApplyForm() {
         body: JSON.stringify({
           access_key: ACCESS_KEY,
           from_name: "Juniors.dev work with us form",
+          form_type: "apply",
           ...data,
         }),
       });
