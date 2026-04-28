@@ -24,4 +24,5 @@ export const contactSchema = z.object({
     .trim()
     .min(1, "Message is required.")
     .max(5000, "Message must be 5000 characters or less."),
+  captchaToken: z.string().min(1),
 });

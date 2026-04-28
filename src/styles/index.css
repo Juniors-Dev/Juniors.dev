@@ -784,12 +784,15 @@ label {
   }
 
   .contact-form__message {
-    @apply col-span-1;
-    @apply md:flex md:gap-15;
+    @apply col-span-1 md:col-span-2;
   }
 
   .contact-form__message .input-field {
-    @apply w-full max-w-4xl;
+    @apply w-full;
+  }
+
+  .contact-form__message-fooer {
+    @apply mt-4 flex items-center justify-between;
   }
 
   .contact-form__actions {
