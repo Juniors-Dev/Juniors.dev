@@ -13,6 +13,7 @@ export const contacts = {
     successMessage: "Your message has been sent successfully.",
     errorGeneric: "Something went wrong. Please try again.",
     errorNetwork: "Could not reach the server. Check your connection and try again.",
+    captchaError: "Please complete the security check before sending.",
   },
   no: {
     heading: "Kontakt oss",
@@ -28,5 +29,6 @@ export const contacts = {
     successMessage: "Takk! Meldingen din er sendt.",
     errorGeneric: "Noe gikk galt. Prøv igjen senere.",
     errorNetwork: "Ingen internettilkobling. Sjekk tilkoblingen din og prøv igjen.",
+    captchaError: "Vennligst fullfør sikkerhetssjekken før du sender",
   },
 };
