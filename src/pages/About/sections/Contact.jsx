@@ -106,7 +106,6 @@ function ContactSection() {
             {t.tagLine2}
           </p>
         </div>
-
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
           {submitStatus === "success" ? (
             <div className="contact-form__success" role="alert" aria-live="polite">
@@ -173,25 +172,33 @@ function ContactSection() {
               />
 
               <div className="contact-form__message-footer">
-                <div className="cotact-form__captcha">
-                  <HCaptcha
-                    sitekey={HCAPTCHA_SITEKEY}
-                    reCaptchaCompat={false}
-                    onVerify={handleCaptchaVerify}
-                    onExpire={handleCaptchaExpire}
-                    ref={captchaRef}
-                  />
-                  {errors.captchaToken ? (
-                    <p className="input-field__error">{t.captchaError}</p>
-                  ) : null}
-                </div>
-                <div className="contact-form__actions">
-                  <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
-                    {isSubmitting ? t.sending : t.send}
-                  </SubmitButton>
-                </div>
+                <HCaptcha
+                  sitekey={HCAPTCHA_SITEKEY}
+                  reCaptchaCompat={false}
+                  onVerify={handleCaptchaVerify}
+                  onExpire={handleCaptchaExpire}
+                  ref={captchaRef}
+                />
+                {errors.captchaToken ? (
+                  <p className="input-field__error">{t.captchaError}</p>
+                ) : null}
+                <SubmitButton
+                  className="contact-form__actions"
+                  variant="primary"
+                  type="submit"
+                  icon={true}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t.sending : t.send}
+                </SubmitButton>
               </div>
             </div>
+            <figure className="place-self-end contact-form__figure">
+              <img
+                src="src/assets/contact-illustration.svg"
+                className="contact-form__illustration"
+              />
+            </figure>
           </div>
         </form>
       </div>

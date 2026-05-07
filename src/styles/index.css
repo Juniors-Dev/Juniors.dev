@@ -764,19 +764,22 @@ label {
   }
 
   .contact-section {
-    @apply flex flex-col gap-8;
+    @apply flex flex-col gap-8 relative;
   }
 
   .contact-section__intro {
-    @apply max-w-2xl;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
   }
 
   .contact-section__intro p {
-    @apply mt-4;
+    @apply mt-0;
   }
 
   .contact-form {
-    @apply mt-2;
+    @apply my-2;
   }
 
   .contact-form__grid {
@@ -791,16 +794,12 @@ label {
     @apply w-full;
   }
 
-  .contact-form__message-fooer {
-    @apply mt-4 flex items-center justify-between;
+  .contact-form__message-footer {
+    @apply mt-4;
   }
 
   .contact-form__actions {
-    @apply mt-8 flex justify-center md:justify-end md:ms-auto;
-  }
-
-  .contact-form__actions button {
-    @apply md:mb-6 md:mt-auto;
+    @apply mt-4;
   }
 
   .contact-form__error {
@@ -822,14 +821,62 @@ label {
     font-size: var(--text-paragraph);
     line-height: var(--leading-body);
   }
+  .contact-form__figure {
+    @apply absolute -top-15 right-5 pt-6;
+    width: 110px;
+    height: auto;
+  }
+  .contact-form__illustration {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 
   @media (min-width: 768px) {
+    .contact-section {
+      @apply relative;
+    }
+    .contact-form {
+      grid-column: 1;
+    }
     .contact-form__grid {
-      @apply grid-cols-2;
+      @apply grid-cols-2 gap-x-8 gap-y-6;
     }
 
     .contact-form__message {
-      @apply col-span-2;
+      @apply col-span-1;
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .contact-form__figure {
+      position: relative;
+      top: auto;
+      right: 30%;
+      grid-column: 2;
+      grid-row: 3;
+      align-self: start;
+      justify-self: start;
+      width: 190px;
+      max-width: 100%;
+      padding: 0 0 200px 0;
+    }
+    .contact-form__message-footer {
+      grid-column: 1 / -1;
+      grid-row: 4;
+    }
+    .contact-form__illustration {
+      @apply w-full h-auto block;
+    }
+    .contact-section__intro {
+      grid-column: 1;
+    }
+  }
+  @media (min-width: 1300px) {
+    .contact-form__figure {
+      right: 30%;
+      width: 342px;
     }
   }
 
