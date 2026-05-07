@@ -1,7 +1,7 @@
 function RoadmapItem({ year, title, body, defaultOpen = true }) {
   return (
     <article className="grid grid-cols-[60px_64px_1fr] md:grid-cols-[120px_64px_1fr] px-2 gap-x-10 md:gap-x-20 items-start">
-      <p className="text-subheading-1 font-semibold text-slate-900 text-end">{year}</p>
+      <p className="text-subheading-1 font-semibold text-roadmap-blue text-end">{year}</p>
 
       {/* vertical connector + dot */}
       <div className="relative flex h-full justify-center ">
@@ -13,10 +13,10 @@ function RoadmapItem({ year, title, body, defaultOpen = true }) {
       </div>
 
       <details className="group" open={defaultOpen}>
-        <summary className="cursor-pointer list-none text-subheading-1 font-semibold text-slate-900 marker:content-['']">
+        <summary className="cursor-pointer list-none text-subheading-1 font-semibold text-roadmap-blue marker:content-['']">
           {title}
         </summary>
-        <p className="my-4 pb-20 max-w-2xl text-paragraph text-slate-700">{body}</p>
+        <p className="my-4 pb-20 max-w-2xl text-paragraph text-roadmap-blue">{body}</p>
       </details>
     </article>
   );

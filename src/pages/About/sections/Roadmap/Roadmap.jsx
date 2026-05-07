@@ -7,7 +7,7 @@ function RoadmapSection() {
   const t = useT(roadmap);
 
   return (
-    <Section className="bg-slate-100 text-slate-900">
+    <Section className="bg-primary-100 text-roadmap-blue">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-10 text-h2">{t.sectionTitle}</h2>
 
