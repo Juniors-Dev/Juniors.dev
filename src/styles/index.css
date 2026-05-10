@@ -783,6 +783,11 @@ label {
     @apply my-2;
   }
 
+  .contact-form__captcha {
+    width: 303px;
+    max-width: 100%;
+  }
+
   .contact-form__grid {
     @apply grid grid-cols-1 gap-x-8 gap-y-6;
   }
@@ -826,17 +831,6 @@ label {
     font-size: var(--text-paragraph);
     line-height: var(--leading-body);
   }
-  .contact-form__figure {
-    @apply absolute -top-15 right-5 pt-6;
-    width: 110px;
-    height: auto;
-  }
-  .contact-form__illustration {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
 
   @media (min-width: 768px) {
     .contact-section {
@@ -855,33 +849,12 @@ label {
       grid-row: 3;
     }
 
-    .contact-form__figure {
-      position: relative;
-      top: auto;
-      right: 30%;
-      grid-column: 2;
-      grid-row: 3;
-      align-self: start;
-      justify-self: start;
-      width: 190px;
-      max-width: 100%;
-      padding: 0 0 200px 0;
-    }
     .contact-form__message-footer {
       grid-column: 1 / -1;
       grid-row: 4;
     }
-    .contact-form__illustration {
-      @apply w-full h-auto block;
-    }
     .contact-section__intro {
       grid-column: 1;
-    }
-  }
-  @media (min-width: 1300px) {
-    .contact-form__figure {
-      right: 30%;
-      width: 342px;
     }
   }
 
