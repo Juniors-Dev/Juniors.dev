@@ -1,7 +1,7 @@
 import { TextSection, TextSectionQuoteAside } from "../../features/UI";
 import { mission } from "./translations/mission";
 import { useT } from "../../stores/languageStore";
-import ContactUs from "./sections/Contact";
+import RoadmapSection from "./sections/Roadmap/Roadmap";
 
 function About() {
   const tMission = useT(mission);
@@ -23,7 +23,7 @@ function About() {
         }
         asideClassName="w-full shrink-0 md:basis-2/5 xl:basis-1/2 mt-6 md:max-w-md lg:max-w-lg xl:max-w-xl"
       />
-      <ContactUs />
+      <RoadmapSection />
     </>
   );
 }

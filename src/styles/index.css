@@ -67,6 +67,7 @@
 
 @theme {
   --color-off-white: #fcfdff;
+  --color-roadmap-blue: #012238;
   /* Primary / Blue */
   --color-primary-50: #fcfdff;
   --color-primary-100: #ecf3ff;
@@ -792,6 +793,10 @@ label {
 
   .contact-form__message .input-field {
     @apply w-full;
+  }
+
+  .contact-form__message-footer {
+    @apply mt-4 flex items-center justify-between;
   }
 
   .contact-form__message-footer {

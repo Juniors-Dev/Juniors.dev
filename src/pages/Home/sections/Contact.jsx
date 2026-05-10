@@ -1,4 +1,5 @@
-import { useState } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Section, SubmitButton, InputField } from "../../../features/UI";
@@ -8,16 +9,20 @@ import { useT } from "../../../stores/languageStore";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
 const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
 
 if (!ACCESS_KEY) {
   console.error("VITE_WEB3FORMS_ACCESS_KEY is not set.");
 }
 
 function ContactSection() {
+  const captchaRef = useRef(null);
+
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, touchedFields, isSubmitted, isSubmitting },
   } = useForm({
     resolver: zodResolver(contactSchema),
@@ -29,6 +34,7 @@ function ContactSection() {
       email: "",
       subject: "",
       message: "",
+      captchaToken: "",
     },
   });
 
@@ -37,9 +43,19 @@ function ContactSection() {
 
   const t = useT(contacts);
 
+  function handleCaptchaVerify(token) {
+    setValue("captchaToken", token, { shouldValidate: true });
+  }
+
+  function handleCaptchaExpire() {
+    setValue("captchaToken", "", { shouldValidate: isSubmitted });
+  }
+
   async function onSubmit(data) {
     setSubmitStatus("idle");
     setErrorMessage("");
+
+    const { captchaToken, ...fields } = data;
 
     try {
       const response = await fetch(WEB3FORMS_URL, {
@@ -52,7 +68,8 @@ function ContactSection() {
           access_key: ACCESS_KEY,
           from_name: "Juniors.dev website",
           form_type: "contact",
-          ...data,
+          "h-captcha-response": captchaToken,
+          ...fields,
         }),
       });
 
@@ -66,8 +83,8 @@ function ContactSection() {
 
       if (result.success) {
         setSubmitStatus("success");
-        setErrorMessage("");
         reset();
+        captchaRef.current?.resetCaptcha();
       } else {
         setSubmitStatus("error");
         setErrorMessage(t.errorGeneric);
@@ -154,10 +171,24 @@ function ContactSection() {
                 {...register("message")}
                 inputClassName="resize-none"
               />
-              <div className="contact-form__actions">
-                <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
-                  {isSubmitting ? t.sending : t.send}
-                </SubmitButton>
+              <div className="contact-form__message-footer">
+                <div className="contact-form__captcha">
+                  <HCaptcha
+                    sitekey={HCAPTCHA_SITEKEY}
+                    reCaptchaCompat={false}
+                    onVerify={handleCaptchaVerify}
+                    onExpire={handleCaptchaExpire}
+                    ref={captchaRef}
+                  />
+                  {errors.captchaToken ? (
+                    <p className="input-field__error">{t.captchaError}</p>
+                  ) : null}
+                </div>
+                <div className="contact-form__actions">
+                  <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
+                    {isSubmitting ? t.sending : t.send}
+                  </SubmitButton>
+                </div>
               </div>
             </div>
           </div>
