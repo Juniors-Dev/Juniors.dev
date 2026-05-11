@@ -2,9 +2,10 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Section, SubmitButton, InputField } from "../../../features/UI";
-import { contactSchema } from "./schema/contactSchema";
-import { contacts } from "../translations/contact";
+import { Section, InputField, PhoneNumberInput } from "../../../features/UI";
+import FormSubmitButton from "../../../features/UI/Buttons/FormSubmitButton";
+import { applySchema } from "../schema/applySchema";
+import { applyForm } from "../translations/apply";
 import { useT } from "../../../stores/languageStore";
 
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -15,23 +16,31 @@ if (!ACCESS_KEY) {
   console.error("VITE_WEB3FORMS_ACCESS_KEY is not set.");
 }
 
-function ContactSection() {
+function ApplyForm() {
   const captchaRef = useRef(null);
+  const t = useT(applyForm);
+
   const {
     register,
     handleSubmit,
     reset,
+    watch,
     setValue,
     formState: { errors, touchedFields, isSubmitted, isSubmitting },
   } = useForm({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(applySchema),
     mode: "onBlur",
     reValidateMode: "onBlur",
     defaultValues: {
       firstName: "",
       lastName: "",
       email: "",
-      subject: "",
+      phoneCountry: "no",
+      phone: "",
+      linkedinUrl: "",
+      githubUrl: "",
+      portfolioUrl: "",
+      otherUrl: "",
       message: "",
       captchaToken: "",
     },
@@ -39,8 +48,6 @@ function ContactSection() {
 
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const t = useT(contacts);
 
   function handleCaptchaVerify(token) {
     setValue("captchaToken", token, { shouldValidate: true });
@@ -65,9 +72,9 @@ function ContactSection() {
         },
         body: JSON.stringify({
           access_key: ACCESS_KEY,
-          from_name: "Juniors.dev website",
+          from_name: "Juniors.dev work with us form",
           ...data,
-          form_type: "contact",
+          form_type: "apply",
           "h-captcha-response": captchaToken,
           ...fields,
         }),
@@ -97,8 +104,8 @@ function ContactSection() {
 
   return (
     <Section className="bg-off-white">
-      <div className="contact-section">
-        <div className="contact-section__intro">
+      <div className="site-form-section">
+        <div className="site-form-section__intro">
           <h2>{t.heading}</h2>
           <p className="text-paragraph">
             {t.tagLine1}
@@ -106,20 +113,21 @@ function ContactSection() {
             {t.tagLine2}
           </p>
         </div>
-        <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+
+        <form className="site-form" onSubmit={handleSubmit(onSubmit)} noValidate>
           {submitStatus === "success" ? (
-            <div className="contact-form__success" role="alert" aria-live="polite">
+            <div className="site-form__success" role="alert" aria-live="polite">
               <p>{t.successMessage}</p>
             </div>
           ) : null}
 
           {submitStatus === "error" ? (
-            <div className="contact-form__error" role="alert" aria-live="assertive">
+            <div className="site-form__error" role="alert" aria-live="assertive">
               <p>{errorMessage}</p>
             </div>
           ) : null}
 
-          <div className="contact-form__grid">
+          <div className="site-form__grid">
             <InputField
               label={t.firstName}
               name="firstName"
@@ -149,16 +157,61 @@ function ContactSection() {
               {...register("email")}
             />
 
-            <InputField
-              label={t.subject}
-              name="subject"
+            <PhoneNumberInput
+              register={register}
+              watch={watch}
+              errors={errors}
+              touchedFields={touchedFields}
+              isSubmitted={isSubmitted}
+              labels={t.phoneLabels}
               required
-              error={errors.subject?.message}
-              success={!errors.subject && (touchedFields.subject || isSubmitted)}
-              {...register("subject")}
             />
 
-            <div className="contact-form__message">
+            <InputField
+              label={t.linkedinUrl}
+              name="linkedinUrl"
+              type="url"
+              required
+              placeholder={t.urlPlaceholder}
+              autoComplete="url"
+              error={errors.linkedinUrl?.message}
+              success={!errors.linkedinUrl && (touchedFields.linkedinUrl || isSubmitted)}
+              {...register("linkedinUrl")}
+            />
+            <InputField
+              label={t.portfolioUrl}
+              name="portfolioUrl"
+              type="url"
+              placeholder={t.urlPlaceholder}
+              autoComplete="url"
+              error={errors.portfolioUrl?.message}
+              success={!errors.portfolioUrl && (touchedFields.portfolioUrl || isSubmitted)}
+              {...register("portfolioUrl")}
+            />
+            <InputField
+              label={t.githubUrl}
+              name="githubUrl"
+              type="url"
+              required
+              placeholder={t.urlPlaceholder}
+              autoComplete="url"
+              error={errors.githubUrl?.message}
+              success={!errors.githubUrl && (touchedFields.githubUrl || isSubmitted)}
+              {...register("githubUrl")}
+            />
+
+            <InputField
+              label={t.otherUrl}
+              name="otherUrl"
+              type="url"
+              placeholder={t.urlPlaceholder}
+              autoComplete="url"
+              error={errors.otherUrl?.message}
+              success={!errors.otherUrl && (touchedFields.otherUrl || isSubmitted)}
+              {...register("otherUrl")}
+            />
+
+            <div className="site-form__message">
               <InputField
                 as="textarea"
                 label={t.message}
@@ -171,7 +224,7 @@ function ContactSection() {
                 inputClassName="resize-none"
               />
 
-              <div className="contact-form__message-footer">
+              <div className="site-form__message-footer">
                 <HCaptcha
                   sitekey={HCAPTCHA_SITEKEY}
                   reCaptchaCompat={false}
@@ -182,15 +235,9 @@ function ContactSection() {
                 {errors.captchaToken ? (
                   <p className="input-field__error">{t.captchaError}</p>
                 ) : null}
-                <SubmitButton
-                  className="contact-form__actions"
-                  variant="primary"
-                  type="submit"
-                  icon={true}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? t.sending : t.send}
-                </SubmitButton>
+                <FormSubmitButton isLoading={isSubmitting} loadingLabel={t.submitting}>
+                  {t.submit}
+                </FormSubmitButton>
               </div>
             </div>
           </div>
@@ -200,4 +247,4 @@ function ContactSection() {
   );
 }
 
-export default ContactSection;
+export default ApplyForm;
