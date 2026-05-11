@@ -2,7 +2,6 @@ import { z } from "zod";
 
 const NAME_REGEX = /^[\p{L}\p{M}]+(?:[ '-][\p{L}\p{M}]+)*$/u;
 
-/** Contact section form — validation lives with this section. */
 export const contactSchema = z.object({
   firstName: z
     .string()

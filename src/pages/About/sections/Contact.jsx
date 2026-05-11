@@ -17,7 +17,6 @@ if (!ACCESS_KEY) {
 
 function ContactSection() {
   const captchaRef = useRef(null);
-
   const {
     register,
     handleSubmit,
@@ -38,7 +37,7 @@ function ContactSection() {
     },
   });
 
-  const [submitStatus, setSubmitStatus] = useState("idle"); // "idle" | "success" | "error"
+  const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const t = useT(contacts);
@@ -67,6 +66,7 @@ function ContactSection() {
         body: JSON.stringify({
           access_key: ACCESS_KEY,
           from_name: "Juniors.dev website",
+          ...data,
           form_type: "contact",
           "h-captcha-response": captchaToken,
           ...fields,
@@ -106,7 +106,6 @@ function ContactSection() {
             {t.tagLine2}
           </p>
         </div>
-
         <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
           {submitStatus === "success" ? (
             <div className="contact-form__success" role="alert" aria-live="polite">
@@ -171,6 +170,7 @@ function ContactSection() {
                 {...register("message")}
                 inputClassName="resize-none"
               />
+
               <div className="contact-form__message-footer">
                 <div className="contact-form__captcha">
                   <HCaptcha
@@ -180,15 +180,19 @@ function ContactSection() {
                     onExpire={handleCaptchaExpire}
                     ref={captchaRef}
                   />
-                  {errors.captchaToken ? (
-                    <p className="input-field__error">{t.captchaError}</p>
-                  ) : null}
                 </div>
-                <div className="contact-form__actions">
-                  <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
-                    {isSubmitting ? t.sending : t.send}
-                  </SubmitButton>
-                </div>
+                {errors.captchaToken ? (
+                  <p className="input-field__error">{t.captchaError}</p>
+                ) : null}
+                <SubmitButton
+                  className="contact-form__actions"
+                  variant="primary"
+                  type="submit"
+                  icon={true}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? t.sending : t.send}
+                </SubmitButton>
               </div>
             </div>
           </div>
