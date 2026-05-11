@@ -172,15 +172,13 @@ function ContactSection() {
               />
 
               <div className="contact-form__message-footer">
-                <div className="contact-form__captcha">
-                  <HCaptcha
-                    sitekey={HCAPTCHA_SITEKEY}
-                    reCaptchaCompat={false}
-                    onVerify={handleCaptchaVerify}
-                    onExpire={handleCaptchaExpire}
-                    ref={captchaRef}
-                  />
-                </div>
+                <HCaptcha
+                  sitekey={HCAPTCHA_SITEKEY}
+                  reCaptchaCompat={false}
+                  onVerify={handleCaptchaVerify}
+                  onExpire={handleCaptchaExpire}
+                  ref={captchaRef}
+                />
                 {errors.captchaToken ? (
                   <p className="input-field__error">{t.captchaError}</p>
                 ) : null}
