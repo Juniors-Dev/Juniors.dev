@@ -62,4 +62,5 @@ export const applySchema = z.object({
   portfolioUrl: optionalUrl,
   otherUrl: optionalUrl,
   message: z.string().trim().min(1, "Message is required."),
+  captchaToken: z.string().min(1),
 });

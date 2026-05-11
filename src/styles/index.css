@@ -801,11 +801,7 @@ label {
   }
 
   .contact-form__message-footer {
-    @apply mt-4 flex flex-col items-start;
-  }
-
-  .contact-form__actions {
-    @apply mt-4;
+    @apply mt-4 flex flex-col items-start gap-4;
   }
 
   .contact-form__error {
@@ -1095,6 +1091,10 @@ label {
 
 .site-form__message .input-field {
   @apply w-full;
+}
+
+.site-form__message-footer {
+  @apply mt-4 flex flex-col items-start gap-4;
 }
 
 @media (min-width: 768px) {
