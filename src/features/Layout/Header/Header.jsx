@@ -5,6 +5,7 @@ import logoDark from "../../../assets/SVG-logo-darkmode.svg";
 import { useT } from "../../../stores/languageStore";
 import { translations } from "../translations/ui";
 import LanguageToggle from "../LanguageToggle.jsx/LanguageToggle";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
@@ -44,8 +45,9 @@ function Header() {
                 </NavLink>
               </li>
             ))}
-            <li>
+            <li className="flex items-center gap-4">
               <LanguageToggle />
+              <ThemeToggle />
             </li>
           </ul>
         </nav>
@@ -83,8 +85,9 @@ function Header() {
                 </NavLink>
               </li>
             ))}
-            <li>
+            <li className="flex items-center gap-4">
               <LanguageToggle />
+              <ThemeToggle />
             </li>
           </ul>
         </nav>

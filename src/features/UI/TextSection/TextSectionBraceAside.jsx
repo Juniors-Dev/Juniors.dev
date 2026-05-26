@@ -10,10 +10,10 @@ function TextSectionBraceAside({ before, emphasis, after, sentence }) {
         aria-hidden="true"
         className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-10 xl:gap-16"
       >
-        <span className="inline-block -my-12 select-none text-[140px] font-light leading-none tracking-normal text-primary-500 origin-[50%_60%] transform-[rotate(-90deg)] md:origin-center md:-mt-14 md:mb-0 md:text-[160px] md:leading-[1.51] md:transform-none xl:text-[250px]">
+        <span className="inline-block -my-12 select-none text-[140px] font-light leading-none tracking-normal text-primary-500 dark:text-secondary-200 origin-[50%_60%] transform-[rotate(-90deg)] md:origin-center md:-mt-14 md:mb-0 md:text-[160px] md:leading-[1.51] md:transform-none xl:text-[250px]">
           {"{"}
         </span>
-        <p className="max-w-[280px] text-center text-base font-bold leading-[1.4] text-primary-700 md:max-w-[260px] md:text-lg xl:max-w-[330px] xl:text-2xl">
+        <p className="max-w-[280px] text-center text-base font-bold leading-[1.4] text-primary-600 dark:text-secondary-200 md:max-w-[260px] md:text-lg xl:max-w-[330px] xl:text-[1.875rem] xl:leading-[1.41]">
           {before}
           <span className="font-extrabold uppercase">{emphasis}</span>
           {after}

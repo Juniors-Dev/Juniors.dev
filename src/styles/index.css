@@ -5,6 +5,7 @@
   --font-main-heading: "Sora", sans-serif;
   --font-heading: "Sora", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", "Arial", sans-serif;
+  --font-card-body: "Noto Sans", sans-serif;
 
   /* Mobile (base) */
   --text-h1: 2.5rem; /* 40px */
@@ -88,8 +89,13 @@
   --color-secondary-500: #bce53e;
   --color-secondary-600: #9dba3a;
   --color-secondary-700: #749903;
-  --color-secondary-800: #5e7b03;
+  --color-secondary-800: #5e7c04;
   --color-secondary-900: #3c4f03;
+  /* Figma-exact accents (revert on request) */
+  --color-card-blue-border: #033dd7;
+  --color-accent-lime: #ceff29;
+  --color-figma-green: #5e7c04;
+  --color-tag-dark-blue: #094996;
   /* Success / Green */
   --color-success-50: #ecf9ec;
   --color-success-100: #c5edc5;
@@ -159,6 +165,506 @@
   --text-caption: 0.75rem; /* 12px */
   --text-caption--line-height: 1rem;
   --text-caption--font-weight: 400;
+}
+
+body {
+  @apply bg-off-white text-primary-900;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: var(--color-roadmap-blue);
+  color: var(--color-primary-50);
+}
+
+.dark .bg-off-white,
+.dark .bg-primary-100 {
+  background-color: var(--color-primary-800);
+  color: var(--color-primary-50);
+}
+
+.dark .bg-primary-800 {
+  background-color: var(--color-primary-800);
+  color: var(--color-primary-50);
+}
+
+.dark .text-primary-800,
+.dark .text-primary-900,
+.dark .text-grey-700 {
+  color: var(--color-primary-50);
+}
+
+.dark .input-field__label {
+  color: var(--color-primary-50);
+}
+
+.dark .input-field__input {
+  color: var(--color-primary-50);
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover,
+.dark textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-primary-50);
+}
+
+.dark .input-field__control {
+  border-bottom-color: var(--color-primary-600);
+}
+
+.dark .input-field__control:hover,
+.dark .input-field__control:focus-within {
+  background-color: rgb(252 253 255 / 0.05);
+  box-shadow: inset 0 0 0 1px var(--color-primary-600);
+}
+
+.dark .btn-primary {
+  background-color: var(--color-secondary-200);
+  color: var(--color-primary-800);
+}
+
+.dark .btn-primary:hover {
+  background-color: var(--color-secondary-400);
+}
+
+.dark .btn-primary:active {
+  background-color: var(--color-secondary-600);
+}
+
+.dark .btn-primary .btn__icon-submit {
+  color: var(--color-primary-800);
+}
+
+.dark .btn-submit {
+  background-color: var(--color-secondary-200);
+  color: var(--color-primary-800);
+}
+
+.dark .btn-submit:hover {
+  background-color: var(--color-secondary-400);
+}
+
+.dark .btn-submit:active {
+  background-color: var(--color-secondary-600);
+}
+
+.dark .text-roadmap-blue {
+  color: var(--color-primary-50);
+}
+
+.dark .roadmap-section {
+  background-color: var(--color-primary-800);
+  color: var(--color-primary-50);
+}
+
+.dark .roadmap-item__year,
+.dark .roadmap-item__title,
+.dark .roadmap-item__body {
+  color: var(--color-primary-50);
+}
+
+.dark .roadmap-item__line {
+  background-color: var(--color-secondary-700);
+}
+
+.dark .roadmap-item__dot {
+  border-color: var(--color-secondary-200);
+  background-color: var(--color-secondary-200);
+}
+
+.dark .roadmap-item__dot--highlighted {
+  box-shadow: 0 0 0 8px rgb(228 255 137 / 0.22);
+}
+
+.dark .project-card {
+  background-color: var(--color-primary-800);
+  color: var(--color-primary-50);
+}
+
+.dark .project-card:hover {
+  background-color: var(--color-primary-700);
+}
+
+.dark .project-card .project-card__title,
+.dark .project-card .project-card__subtitle {
+  color: var(--color-primary-50);
+}
+
+.dark .service-card {
+  background-color: var(--color-primary-800);
+  border-color: var(--color-primary-700);
+}
+
+.dark .service-card__action {
+  color: var(--color-primary-50);
+}
+
+.dark .service-card__icon-wrap {
+  background-color: var(--color-primary-700);
+  color: var(--color-primary-50);
+}
+
+@media (min-width: 768px) {
+  .dark .services-section__container::after {
+    background: linear-gradient(to right, transparent, var(--color-roadmap-blue));
+  }
+
+  .dark .services-section__container::before {
+    background: linear-gradient(to left, transparent, var(--color-roadmap-blue));
+  }
+}
+
+.dark .mission-section {
+  background-color: var(--color-roadmap-blue);
+  color: var(--color-primary-50);
+}
+
+.dark .real-experience-section {
+  background-color: var(--color-roadmap-blue);
+  color: var(--color-primary-50);
+}
+
+/* What to expect cards: same Figma colors in light and dark (section bg only changes) */
+.dark .information-card--blue {
+  background-color: var(--color-primary-500);
+  border-color: var(--color-card-blue-border);
+  color: var(--color-primary-100);
+}
+
+.dark .information-card--green {
+  background-color: var(--color-secondary-300);
+  border-color: var(--color-secondary-600);
+  color: var(--color-roadmap-blue);
+}
+
+.dark .information-card--blue .information-card__title,
+.dark .information-card--blue .information-card__body {
+  color: var(--color-primary-100);
+}
+
+.dark .information-card--green .information-card__title,
+.dark .information-card--green .information-card__body {
+  color: var(--color-roadmap-blue);
+}
+
+.dark .information-card__icon--blue {
+  background-color: var(--color-primary-600);
+  border-color: var(--color-primary-800);
+  color: var(--color-primary-100);
+}
+
+.dark .information-card__icon--green {
+  background-color: var(--color-secondary-100);
+  border-color: var(--color-secondary-600);
+  color: var(--color-roadmap-blue);
+}
+
+.dark .mission-section .text-primary-900,
+.dark .mission-section .text-grey-700 {
+  color: var(--color-primary-50);
+}
+
+/* Mission quote card — same Figma palette in light and dark */
+.mission-quote-aside {
+  border-left: 3.22px solid var(--color-primary-800);
+  background-color: var(--color-primary-100);
+  padding: 1.75rem 1.5rem 1.5rem 1.75rem;
+}
+
+.mission-quote-aside__quote {
+  font-family: var(--font-body);
+  font-size: 1.4375rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.41;
+  color: var(--color-roadmap-blue);
+}
+
+.mission-quote-aside__attribution {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.mission-quote-aside__avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.8125rem;
+  height: 2.8125rem;
+  border-radius: 9999px;
+  background-color: var(--color-primary-800);
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.41;
+  color: var(--color-primary-100);
+}
+
+.mission-quote-aside__name {
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  font-weight: 100;
+  line-height: 1.41;
+  color: var(--color-roadmap-blue);
+}
+
+/* About page — tablet (768px–1023px, Figma 834px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-hero-section {
+    padding-top: 2.75rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .about-hero-section > div > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .about-hero-section h1.about-hero-section__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 22.625rem;
+  }
+
+  .about-hero-section__body {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.2;
+    max-width: 22.1875rem;
+  }
+
+  .mission-section h2.mission-section__title {
+    font-size: 1.75rem;
+    line-height: 1.51;
+  }
+
+  .mission-section .text-subheading-1,
+  .mission-section__body {
+    font-size: 1rem;
+    line-height: 1.41;
+    font-weight: 400;
+  }
+
+  .mission-section__aside {
+    max-width: 15.875rem;
+  }
+
+  .mission-quote-aside {
+    padding: 1rem 1rem 1rem 1.25rem;
+  }
+
+  .mission-quote-aside__quote {
+    font-size: 0.875rem;
+    line-height: 1.41;
+  }
+
+  .mission-quote-aside__attribution {
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .mission-quote-aside__avatar {
+    width: 1.8125rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+  }
+
+  .mission-quote-aside__name {
+    font-size: 0.75rem;
+    line-height: 1.41;
+  }
+
+  .roadmap-section h2 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .roadmap-item {
+    grid-template-columns: 5.3125rem 2.5625rem 1fr;
+    column-gap: 1.25rem;
+  }
+
+  .roadmap-item__year {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .roadmap-item__title {
+    font-size: 1.375rem;
+    line-height: 1.2;
+  }
+
+  .roadmap-item__body {
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+
+  .roadmap-item__dot {
+    width: 2.5625rem;
+    height: 2.5625rem;
+  }
+}
+
+/* About page — desktop hero (1024px+) */
+@media (min-width: 1024px) {
+  .about-hero-section h1.about-hero-section__title {
+    font-size: 4.5rem;
+    line-height: 1.2;
+    max-width: 43.9375rem;
+  }
+
+  .about-hero-section__body {
+    font-family: var(--font-body);
+    font-size: 1.625rem;
+    font-weight: 300;
+    line-height: 1.29;
+    max-width: 36.5625rem;
+  }
+}
+
+/* About page — mobile hero */
+@media (max-width: 767px) {
+  .about-hero-section h1.about-hero-section__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 22.625rem;
+  }
+
+  .about-hero-section__body {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+}
+
+.work-with-us-form-section {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-900);
+}
+
+.work-with-us-form-section .input-field__label {
+  color: var(--color-primary-900);
+}
+
+.work-with-us-form-section .input-field__input {
+  color: var(--color-primary-900);
+}
+
+.work-with-us-form-section input:-webkit-autofill,
+.work-with-us-form-section input:-webkit-autofill:hover,
+.work-with-us-form-section input:-webkit-autofill:focus,
+.work-with-us-form-section textarea:-webkit-autofill,
+.work-with-us-form-section textarea:-webkit-autofill:hover,
+.work-with-us-form-section textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-primary-900);
+}
+
+.work-with-us-form-section .input-field__control {
+  border-bottom-color: var(--color-primary-800);
+}
+
+.work-with-us-form-section .input-field__control:hover,
+.work-with-us-form-section .input-field__control:focus-within {
+  background-color: rgb(4 48 101 / 0.05);
+  box-shadow: inset 0 0 0 1px var(--color-primary-800);
+}
+
+.work-with-us-form-section .phone-field__country-display {
+  color: var(--color-primary-900);
+}
+
+.work-with-us-form-section .phone-field__control:focus-within {
+  border-bottom-color: var(--color-primary-800);
+}
+
+.dark .work-with-us-form-section {
+  background-color: var(--color-roadmap-blue);
+  color: var(--color-primary-50);
+}
+
+.dark .work-with-us-form-section .input-field__label {
+  color: var(--color-primary-50);
+}
+
+.dark .work-with-us-form-section .input-field__input {
+  color: var(--color-primary-50);
+}
+
+.dark .work-with-us-form-section input:-webkit-autofill,
+.dark .work-with-us-form-section input:-webkit-autofill:hover,
+.dark .work-with-us-form-section input:-webkit-autofill:focus,
+.dark .work-with-us-form-section textarea:-webkit-autofill,
+.dark .work-with-us-form-section textarea:-webkit-autofill:hover,
+.dark .work-with-us-form-section textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-primary-50);
+}
+
+.dark .work-with-us-form-section .input-field__control {
+  border-bottom-color: var(--color-primary-600);
+}
+
+.dark .work-with-us-form-section .input-field__control:hover,
+.dark .work-with-us-form-section .input-field__control:focus-within {
+  background-color: rgb(252 253 255 / 0.05);
+  box-shadow: inset 0 0 0 1px var(--color-primary-600);
+}
+
+.dark .work-with-us-form-section .phone-field__country-display {
+  color: var(--color-primary-50);
+}
+
+.dark .work-with-us-form-section .phone-field__control:focus-within {
+  border-bottom-color: var(--color-primary-600);
+}
+
+@media (min-width: 768px) {
+  .what-to-expect__grid {
+    grid-auto-rows: 1fr;
+  }
+}
+
+.information-card--blue {
+  box-shadow: 0 1px 4px 5px rgb(45 102 255 / 0.11);
+}
+
+.information-card__title {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+  color: inherit;
+}
+
+.information-card__body {
+  font-family: var(--font-card-body);
+  font-size: 1.125rem;
+  line-height: 1.36;
+  font-weight: 400;
+  color: inherit;
+}
+
+@media (min-width: 768px) {
+  .information-card__title {
+    font-size: 2rem;
+    line-height: 1.21875;
+  }
+
+  .information-card__body {
+    font-size: 1.5625rem;
+    line-height: 2.125rem;
+  }
 }
 
 #root {
@@ -240,7 +746,7 @@ label {
 
   .nav-link--active,
   .mobile-nav-link--active {
-    @apply border-secondary-500 text-off-white;
+    @apply border-accent-lime text-off-white;
     font-weight: 700;
   }
 
@@ -304,7 +810,7 @@ label {
 
   .footer-link--underline {
     @apply underline underline-offset-4 decoration-1;
-    text-decoration-color: var(--color-secondary-500);
+    text-decoration-color: var(--color-accent-lime);
   }
 
   .footer-link--active {
@@ -321,7 +827,7 @@ label {
   }
 
   .footer-divider {
-    color: var(--color-secondary-500);
+    color: var(--color-accent-lime);
   }
 
   @media (min-width: 768px) {
@@ -380,6 +886,14 @@ label {
     @apply disabled:bg-grey-300 disabled:text-grey-50 disabled:cursor-not-allowed;
   }
 
+  .btn-submit {
+    @apply bg-primary-800 text-off-white px-8 py-3;
+    @apply hover:bg-primary-600 active:bg-primary-900;
+    @apply focus:ring-primary-500;
+    @apply disabled:bg-grey-300 disabled:text-grey-50 disabled:cursor-not-allowed;
+    border: none;
+  }
+
   .btn-secondary {
     @apply bg-primary-50 text-primary-900 border border-primary-800 px-8 py-3;
     @apply hover:bg-primary-200 active:bg-primary-300;
@@ -388,7 +902,7 @@ label {
   }
 
   .btn-nav {
-    @apply inline-flex items-center rounded-full;
+    @apply inline-flex items-center justify-center rounded-full mx-auto;
     @apply bg-secondary-200 text-primary-800 border border-secondary-600;
     @apply hover:bg-secondary-400 active:bg-secondary-600;
     @apply focus:ring-primary-500;
@@ -470,7 +984,7 @@ label {
   */
   .project-card {
     @apply block overflow-hidden rounded-[0.3125rem] border shadow-[0_1px_4px_4px_rgba(0,69,254,0.07)] transition-colors duration-200 p-2;
-    border-color: var(--color-primary-400);
+    border-color: var(--color-primary-500);
   }
 
   .projects-grid .project-card:nth-child(odd) .tag {
@@ -484,7 +998,7 @@ label {
   }
 
   .projects-grid .project-card:nth-child(even) {
-    border-color: var(--color-secondary-600);
+    border-color: var(--color-figma-green);
   }
 
   .project-card:hover,
@@ -549,7 +1063,7 @@ label {
 
     .projects-grid .project-card:nth-child(4n + 1),
     .projects-grid .project-card:nth-child(4n + 4) {
-      border-color: var(--color-primary-400);
+      border-color: var(--color-primary-500);
     }
 
     .projects-grid .project-card:nth-child(4n + 1):focus-visible,
@@ -565,7 +1079,7 @@ label {
 
     .projects-grid .project-card:nth-child(4n + 2),
     .projects-grid .project-card:nth-child(4n + 3) {
-      border-color: var(--color-secondary-600);
+      border-color: var(--color-figma-green);
     }
 
     .projects-grid .project-card:nth-child(4n + 2):focus-visible,
@@ -1014,23 +1528,63 @@ label {
 
   /* Buttons */
   .btn-submit-with-icon {
-    padding-left: 32px;
-    padding-right: 48px;
-  }
-
-  .btn-submit__icon-wrap {
-    @apply inline-flex shrink-0 items-center justify-center rounded-full bg-primary-800 text-off-white;
-    width: 3.375rem;
-    height: 3.375rem;
+    gap: 0.625rem;
   }
 
   .btn__icon-submit {
     width: 1.25rem;
     height: 1.25rem;
-    margin-right: 10px;
+    flex-shrink: 0;
+    color: currentColor;
+  }
+
+  /* Roadmap */
+  .roadmap-section {
+    color: var(--color-roadmap-blue);
+  }
+
+  .roadmap-item {
+    @apply grid grid-cols-[60px_64px_1fr] items-start gap-x-10 px-2 md:grid-cols-[120px_64px_1fr] md:gap-x-20;
+  }
+
+  .roadmap-item__year {
+    color: var(--color-roadmap-blue);
+  }
+
+  .roadmap-item__track {
+    @apply relative flex h-full justify-center;
+  }
+
+  .roadmap-item__line {
+    @apply absolute -top-8 bottom-0 w-0.5;
+    background-color: var(--color-secondary-700);
+  }
+
+  .roadmap-item:first-child .roadmap-item__line {
+    top: 0.25rem;
+  }
+
+  .roadmap-item__dot {
+    @apply relative z-10 mt-1 block h-9 w-9 rounded-full border-2;
+    border-color: var(--color-secondary-700);
+    background-color: var(--color-secondary-200);
+  }
+
+  .roadmap-item__dot--highlighted {
+    box-shadow: 0 0 0 8px rgb(228 255 137 / 0.22);
+  }
+
+  .roadmap-item__title {
+    @apply cursor-pointer list-none marker:content-[''];
+    color: var(--color-roadmap-blue);
+  }
+
+  .roadmap-item__body {
+    @apply my-4 max-w-2xl pb-20;
+    color: var(--color-roadmap-blue);
   }
 }
-/* Reusable form styling (currently used in apply-form, exchange contact-form with these neutral once when time) */
+/* Shared form styling (contact + apply forms) */
 
 .site-form-section {
   @apply flex flex-col gap-8;
@@ -1095,6 +1649,11 @@ label {
 
 .site-form__message-footer {
   @apply mt-4 flex flex-col items-start gap-4;
+}
+
+.site-form__captcha {
+  width: 303px;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {

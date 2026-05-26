@@ -40,12 +40,14 @@
 function InformationCard({ title, body, icon, variant = "blue", className = "" }) {
   const VARIANT_STYLES = {
     blue: {
-      card: "bg-primary-500 text-off-white border-primary-800",
-      iconBox: "bg-primary-600 border-primary-700 text-off-white",
+      card: "information-card--blue bg-primary-500 text-primary-100 border-card-blue-border",
+      iconBox:
+        "information-card__icon information-card__icon--blue bg-primary-600 border-primary-800 text-primary-100",
     },
     green: {
-      card: "bg-secondary-300 text-primary-900 border-secondary-600",
-      iconBox: "bg-secondary-100 border-secondary-600 text-primary-900",
+      card: "information-card--green bg-secondary-300 text-roadmap-blue border-secondary-600",
+      iconBox:
+        "information-card__icon information-card__icon--green bg-secondary-100 border-secondary-600 text-roadmap-blue",
     },
   };
 
@@ -54,7 +56,7 @@ function InformationCard({ title, body, icon, variant = "blue", className = "" }
   return (
     <article
       className={[
-        "rounded-lg border p-6 md:p-8 shadow-sm",
+        "information-card h-full w-full rounded-lg border p-6 md:p-8",
         "flex flex-col items-center text-center",
         "min-h-65 justify-start",
         styles.card,
@@ -74,9 +76,9 @@ function InformationCard({ title, body, icon, variant = "blue", className = "" }
         </div>
       )}
 
-      <h3 className="text-heading-4 text-balance max-w-[22ch]">{title}</h3>
+      <h3 className="information-card__title text-balance max-w-[22ch]">{title}</h3>
 
-      <p className="text-subheading-2 mt-4 max-w-[34ch] text-balance">{body}</p>
+      <p className="information-card__body mt-4 max-w-[34ch] flex-1 text-balance">{body}</p>
     </article>
   );
 }

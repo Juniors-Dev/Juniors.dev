@@ -13,10 +13,7 @@ function LanguageToggle() {
         onChange={toggleLanguage}
         className="sr-only peer"
       />
-      <div
-        className="w-14 h-8 rounded-full bg-neutral-200 dark:bg-neutral-800
-               peer-checked:bg-neutral-700 transition-colors duration-300"
-      ></div>
+      <div className="h-8 w-14 rounded-full border border-primary-50 bg-transparent" />
       <div
         className="absolute left-1 top-1 w-6 h-6 rounded-full bg-cover bg-center
                transition-transform duration-300

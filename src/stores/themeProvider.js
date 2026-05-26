@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const getSystemPreference = () => {
+export const getSystemPreference = () => {
   if (typeof window === "undefined") return "light";
 
-  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
     return "dark";
   }
   return "light";
@@ -12,12 +12,18 @@ const getSystemPreference = () => {
 
 export const useThemeStore = create(
   persist(
-    (set) => ({
-      theme: getSystemPreference(),
-      setTheme: (theme) => set({ theme }),
+    (set, get) => ({
+      userTheme: null,
+      setTheme: (theme) => set({ userTheme: theme }),
+      toggleTheme: () => {
+        const current = get().userTheme ?? getSystemPreference();
+        set({ userTheme: current === "dark" ? "light" : "dark" });
+      },
+      getTheme: () => get().userTheme ?? getSystemPreference(),
     }),
     {
       name: "theme-storage",
+      partialize: (state) => ({ userTheme: state.userTheme }),
     }
   )
 );

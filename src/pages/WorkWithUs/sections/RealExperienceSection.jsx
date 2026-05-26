@@ -8,7 +8,8 @@ function RealExperienceSection() {
   return (
     <TextSection
       title={t.title}
-      titleClassName="text-h2 w-fit text-pretty text-primary-800"
+      sectionClassName="real-experience-section bg-off-white"
+      titleClassName="text-h2 w-fit text-pretty text-roadmap-blue"
       paragraphs={t.paragraphs}
       aside={
         <TextSectionBraceAside
