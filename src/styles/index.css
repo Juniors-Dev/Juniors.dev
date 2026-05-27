@@ -433,7 +433,6 @@ body {
   .about-hero-section h1.about-hero-section__title {
     font-size: 2.5rem;
     line-height: 1.2;
-    max-width: 22.625rem;
   }
 
   .about-hero-section__body {
@@ -546,6 +545,52 @@ body {
     font-size: 1.125rem;
     font-weight: 300;
     line-height: 1.2;
+  }
+}
+
+/* Home page — hero */
+.home-hero-section > div > div {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-hero-section h1.home-hero-section__title {
+  align-self: stretch;
+  width: 100%;
+  max-width: min(734px, 92vw);
+  margin-inline: auto;
+  font-size: clamp(1.5rem, 5.8vw + 0.25rem, 4.5rem);
+  line-height: 1.2;
+  text-wrap: normal;
+}
+
+.home-hero-section__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.home-hero-section__body {
+  align-self: stretch;
+  width: 100%;
+  max-width: min(646px, 92vw);
+  margin-inline: auto;
+  font-family: var(--font-body);
+  font-size: var(--text-subheading-2);
+  font-weight: 300;
+  line-height: 1.29;
+  text-wrap: normal;
+}
+
+@media (min-width: 768px) {
+  .home-hero-section > div > div {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-hero-section > div > div {
+    gap: 3rem;
   }
 }
 

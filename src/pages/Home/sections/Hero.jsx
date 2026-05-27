@@ -5,15 +5,21 @@ import { useT } from "../../../stores/languageStore";
 
 function HeroSection() {
   const t = useT(hero);
-
   return (
     <Hero
-      title={t.title}
+      title={
+        <>
+          {t.titleLines.map((line) => (
+            <span key={line} className="home-hero-section__title-line">
+              {line}
+            </span>
+          ))}
+        </>
+      }
       body={t.body}
-      className="bg-primary-800 text-off-white"
-      rowClassName="mx-auto max-w-4xl flex-col items-center text-center md:flex-col md:gap-6"
-      titleClassName="max-w-[12ch] text-balance text-center"
-      bodyClassName="text-subheading-2 max-w-3xl text-balance text-center"
+      className="home-hero-section bg-primary-800 text-off-white"
+      titleClassName="home-hero-section__title"
+      bodyClassName="home-hero-section__body"
     >
       <NavIconButton to="#contact" variant="nav" icon>
         {t.cta}
