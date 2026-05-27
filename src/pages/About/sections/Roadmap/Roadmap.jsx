@@ -11,7 +11,7 @@ function RoadmapSection() {
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-10 text-h2">{t.sectionTitle}</h2>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col text-pretty">
           {t.items.map((item) => (
             <RoadmapItem
               key={item.year}
