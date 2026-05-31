@@ -13,40 +13,36 @@ function WhatToExpect() {
 
   return (
     <Section className="bg-primary-100">
-      <h2 className="text-heading-3 mb-8">{t0.headline}</h2>
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="md:order-1">
-          <InformationCard
-            title={t1.title}
-            body={t1.body}
-            variant="blue"
-            icon={<BookOpenText className="h-8 w-8" aria-hidden />}
-          />
-        </div>
-        <div className="md:order-2">
-          <InformationCard
-            title={t2.title}
-            body={t2.body}
-            variant="green"
-            icon={<CalendarCheck className="h-8 w-8" aria-hidden />}
-          />
-        </div>
-        <div className="md:order-4">
-          <InformationCard
-            title={t3.title}
-            body={t3.body}
-            variant="blue"
-            icon={<Code2 className="h-8 w-8" aria-hidden />}
-          />
-        </div>
-        <div className="md:order-3">
-          <InformationCard
-            title={t4.title}
-            body={t4.body}
-            variant="green"
-            icon={<Folder className="h-8 w-8" aria-hidden />}
-          />
-        </div>
+      <h2 className="mb-8">{t0.headline}</h2>
+      <div className="what-to-expect__grid grid gap-6 md:grid-cols-2">
+        <InformationCard
+          className="md:order-1"
+          title={t1.title}
+          body={t1.body}
+          variant="blue"
+          icon={<BookOpenText className="h-8 w-8" aria-hidden />}
+        />
+        <InformationCard
+          className="md:order-2"
+          title={t2.title}
+          body={t2.body}
+          variant="green"
+          icon={<CalendarCheck className="h-8 w-8" aria-hidden />}
+        />
+        <InformationCard
+          className="md:order-4"
+          title={t4.title}
+          body={t4.body}
+          variant="blue"
+          icon={<Folder className="h-8 w-8" aria-hidden />}
+        />
+        <InformationCard
+          className="md:order-3"
+          title={t3.title}
+          body={t3.body}
+          variant="green"
+          icon={<Code2 className="h-8 w-8" aria-hidden />}
+        />
       </div>
     </Section>
   );

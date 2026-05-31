@@ -2,7 +2,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Section, SubmitButton, InputField } from "../../../features/UI";
+import { Section, FormSubmitButton, InputField } from "../../../features/UI";
 import { contactSchema } from "./schema/contactSchema";
 import { contacts } from "../translations/contact";
 import { useT } from "../../../stores/languageStore";
@@ -38,7 +38,7 @@ function ContactSection() {
     },
   });
 
-  const [submitStatus, setSubmitStatus] = useState("idle"); // "idle" | "success" | "error"
+  const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
   const t = useT(contacts);
@@ -185,9 +185,9 @@ function ContactSection() {
                   ) : null}
                 </div>
                 <div className="contact-form__actions">
-                  <SubmitButton variant="primary" type="submit" icon={true} disabled={isSubmitting}>
-                    {isSubmitting ? t.sending : t.send}
-                  </SubmitButton>
+                  <FormSubmitButton isLoading={isSubmitting} loadingLabel={t.sending}>
+                    {t.send}
+                  </FormSubmitButton>
                 </div>
               </div>
             </div>

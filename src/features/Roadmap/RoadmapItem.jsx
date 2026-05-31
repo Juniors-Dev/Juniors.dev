@@ -1,22 +1,19 @@
-function RoadmapItem({ year, title, body, defaultOpen = true }) {
+function RoadmapItem({ year, title, body, defaultOpen = true, highlighted = false }) {
   return (
-    <article className="grid grid-cols-[60px_64px_1fr] md:grid-cols-[120px_64px_1fr] px-2 gap-x-10 md:gap-x-20 items-start">
-      <p className="text-subheading-1 font-semibold text-roadmap-blue text-end">{year}</p>
+    <article className="roadmap-item">
+      <p className="roadmap-item__year text-subheading-1 text-end font-semibold">{year}</p>
 
-      {/* vertical connector + dot */}
-      <div className="relative flex h-full justify-center ">
-        <span className="absolute -top-8 bottom-0 w-0.5 bg-lime-700" aria-hidden="true" />
+      <div className="roadmap-item__track">
+        <span className="roadmap-item__line" aria-hidden="true" />
         <span
-          className="relative z-10 mt-1 block h-9 w-9 rounded-full border-2 border-lime-700 bg-lime-200 shadow-[0_0_0_8px_rgba(190,242,100,0.22)]"
+          className={`roadmap-item__dot${highlighted ? " roadmap-item__dot--highlighted" : ""}`}
           aria-hidden="true"
         />
       </div>
 
-      <details className="group" open={defaultOpen}>
-        <summary className="cursor-pointer list-none text-subheading-1 font-semibold text-roadmap-blue marker:content-['']">
-          {title}
-        </summary>
-        <p className="my-4 pb-20 max-w-2xl text-paragraph text-roadmap-blue">{body}</p>
+      <details className="roadmap-item__content group" open={defaultOpen}>
+        <summary className="roadmap-item__title text-subheading-1 font-semibold">{title}</summary>
+        <p className="roadmap-item__body text-paragraph">{body}</p>
       </details>
     </article>
   );

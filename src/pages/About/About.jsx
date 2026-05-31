@@ -1,6 +1,7 @@
 import { TextSection, TextSectionQuoteAside } from "../../features/UI";
 import { mission } from "./translations/mission";
 import { useT } from "../../stores/languageStore";
+import AboutHeroSection from "./sections/AboutHeroSection";
 import RoadmapSection from "./sections/Roadmap/Roadmap";
 import ContactSection from "./sections/Contact";
 
@@ -9,12 +10,15 @@ function About() {
 
   return (
     <>
+      <AboutHeroSection />
       <TextSection
+        sectionClassName="mission-section bg-off-white"
         title={tMission.title}
         intro={tMission.intro}
         paragraphs={[tMission.body]}
-        paragraphClassName="text-body text-grey-700 text-pretty"
-        contentRowClassName="md:items-center md:basis-3/5 xl:basis-1/2"
+        titleClassName="mission-section__title text-h2 w-fit text-pretty text-primary-900"
+        paragraphClassName="mission-section__body text-body text-grey-700 text-pretty"
+        contentRowClassName="mission-section__layout md:items-start md:basis-3/5 xl:items-center xl:basis-1/2"
         aside={
           <TextSectionQuoteAside
             quote={tMission.quote}
@@ -22,7 +26,7 @@ function About() {
             initials={tMission.initials}
           />
         }
-        asideClassName="w-full shrink-0 md:basis-2/5 xl:basis-1/2 mt-6 md:max-w-md lg:max-w-lg xl:max-w-xl"
+        asideClassName="mission-section__aside w-full shrink-0 mt-6 md:mt-0 md:basis-2/5 xl:basis-1/2 md:max-w-md lg:max-w-lg xl:max-w-xl"
       />
       <RoadmapSection />
       <ContactSection />

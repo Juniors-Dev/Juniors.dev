@@ -23,7 +23,7 @@ export const serviceCards = [
       tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-primary-500 hover:bg-primary-600 text-off-white",
-    tagClassName: "bg-primary-700 text-primary-100",
+    tagClassName: "bg-primary-700 dark:bg-tag-dark-blue text-primary-100",
   },
   {
     id: "frontend",
@@ -68,6 +68,6 @@ export const serviceCards = [
       tags: ["Nettside", "Nettside", "Nettside"],
     },
     panelClassName: "bg-primary-900 hover:bg-primary-600 text-off-white",
-    tagClassName: "bg-primary-700 text-primary-100",
+    tagClassName: "bg-primary-700 dark:bg-tag-dark-blue text-primary-100",
   },
 ];

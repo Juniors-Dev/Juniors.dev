@@ -2,7 +2,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Section, SubmitButton, InputField } from "../../../features/UI";
+import { Section, FormSubmitButton, InputField } from "../../../features/UI";
 import { contactSchema } from "./schema/contactSchema";
 import { contacts } from "../translations/contact";
 import { useT } from "../../../stores/languageStore";
@@ -182,15 +182,13 @@ function ContactSection() {
                 {errors.captchaToken ? (
                   <p className="input-field__error">{t.captchaError}</p>
                 ) : null}
-                <SubmitButton
+                <FormSubmitButton
                   className="contact-form__actions"
-                  variant="primary"
-                  type="submit"
-                  icon={true}
-                  disabled={isSubmitting}
+                  isLoading={isSubmitting}
+                  loadingLabel={t.sending}
                 >
-                  {isSubmitting ? t.sending : t.send}
-                </SubmitButton>
+                  {t.send}
+                </FormSubmitButton>
               </div>
             </div>
           </div>

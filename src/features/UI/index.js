@@ -1,5 +1,3 @@
-import RoadmapItem from "../Roadmap/RoadmapItem";
-
 export { default as Tag } from "./Tag/Tag";
 export { default as Section } from "./Section/Section";
 export { default as TextSection } from "./TextSection/TextSection";
