@@ -4,7 +4,7 @@ function FormSubmitButton({
   children,
   loadingLabel = "Submitting...",
   isLoading = false,
-  variant = "primary",
+  variant = "submit",
   icon = true,
   className = "",
   type = "submit",

@@ -16,12 +16,14 @@ This repository contains the code for the Juniors.dev website, a platform dedica
    ```
 3. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 4. Start the site:
    ```bash
-   npm start
+   pnpm dev
    ```
+
+This project uses pnpm 10.28.1 and enforces a 30-day minimum release age for newly resolved packages through `pnpm-workspace.yaml`.
 
 ## Project Structure
 
@@ -92,7 +94,7 @@ This project uses Husky + Commitlint to enforce commit message conventions and c
 
 **Pre-Push**
 
-- Runs npm run lint && npm test to ensure code passes linting and tests before being pushed.
+- Runs pnpm lint && pnpm test to ensure code passes linting and tests before being pushed.
 - Tests can/will be added in future iterations.
 
 Commit Message Rules
@@ -115,7 +117,7 @@ Commit messages follow the Conventional Commits format:
 | **refactor** | Code changes that aren’t features or fixes (e.g., restructuring)      |
 | **perf**     | Performance improvements                                              |
 | **test**     | Adding or updating tests                                              |
-| **build**    | Changes to build system or dependencies (npm, vite, etc.)             |
+| **build**    | Changes to build system or dependencies (pnpm, vite, etc.)            |
 | **ci**       | CI/CD workflow changes (GitHub Actions, pipelines, etc.)              |
 | **chore**    | Maintenance tasks (configs, tooling, small progress commits)          |
 | **revert**   | Reverts a previous commit                                             |
@@ -158,105 +160,3 @@ Added roadmap timeline        // ❌ missing type
 fixes footer spacing          // ❌ wrong verb + no type
 Feat: Add Timeline Component  // ❌ wrong case
 ```
-
-## Tech Spec & Task Mapping
-
-0. **Repo & Setup**
-
-- [#1 Initialize repo, set up branch protections](https://github.com/Juniors-Dev/Juniors.dev/issues/1)
-- [#2 Configure ESLint + Prettier + Husky hooks](https://github.com/Juniors-Dev/Juniors.dev/issues/2)
-- [#3 CI pipeline runs lint + build](https://github.com/Juniors-Dev/Juniors.dev/issues/3)
-- [#4 Configure hosting/deployment baseline](https://github.com/Juniors-Dev/Juniors.dev/issues/4)
-- [#5 Setup Scaffolding](https://github.com/Juniors-Dev/Juniors.dev/issues/5)
-- [#6 Configure Tailwind variables](https://github.com/Juniors-Dev/Juniors.dev/issues/6)
-
-1. **Global Components & State**
-
-- [#9 Reusable button styles (primary, secondary, CTA)](https://github.com/Juniors-Dev/Juniors.dev/issues/9)
-- [#10 Lucide icon integration](https://github.com/Juniors-Dev/Juniors.dev/issues/10)
-- [#11 Create Light/Dark toggle](https://github.com/Juniors-Dev/Juniors.dev/issues/11)
-- [#12 Create language toggle](https://github.com/Juniors-Dev/Juniors.dev/issues/12)
-- [#13 State manager](https://github.com/Juniors-Dev/Juniors.dev/issues/13), implement Context/Zustand to handle theme + language
-
-Accessibility: labels, tab order, WCAG AA contrast
-
-2. **Header**
-
-- [#7 Create header](https://github.com/Juniors-Dev/Juniors.dev/issues/7)
-  - [#20 Header Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/20)
-  - [#21 Header Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/21)
-
-**Contents:**
-
-- Logo
-- Nav links (anchor scroll)
-- Theme + language toggle
-
-3. **Hero Section**
-
-- [#15 Hero Section](https://github.com/Juniors-Dev/Juniors.dev/issues/15)
-  - [#24 Hero Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/24)
-  - [#25 Hero Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/25)
-
-Content: H1, H2, CTA button (scrolls to contact form), placeholder image
-
-4. **Mission Statement Section**
-
-- [#16 Mission Statement Section](https://github.com/Juniors-Dev/Juniors.dev/issues/16)
-  - [#26 Mission Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/26)
-  - [#27 Mission Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/27)
-
-Dark blue background, heading + paragraph (from doc)
-
-5. **“What to Expect” Section**
-
-- [#17 "What to Expect" Section](https://github.com/Juniors-Dev/Juniors.dev/issues/17)
-  - [#28 Expect Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/28)
-  - [#29 Expect Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/29)
-
-Content: 3 bullet points with Lucide icons, bold heading, supporting text
-
-6. **Roadmap Section**
-
-- [#14 Card component for roadmap items](https://github.com/Juniors-Dev/Juniors.dev/issues/14)
-- [#18 Roadmap Section](https://github.com/Juniors-Dev/Juniors.dev/issues/18)
-  - [#30 Roadmap Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/30)
-  - [#31 Roadmap Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/31)
-
-Structure: Vertical timeline with icons + titles + descriptions
-Status states: ✅ (done), ⏳ (in progress), ✏️ (to do)
-
-7. **Contact Form**
-
-- [#19 Contact form](https://github.com/Juniors-Dev/Juniors.dev/issues/19)
-
-Fields: Name*, Email*, Subject*, Message* (min. 25 chars)
-
-Inline validation with error text
-
-Button: orange → hover → green success state
-
-Success message: “Thanks for reaching out! We’ll respond shortly.”
-
-8. Footer
-
-- [#8 Footer with socials](https://github.com/Juniors-Dev/Juniors.dev/issues/8)
-  - [#22 Footer Mobile](https://github.com/Juniors-Dev/Juniors.dev/issues/22)
-  - [#23 Footer Desktop](https://github.com/Juniors-Dev/Juniors.dev/issues/23)
-
-Logo + tagline
-
-Social media icons (SVG, hover states)
-
-Text: © 2025 Juniors.dev | All rights reserved
-
-### Build Flow
-
-- Complete repo + setup tasks (#1–6)
-- Implement global components/state (#9–13)
-- Build header (#7, #20, #21)
-- Add sections in order: Hero → Mission → Expect → Roadmap → Contact → Footer
-- Hook up validation + interactivity
-- Ensure responsiveness (mobile/desktop)
-- QA for accessibility + UX
-- Deploy to staging

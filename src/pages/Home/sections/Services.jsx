@@ -1,4 +1,4 @@
-import { Section, NavIconButton } from "../../../features/UI";
+import { Section } from "../../../features/UI";
 import ServiceCard from "../../../features/ServiceCard/ServiceCard";
 import { services, serviceCards } from "../translations/services";
 import { useT, useLanguageStore } from "../../../stores/languageStore";
@@ -29,11 +29,6 @@ function OurServices() {
           })}
         </div>
       </div>
-      {/* <div className="mt-10 flex justify-center">
-        <NavIconButton to="/projects" variant="nav" icon>
-          {t.cta}
-        </NavIconButton>
-      </div> */}
     </Section>
   );
 }

@@ -14,9 +14,21 @@
       rel="stylesheet"
     />
     <title>Juniors.Dev</title>
+    <script>
+      (function () {
+        var theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        try {
+          var stored = JSON.parse(localStorage.getItem("theme-storage") || "{}");
+          if (stored.state && stored.state.userTheme) {
+            theme = stored.state.userTheme;
+          }
+        } catch (e) {}
+        if (theme === "dark") document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
 
-  <body class="bg-bg">
+  <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

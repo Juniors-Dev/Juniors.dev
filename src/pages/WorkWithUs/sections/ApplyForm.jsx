@@ -73,7 +73,6 @@ function ApplyForm() {
         body: JSON.stringify({
           access_key: ACCESS_KEY,
           from_name: "Juniors.dev work with us form",
-          ...data,
           form_type: "apply",
           "h-captcha-response": captchaToken,
           ...fields,
@@ -103,7 +102,7 @@ function ApplyForm() {
   }
 
   return (
-    <Section className="bg-off-white">
+    <Section className="work-with-us-form-section">
       <div className="site-form-section">
         <div className="site-form-section__intro">
           <h2>{t.heading}</h2>
