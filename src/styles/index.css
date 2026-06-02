@@ -806,12 +806,12 @@ label {
   }
 
   .footer-columns {
-    @apply flex flex-col items-center gap-10;
+    @apply flex flex-col items-center;
   }
   .footer-contact,
   .footer-list,
   .footer-list-socials {
-    @apply flex flex-col items-center gap-5 pt-5 mb-5;
+    @apply flex flex-col items-center gap-5 pt-1 mb-5;
   }
 
   .footer-list-socials {
