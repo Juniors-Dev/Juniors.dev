@@ -33,7 +33,10 @@ function Footer() {
         </div>
         <div className="footer-columns">
           <nav aria-label="Footer navigation">
-            <h2 id="footer-navigation-title" className="footer-navigation-title hidden md:block">
+            <h2
+              id="footer-navigation-title"
+              className="footer-navigation-title sr-only md:not-sr-only pb-3 md:pb-3"
+            >
               {t.footer.navigation}
             </h2>
             <ul className="footer-list">
@@ -67,7 +70,10 @@ function Footer() {
 
           <section aria-label="Social media links">
             <div className="socials-container">
-              <h2 id="footer-social-title" className="footer-social-title hidden md:block">
+              <h2
+                id="footer-social-title"
+                className="footer-social-title sr-only md:not-sr-only pb-3 md:pb-3"
+              >
                 {t.footer.social}
               </h2>
               <ul className="footer-list-socials ">
