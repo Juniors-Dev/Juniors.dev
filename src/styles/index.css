@@ -925,31 +925,23 @@ label {
       @apply items-end text-right;
     }
     .footer-bottom {
-      display: block;
-      position: relative;
-      min-height: 13px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10rem;
+      row-gap: 1rem;
       margin-top: 3rem;
     }
 
     .footer-copyright {
-      position: absolute;
-      top: 0;
-      left: calc(50% - 160px);
-      transform: translateX(-50%);
-      width: max-content;
       margin: 0;
-      white-space: nowrap;
-      text-align: left;
+      text-align: center;
     }
 
     .footer-privacy {
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      left: calc(50% + 160px);
-      transform: translateX(-50%);
-      width: max-content;
-      white-space: nowrap;
+      margin: 0;
     }
   }
   /* Buttons */
