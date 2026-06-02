@@ -35,7 +35,7 @@ function Footer() {
           <nav aria-labelledby="footer-navigation-title">
             <h2
               id="footer-navigation-title"
-              className="footer-navigation-title sr-only md:not-sr-only md:pb-1"
+              className="footer-navigation-title sr-only md:not-sr-only md:pb-6"
             >
               {t.footer.navigation}
             </h2>
@@ -72,7 +72,7 @@ function Footer() {
             <div className="socials-container">
               <h2
                 id="footer-social-title"
-                className="footer-social-title sr-only md:not-sr-only md:pb-1"
+                className="footer-social-title sr-only md:not-sr-only md:pb-6"
               >
                 {t.footer.social}
               </h2>

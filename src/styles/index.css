@@ -833,11 +833,14 @@ label {
     @apply mb-5;
   }
 
+  .footer-contact-title {
+    @apply pt-5 px-2 md:pt-0 md:px-0;
+  }
+
   .footer-contact-email {
     font-family: var(--font-body);
     font-size: var(--text-label);
     line-height: var(--leading-body);
-    font-weight: 400;
   }
 
   .footer-link {
@@ -894,6 +897,7 @@ label {
     .footer-list-socials {
       @apply mb-0;
     }
+
     .footer-list-socials,
     .footer-list {
       @apply items-start;
