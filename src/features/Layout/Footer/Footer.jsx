@@ -32,10 +32,10 @@ function Footer() {
           </Link>
         </div>
         <div className="footer-columns">
-          <nav aria-label="Footer navigation">
+          <nav aria-labelledby="footer-navigation-title">
             <h2
               id="footer-navigation-title"
-              className="footer-navigation-title sr-only md:not-sr-only pb-5 md:pb-5"
+              className="footer-navigation-title sr-only md:not-sr-only pb-5"
             >
               {t.footer.navigation}
             </h2>
@@ -68,11 +68,11 @@ function Footer() {
             </a>
           </section>
 
-          <section aria-label="Social media links">
+          <section aria-labelledby="footer-social-title">
             <div className="socials-container">
               <h2
                 id="footer-social-title"
-                className="footer-social-title sr-only md:not-sr-only pb-5 md:pb-5"
+                className="footer-social-title sr-only md:not-sr-only pb-5"
               >
                 {t.footer.social}
               </h2>
