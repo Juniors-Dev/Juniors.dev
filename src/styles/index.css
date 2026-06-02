@@ -811,7 +811,7 @@ label {
   .footer-contact,
   .footer-list,
   .footer-list-socials {
-    @apply flex flex-col items-center gap-5 mb-5;
+    @apply flex flex-col items-center gap-5 pt-5 mb-5;
   }
 
   .footer-list-socials {
