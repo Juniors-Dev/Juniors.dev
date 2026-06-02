@@ -35,7 +35,7 @@ function Footer() {
           <nav aria-label="Footer navigation">
             <h2
               id="footer-navigation-title"
-              className="footer-navigation-title sr-only md:not-sr-only pb-3 md:pb-3"
+              className="footer-navigation-title sr-only md:not-sr-only pb-5 md:pb-5"
             >
               {t.footer.navigation}
             </h2>
@@ -72,17 +72,17 @@ function Footer() {
             <div className="socials-container">
               <h2
                 id="footer-social-title"
-                className="footer-social-title sr-only md:not-sr-only pb-3 md:pb-3"
+                className="footer-social-title sr-only md:not-sr-only pb-5 md:pb-5"
               >
                 {t.footer.social}
               </h2>
-              <ul className="footer-list-socials ">
+              <ul className="footer-list-socials">
                 {socialLinks.map(({ href, label }) => (
                   <li key={label}>
                     <a
                       href={href}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="footer-link footer-link--underline"
                     >
                       {label}
