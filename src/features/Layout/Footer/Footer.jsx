@@ -11,7 +11,7 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://github.com/Juniors-Dev", label: "Github" },
+  { href: "https://github.com/Juniors-Dev", label: "GitHub" },
   { href: "https://www.linkedin.com/company/juniors-dev/posts/?feedView=all", label: "LinkedIn" },
 ];
 
