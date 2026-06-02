@@ -5,15 +5,14 @@ import logoDark from "../../../assets/SVG-logo-darkmode.svg";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
-  { to: "/projects", key: "projects" },
-  { to: "/about", key: "about" },
   { to: "/work-with-us", key: "work" },
+  { to: "/about", key: "about" },
+  { to: "/projects", key: "projects" },
 ];
 
 const socialLinks = [
-  { href: "https://github.com", label: "Github" },
-  { href: "https://linkedin.com", label: "LinkedIn" },
-  { href: "https://facebook.com", label: "Facebook" },
+  { href: "https://github.com/Juniors-Dev", label: "Github" },
+  { href: "https://www.linkedin.com/company/juniors-dev/posts/?feedView=all", label: "LinkedIn" },
 ];
 
 function Footer() {
@@ -34,7 +33,7 @@ function Footer() {
         </div>
         <div className="footer-columns">
           <nav aria-label="Footer navigation">
-            <h2 id="footer-navigation-title" className="footer-navigation-title">
+            <h2 id="footer-navigation-title" className="footer-navigation-title hidden md:block">
               {t.footer.navigation}
             </h2>
             <ul className="footer-list">
@@ -59,16 +58,16 @@ function Footer() {
               {t.footer.contact}
             </h2>
             <a
-              href="mailto:email@hotmail.com"
+              href="mailto:juniors@thejuniors.dev"
               className="footer-link footer-link--underline footer-contact-email"
             >
-              email@hotmail.com
+              juniors@thejuniors.dev
             </a>
           </section>
 
           <section aria-label="Social media links">
             <div className="socials-container">
-              <h2 id="footer-social-title" className="footer-social-title">
+              <h2 id="footer-social-title" className="footer-social-title hidden md:block">
                 {t.footer.social}
               </h2>
               <ul className="footer-list-socials ">
@@ -89,9 +88,14 @@ function Footer() {
           </section>
         </div>
 
-        <p className="footer-copyright">
-          © {year} Juniors.dev <span className="footer-divider">|</span> {t.footer.rights}
-        </p>
+        <div className="footer-bottom">
+          <p className="footer-copyright">
+            © {year} Juniors.dev <span className="footer-divider">|</span> {t.footer.rights}
+          </p>
+          <Link to="/privacy" className="footer-link footer-link--underline footer-privacy">
+            {t.footer.privacy}
+          </Link>
+        </div>
       </div>
     </footer>
   );
