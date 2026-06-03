@@ -25,7 +25,7 @@ function Header() {
     <header className="bg-primary-800 text-off-white">
       <div className="mx-auto flex max-w-app items-center justify-between px-8 md:px-10 py-6 lg:px-12">
         <Link to="/" className="shrink-0" onClick={closeMenu}>
-          <Logo size="header" className="w-52 sm:w-56 md:w-60 lg:w-64" />
+          <Logo size="header" />
         </Link>
 
         <nav className="hidden lg:block" aria-label="Main navigation">
