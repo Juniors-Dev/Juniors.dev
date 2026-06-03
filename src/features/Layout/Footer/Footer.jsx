@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useT } from "../../../stores/languageStore";
 import { translations } from "../translations/ui";
-import logoDark from "../../../assets/SVG-logo-darkmode.svg";
+import { Logo } from "../../UI";
 
 const navLinks = [
   { to: "/", key: "home", end: true },
@@ -25,11 +25,7 @@ function Footer() {
       <div className="mx-auto max-w-app px-8 py-10 md:px-10 md:py-14 lg:px-12 lg:py-16">
         <div className="text-center md:text-start">
           <Link to="/" className="footer-logo-link text-center md:text-start">
-            <img
-              src={logoDark}
-              className="h-auto w-[210px] md:w-[260px] "
-              alt="Juniors.dev logo. The dot in the logo is an image of a tiny yellow rubber duck."
-            />
+            <Logo size="footer" />
           </Link>
         </div>
         <div className="footer-columns">

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import logoDark from "../../../assets/SVG-logo-darkmode.svg";
+import { Logo } from "../../UI";
 import { useT } from "../../../stores/languageStore";
 import { translations } from "../translations/ui";
 import LanguageToggle from "../LanguageToggle.jsx/LanguageToggle";
@@ -25,11 +25,7 @@ function Header() {
     <header className="bg-primary-800 text-off-white">
       <div className="mx-auto flex max-w-app items-center justify-between px-8 md:px-10 py-6 lg:px-12">
         <Link to="/" className="shrink-0" onClick={closeMenu}>
-          <img
-            src={logoDark}
-            className="h-auto w-40"
-            alt="Juniors.dev logo. The dot in the logo is an image of a tiny yellow rubber duck."
-          />
+          <Logo size="header" className="w-52 sm:w-56 md:w-60 lg:w-64" />
         </Link>
 
         <nav className="hidden lg:block" aria-label="Main navigation">
