@@ -38,6 +38,7 @@ function ApplyForm() {
       phoneCountry: "no",
       phone: "",
       portfolioUrl: "",
+      privacyPolicy: false,
       captchaToken: "",
     },
   });
