@@ -1665,6 +1665,15 @@ label {
     color: var(--color-roadmap-blue);
   }
 }
+
+/* Footer section titles: outside @layer so padding beats sr-only utilities on the element */
+@media (min-width: 768px) {
+  .footer-navigation-title,
+  .footer-social-title {
+    padding-bottom: 1.5rem;
+  }
+}
+
 /* Shared form styling (contact + apply forms) */
 
 .site-form-section {

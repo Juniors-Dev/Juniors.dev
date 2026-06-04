@@ -35,7 +35,7 @@ function Footer() {
           <nav aria-labelledby="footer-navigation-title">
             <h2
               id="footer-navigation-title"
-              className="footer-navigation-title sr-only md:not-sr-only md:pb-6"
+              className="footer-navigation-title sr-only md:not-sr-only"
             >
               {t.footer.navigation}
             </h2>
@@ -70,10 +70,7 @@ function Footer() {
 
           <section aria-labelledby="footer-social-title">
             <div className="socials-container">
-              <h2
-                id="footer-social-title"
-                className="footer-social-title sr-only md:not-sr-only md:pb-6"
-              >
+              <h2 id="footer-social-title" className="footer-social-title sr-only md:not-sr-only">
                 {t.footer.social}
               </h2>
               <ul className="footer-list-socials">
