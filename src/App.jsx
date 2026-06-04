@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
 import ProjectDetails from "./pages/Projects/ProjectDetails";
 import About from "./pages/About/About";
+import Privacy from "./pages/Privacy/Privacy";
 import WorkWithUs from "./pages/WorkWithUs/WorkWithUs";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/work-with-us" element={<WorkWithUs />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Route>
       </Routes>
     </BrowserRouter>
