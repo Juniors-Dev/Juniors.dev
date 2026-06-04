@@ -1552,7 +1552,7 @@ label {
 
   /* One shared hit target: invisible native select over flag + dial + chevron */
   .phone-field__country-select {
-    @apply absolute inset-0 z-[1] m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
+    @apply absolute inset-0 z-1 m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
     font-size: var(--text-input);
     line-height: 1.2;
   }
