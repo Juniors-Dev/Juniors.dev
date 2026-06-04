@@ -14,22 +14,6 @@ const isHttpUrl = (value) => {
     return false;
   }
 };
-const hostAllowed = (value, hosts) => {
-  try {
-    const hostname = new URL(value).hostname.toLowerCase();
-    return hosts.some((h) => hostname === h || hostname.endsWith(`.${h}`));
-  } catch {
-    return false;
-  }
-};
-const requiredUrl = (label, hosts = null) =>
-  z
-    .string()
-    .trim()
-    .min(1, `${label} is required.`)
-    .transform(normalizeUrl)
-    .refine(isHttpUrl, "Please enter a valid URL.")
-    .refine((v) => (hosts ? hostAllowed(v, hosts) : true), `Please enter a valid ${label}.`);
 const optionalUrl = z
   .string()
   .trim()
@@ -57,10 +41,7 @@ export const applySchema = z.object({
       const digitsOnly = normalized.replace(/\+/g, "");
       return /^\+?\d{6,15}$/.test(normalized) && digitsOnly.length >= 6;
     }, "Please enter a valid phone number."),
-  linkedinUrl: requiredUrl("LinkedIn link", ["linkedin.com"]),
-  githubUrl: requiredUrl("GitHub link", ["github.com"]),
   portfolioUrl: optionalUrl,
-  otherUrl: optionalUrl,
-  message: z.string().trim().min(1, "Message is required."),
   captchaToken: z.string().min(1),
+  privacyPolicy: z.boolean().refine((val) => val === true, "You must agree to the Privacy Policy."),
 });

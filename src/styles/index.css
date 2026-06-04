@@ -1489,7 +1489,7 @@ label {
     line-height: 1.2;
     font-weight: 400;
     color: var(--color-primary-900);
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
 
   textarea.input-field__input {
@@ -1543,6 +1543,7 @@ label {
 
   .phone-field__flag {
     @apply shrink-0;
+    margin: 0.5rem;
   }
 
   .phone-field__chevron {
@@ -1647,16 +1648,69 @@ label {
   @apply mt-2;
 }
 
-.site-form__grid {
-  @apply grid grid-cols-1 gap-x-8 gap-y-6;
+.site-form__privacy-section {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  text-wrap: pretty;
+}
+
+.site-form__privacy-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.site-form__privacy-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-primary-800);
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.site-form__privacy-checkbox input[type="checkbox"]:checked {
+  background-color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+}
+
+.site-form__privacy-checkbox input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .site-form__actions {
-  @apply mt-8 flex justify-center md:justify-end md:ms-auto;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: flex-start;
 }
 
-.site-form__actions button {
-  @apply md:mb-6 md:mt-auto;
+@media (min-width: 768px) {
+  .site-form__actions {
+    align-items: center;
+  }
+}
+
+.site-form__grid {
+  @apply grid grid-cols-1 gap-x-8 gap-y-6;
 }
 
 .site-form__error {
@@ -1682,27 +1736,5 @@ label {
 @media (min-width: 768px) {
   .site-form__grid {
     @apply grid-cols-2;
-  }
-}
-.site-form__message {
-  @apply col-span-1;
-}
-
-.site-form__message .input-field {
-  @apply w-full;
-}
-
-.site-form__message-footer {
-  @apply mt-4 flex flex-col items-start gap-4;
-}
-
-.site-form__captcha {
-  width: 303px;
-  max-width: 100%;
-}
-
-@media (min-width: 768px) {
-  .site-form__message {
-    @apply col-span-2;
   }
 }
