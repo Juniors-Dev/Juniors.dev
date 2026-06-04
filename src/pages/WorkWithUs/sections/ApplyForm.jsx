@@ -178,7 +178,13 @@ function ApplyForm() {
 
             <div className="site-form__privacy-section">
               <label className="site-form__privacy-checkbox">
-                <input type="checkbox" {...register("privacyPolicy")} />
+                <input
+                  id="privacyPolicy"
+                  type="checkbox"
+                  aria-invalid={errors.privacyPolicy ? "true" : undefined}
+                  aria-describedby={errors.privacyPolicy ? "privacyPolicy-error" : undefined}
+                  {...register("privacyPolicy")}
+                />
                 <span>
                   {t.privacyAgreement}{" "}
                   <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
@@ -188,7 +194,9 @@ function ApplyForm() {
                 </span>
               </label>
               {errors.privacyPolicy ? (
-                <p className="input-field__error">{t.privacyErrorMessage}</p>
+                <p id="privacyPolicy-error" className="input-field__error">
+                  {t.privacyErrorMessage}
+                </p>
               ) : null}
             </div>
             <HCaptcha
