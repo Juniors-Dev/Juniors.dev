@@ -1,6 +1,6 @@
 import logoSrc from "@/assets/logo.svg";
 
-const LOGO_ALT = "Juniors.dev";
+const LOGO_ALT = "Juniors.dev Logo";
 
 const SIZE_CLASS = {
   header: "h-auto w-52 sm:w-56 md:w-60 lg:w-64",
