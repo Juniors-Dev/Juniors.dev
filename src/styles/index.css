@@ -805,6 +805,18 @@ label {
     @apply inline-block mb-10 md:mb-12;
   }
 
+  @media (min-width: 768px) {
+    .footer-logo-link {
+      margin-left: -0.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-logo-link {
+      margin-left: -1rem;
+    }
+  }
+
   .footer-columns {
     @apply flex flex-col items-center;
   }
