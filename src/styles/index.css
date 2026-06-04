@@ -1682,6 +1682,11 @@ label {
     background-color 0.2s,
     border-color 0.2s;
 }
+
+.site-form__privacy-checkbox input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
 .site-form__privacy-checkbox input[type="checkbox"]:checked {
   background-color: var(--color-primary-800);
   border-color: var(--color-primary-800);
