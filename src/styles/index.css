@@ -806,12 +806,12 @@ label {
   }
 
   .footer-columns {
-    @apply flex flex-col items-center gap-10;
+    @apply flex flex-col items-center;
   }
   .footer-contact,
   .footer-list,
   .footer-list-socials {
-    @apply flex flex-col items-center gap-5 mb-5;
+    @apply flex flex-col items-center gap-5 pt-1 mb-5;
   }
 
   .footer-list-socials {
@@ -833,11 +833,14 @@ label {
     @apply mb-5;
   }
 
+  .footer-contact-title {
+    @apply pt-5 px-2 md:pt-0 md:px-0;
+  }
+
   .footer-contact-email {
     font-family: var(--font-body);
     font-size: var(--text-label);
     line-height: var(--leading-body);
-    font-weight: 400;
   }
 
   .footer-link {
@@ -845,7 +848,7 @@ label {
     font-family: var(--font-body);
     font-size: var(--text-label);
     line-height: 1.2;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.0625rem;
   }
 
@@ -859,12 +862,12 @@ label {
   }
 
   .footer-link--active {
-    @apply text-secondary-300;
+    @apply text-secondary-400;
     font-weight: 500;
   }
 
   .footer-copyright {
-    @apply mt-12 text-center text-off-white/85;
+    @apply mt-0 text-center text-off-white/85;
     font-family: var(--font-body);
     font-size: 1.125rem;
     line-height: 1.2;
@@ -875,12 +878,26 @@ label {
     color: var(--color-accent-lime);
   }
 
+  .footer-bottom {
+    @apply relative mt-12 flex flex-col items-center gap-4;
+    min-height: 1.25rem;
+  }
+
+  .footer-privacy {
+    @apply text-off-white/85 md:inline-block;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.2;
+    font-weight: 200;
+  }
+
   @media (min-width: 768px) {
     .footer-contact,
     .footer-list,
     .footer-list-socials {
       @apply mb-0;
     }
+
     .footer-list-socials,
     .footer-list {
       @apply items-start;
@@ -908,8 +925,27 @@ label {
       @apply items-center text-center;
     }
 
-    .footer-columns > :last-child .footer-list {
+    .footer-columns > :last-child .footer-list-socials {
       @apply items-end text-right;
+    }
+    .footer-bottom {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10rem;
+      row-gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-copyright {
+      margin: 0;
+      text-align: center;
+    }
+
+    .footer-privacy {
+      margin: 0;
     }
   }
   /* Buttons */
@@ -1629,6 +1665,15 @@ label {
     color: var(--color-roadmap-blue);
   }
 }
+
+/* Footer section titles: outside @layer so padding beats sr-only utilities on the element */
+@media (min-width: 768px) {
+  .footer-navigation-title,
+  .footer-social-title {
+    padding-bottom: 1.5rem;
+  }
+}
+
 /* Shared form styling (contact + apply forms) */
 
 .site-form-section {
