@@ -8,46 +8,46 @@
   --font-card-body: "Noto Sans", sans-serif;
 
   /* Mobile (base) */
-  --text-h1: 2.5rem; /* 40px */
-  --text-h1-weight: 800; /* extrabold */
+  --text-h1: 2.25rem; /* 36px */
+  --text-h1-weight: 800;
 
-  --text-h2: 1.5rem; /* 24px */
-  --text-h2-weight: 500; /* medium */
+  --text-h2: 1.375rem; /* 22px */
+  --text-h2-weight: 500;
 
-  --text-h3: 0.875rem; /* 28px */
-  --text-h3-weight: 500; /* medium */
+  --text-h3: 1.25rem; /* 20px */
+  --text-h3-weight: 500;
 
-  --text-subheading-1: 1.5rem; /* 24px */
-  --text-subheading-1-weight: 500; /* medium */
+  --text-subheading-1: 1.125rem; /* 18px */
+  --text-subheading-1-weight: 500;
 
-  --text-subheading-2: 1.25rem; /* 20px */
+  --text-subheading-2: 1rem; /* 16px */
   --text-subheading-2-weight: 300;
 
-  --text-paragraph: 1.125rem; /* 18px */
-  --text-paragraph-weight: 400; /* regular */
+  --text-paragraph: 0.875rem; /* 14px */
+  --text-paragraph-weight: 400;
 
-  --text-label: 1.125rem; /* 18px */
-  --text-label-weight: 500; /* medium */
+  --text-label: 0.875rem; /* 14px */
+  --text-label-weight: 500;
 
-  --text-button: 0.75rem; /* 18px */
-  --text-input: 0.75rem; /* 12px */
+  --text-button: 0.875rem;
+  --text-input: 0.875rem;
 
-  --leading-heading: 1.2;
-  --leading-body: 1.2;
+  --leading-heading: 1.44;
+  --leading-body: 1.44;
 }
 
 @media (min-width: 768px) {
   :root {
     /* Tablet */
-    --text-h1: 3.5rem; /* 56px */
-    --text-h2: 2.5rem; /* 40px */
-    --text-h3: 1.25rem; /* 32px */
-    --text-subheading-1: 1.625rem; /* 26px */
+    --text-h1: 2.5rem; /* 40px */
+    --text-h2: 1.75rem; /* 28px */
+    --text-h3: 1.625rem; /* 26px */
+    --text-subheading-1: 1.5rem; /* 24px */
     --text-subheading-2: 1.375rem; /* 22px */
-    --text-paragraph: 1.25rem; /* 20px */
-    --text-label: 1.25rem; /* 20px */
-    --text-button: 0.875rem;
-    --text-input: 1rem; /* 16px */
+    --text-paragraph: 1rem; /* 16px */
+    --text-label: 1rem; /* 16px */
+    --text-button: 1rem;
+    --text-input: 1rem;
   }
 }
 
@@ -55,14 +55,14 @@
   :root {
     /* Desktop */
     --text-h1: 4.5rem; /* 72px */
-    --text-h2: 2.875rem; /* 46px */
+    --text-h2: 2.75rem; /* 44px */
     --text-h3: 2.25rem; /* 36px */
     --text-subheading-1: 1.875rem; /* 30px */
     --text-subheading-2: 1.625rem; /* 26px */
     --text-paragraph: 1.375rem; /* 22px */
     --text-label: 1.375rem; /* 22px */
     --text-button: 1.125rem;
-    --text-input: 1.125rem; /* 18px */
+    --text-input: 1.125rem;
   }
 }
 
