@@ -1496,7 +1496,10 @@ label {
     resize: vertical;
     min-height: 8rem;
   }
-
+  .input-field__control--textarea .input-field__icon {
+    bottom: auto;
+    top: 0.5rem;
+  }
   .input-field__error {
     font-family: var(--font-body);
     font-size: 0.875rem;

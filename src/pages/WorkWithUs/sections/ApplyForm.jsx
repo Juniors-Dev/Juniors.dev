@@ -16,6 +16,28 @@ if (!ACCESS_KEY) {
   console.error("VITE_WEB3FORMS_ACCESS_KEY is not set.");
 }
 
+function isValidUrlList(value) {
+  if (!value) return false;
+  return value
+    .split(/[\n,]+/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .every((url) => {
+      try {
+        const normalized = url.startsWith("http") ? url : `https://${url}`;
+        const u = new URL(normalized);
+        return (
+          (u.protocol === "http:" || u.protocol === "https:") &&
+          Boolean(u.hostname) &&
+          u.hostname.includes(".") &&
+          u.hostname.split(".").pop().length >= 2
+        );
+      } catch {
+        return false;
+      }
+    });
+}
+
 function ApplyForm() {
   const captchaRef = useRef(null);
   const t = useT(applyForm);
@@ -46,6 +68,9 @@ function ApplyForm() {
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const portfolioValue = watch("portfolioUrl");
+  const isPortfolioValid = isValidUrlList(portfolioValue);
+
   function handleCaptchaVerify(token) {
     setValue("captchaToken", token, { shouldValidate: true });
   }
@@ -58,7 +83,11 @@ function ApplyForm() {
     setSubmitStatus("idle");
     setErrorMessage("");
 
-    const { captchaToken, ...fields } = data;
+    const { captchaToken, portfolioUrl, ...rest } = data;
+    const fields = {
+      ...rest,
+      portfolioUrl: portfolioUrl.join("\n"),
+    };
 
     try {
       const response = await fetch(WEB3FORMS_URL, {
@@ -166,16 +195,32 @@ function ApplyForm() {
               required
             />
 
-            <InputField
-              label={t.portfolioUrl}
-              name="portfolioUrl"
-              type="url"
-              placeholder={t.urlPlaceholder}
-              autoComplete="url"
-              error={errors.portfolioUrl?.message}
-              success={!errors.portfolioUrl && (touchedFields.portfolioUrl || isSubmitted)}
-              {...register("portfolioUrl")}
-            />
+            <div className="col-span-full flex flex-col gap-1 ">
+              <label htmlFor="portfolioUrl" className="input-field__label">
+                {t.portfolioUrl}
+              </label>
+              <div className="input-field__control input-field__control--textarea">
+                <textarea
+                  className="input-field__input"
+                  id="portfolioUrl"
+                  rows={3}
+                  placeholder={t.urlPlaceholder}
+                  aria-invalid={errors.portfolioUrl ? "true" : undefined}
+                  aria-describedby={errors.portfolioUrl ? "portfolioUrl-error" : undefined}
+                  {...register("portfolioUrl")}
+                />
+                {touchedFields.portfolioUrl && isPortfolioValid ? (
+                  <span className="input-field__icon" aria-hidden="true">
+                    ✓
+                  </span>
+                ) : null}
+              </div>
+              {errors.portfolioUrl?.message ? (
+                <p id="portfolioUrl-error" className="input-field__error">
+                  {errors.portfolioUrl.message}
+                </p>
+              ) : null}
+            </div>
 
             <div className="site-form__privacy-section">
               <label className="site-form__privacy-checkbox">
