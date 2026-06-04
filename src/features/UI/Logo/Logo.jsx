@@ -11,8 +11,8 @@ const SIZE_CLASS = {
  * Brand logo — fixed colors; same in light and dark mode.
  *
  * @param {object} props
- * @param {"header"|"footer"} [props.size="header"]
- * @param {string} [props.className=""]
+ * @param {"header"|"footer"} [props.size="header"] - Responsive width preset (header vs footer)
+ * @param {string} [props.className=""] - Extra classes on the <img>
  * @returns {JSX.Element}
  */
 function Logo({ size = "header", className = "" }) {
