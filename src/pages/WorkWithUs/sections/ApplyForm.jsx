@@ -199,13 +199,18 @@ function ApplyForm() {
                 </p>
               ) : null}
             </div>
-            <HCaptcha
-              sitekey={HCAPTCHA_SITEKEY}
-              reCaptchaCompat={false}
-              onVerify={handleCaptchaVerify}
-              onExpire={handleCaptchaExpire}
-              ref={captchaRef}
-            />
+            <div className="col-span-full">
+              <HCaptcha
+                sitekey={HCAPTCHA_SITEKEY}
+                reCaptchaCompat={false}
+                onVerify={handleCaptchaVerify}
+                onExpire={handleCaptchaExpire}
+                ref={captchaRef}
+              />
+              {errors.captchaToken?.message ? (
+                <p className="input-field__error mt-2">{errors.captchaToken.message}</p>
+              ) : null}
+            </div>
           </div>
           <FormSubmitButton className="mt-6" isLoading={isSubmitting} loadingLabel={t.submitting}>
             {t.submit}
