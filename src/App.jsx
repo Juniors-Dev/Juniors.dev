@@ -5,6 +5,7 @@ import Projects from "./pages/Projects/Projects";
 import ProjectDetails from "./pages/Projects/ProjectDetails";
 import About from "./pages/About/About";
 import WorkWithUs from "./pages/WorkWithUs/WorkWithUs";
+import PrivacyPolicy from "./pages/Privacy/Privacy";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/work-with-us" element={<WorkWithUs />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </BrowserRouter>
