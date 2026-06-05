@@ -7,7 +7,7 @@ function PrivacyPolicy() {
   const language = useLanguageStore((state) => state.language);
 
   return (
-    <div lassName="bg-primary-50 text-primary-900 dark:bg-roadmap-blue dark:text-primary-50">
+    <div className="bg-primary-50 text-primary-900 dark:bg-roadmap-blue dark:text-primary-50">
       <section className="bg-primary-900 text-white ">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-secondary-500">
@@ -24,24 +24,52 @@ function PrivacyPolicy() {
       </section>
 
       <Section className="bg-primary-50 dark:bg-roadmap-blue">
-        <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,760px)] lg:gap-20">
           <aside className="hidden lg:block">
             <nav className="sticky top-24 rounded-2xl border border-primary-200 bg-white p-6 shadow-sm dark:border-primary-700 dark:bg-primary-800">
-              <p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-primary-600 dark:text-secondary-300">
+              <p className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-primary-600 dark:text-secondary-300">
                 {t.contents}
               </p>
 
-              <ul className="space-y-3 text-sm">
-                {privacySections.map((section) => {
+              <ul className="space-y-1">
+                {privacySections.map((section, index) => {
                   const content = section[language];
 
                   return (
                     <li key={section.id}>
                       <a
                         href={`#${section.id}`}
-                        className="text-primary-800 hover:text-primary-500 dark:text-primary-50 dark:hover:text-secondary-300"
+                        className="
+                group flex items-center gap-3 rounded-lg
+                border-l-2 border-transparent
+                px-3 py-2 transition-all duration-200
+
+                hover:border-secondary-500
+                hover:bg-primary-100
+                dark:hover:bg-primary-700
+              "
                       >
-                        {content.navTitle}
+                        <span
+                          className="
+                  text-xs font-semibold
+                  text-secondary-600
+                  dark:text-secondary-300
+                "
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <span
+                          className="
+                  text-sm text-primary-800
+                  transition-colors
+                  group-hover:text-primary-500
+                  dark:text-primary-50
+                  dark:group-hover:text-secondary-300
+                "
+                        >
+                          {content.navTitle}
+                        </span>
                       </a>
                     </li>
                   );
@@ -60,7 +88,7 @@ function PrivacyPolicy() {
                     {index + 1}. {content.title}
                   </h2>
 
-                  <div className="mt-6 space-y-4 leading-7 text-primary-800 dark:text-primary-50">
+                  <div className="px-4 mt-6 space-y-4 leading-7 text-primary-800 dark:text-primary-50">
                     {content.body.map((block, blockIndex) => {
                       if (block.type === "paragraph") {
                         return <p key={blockIndex}>{block.text}</p>;
