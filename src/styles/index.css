@@ -310,16 +310,6 @@ body {
   color: var(--color-primary-50);
 }
 
-@media (min-width: 768px) {
-  .dark .services-section__container::after {
-    background: linear-gradient(to right, transparent, var(--color-roadmap-blue));
-  }
-
-  .dark .services-section__container::before {
-    background: linear-gradient(to left, transparent, var(--color-roadmap-blue));
-  }
-}
-
 .dark .mission-section {
   background-color: var(--color-roadmap-blue);
   color: var(--color-primary-50);
