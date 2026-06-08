@@ -10,8 +10,8 @@ function OurServices() {
     <Section className="bg-primary-100 relative">
       <h2 className="text-primary-800">{t.heading}</h2>
 
-      <div className="relative services-section__container">
-        <div className="services-rail relative">
+      <div className="services-section__container">
+        <div className="services-rail">
           {serviceCards.map((card) => {
             const content = card[language];
 
