@@ -191,6 +191,11 @@ body {
   color: var(--color-primary-50);
 }
 
+.dark .contact-section-bg {
+  background-color: var(--color-roadmap-blue);
+  color: var(--color-primary-50);
+}
+
 .dark .text-primary-800,
 .dark .text-primary-900,
 .dark .text-grey-700 {
@@ -308,6 +313,11 @@ body {
 .dark .service-card__icon-wrap {
   background-color: var(--color-primary-700);
   color: var(--color-primary-50);
+}
+.dark .service-card__tags .bg-secondary-200 {
+  color: var(
+    --color-primary-900
+  ); /*(design says to use --color-roadmap-blue: #012238; here in both light and dark mode tho?) */
 }
 
 @media (min-width: 768px) {
@@ -1044,7 +1054,6 @@ label {
     @apply inline-flex items-center justify-center rounded-full;
     font-family: var(--font-body);
     font-size: 0.75rem;
-    line-height: auto;
     font-weight: 400;
     padding: 0.1875rem 0.5rem;
   }
@@ -1230,7 +1239,7 @@ label {
   }
 
   .service-card {
-    @apply block max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
+    @apply flex flex-col max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
   }
 
   .service-card:hover {
@@ -1243,7 +1252,7 @@ label {
   }
 
   .service-card__panel {
-    @apply m-1 rounded-[0.1875rem] p-3.5 pt-4;
+    @apply flex-1 flex flex-col m-1 rounded-[0.1875rem] p-3.5 pt-4;
     min-height: 9rem;
   }
 
@@ -1260,7 +1269,7 @@ label {
   }
 
   .service-card__tags {
-    @apply mt-4 flex flex-wrap gap-2;
+    @apply mt-auto flex flex-wrap gap-2;
   }
 
   .service-card__footer {
@@ -1288,30 +1297,9 @@ label {
 
   @media (min-width: 768px) {
     .services-rail {
-      display: flex;
-      justify-content: start;
-      flex-wrap: nowrap;
       gap: 1rem;
-      overflow-x: auto;
       padding-top: 1.5rem;
       padding-bottom: 0.5rem;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .services-rail::-webkit-scrollbar {
-      display: none;
-    }
-
-    .services-rail > * {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-    }
-
-    .service-card {
-      width: 19rem;
-      scroll-snap-align: start;
     }
 
     .service-card__panel {
@@ -1337,37 +1325,18 @@ label {
       width: 1.25rem;
       height: 1.25rem;
     }
-
-    .services-section__container::after {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      right: 0;
-      bottom: 0.5rem;
-      width: 3rem;
-      pointer-events: none;
-      background: linear-gradient(to right, transparent, var(--color-primary-100));
-    }
-    .services-section__container::before {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      bottom: 0.5rem;
-      width: 3rem;
-      pointer-events: none;
-      background: linear-gradient(to left, transparent, var(--color-primary-100));
-    }
   }
 
   @media (min-width: 1024px) {
-    .service-card {
-      width: 22rem;
-    }
-
     .service-card__details {
       @apply mb-16;
       font-size: 1.875rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .services-rail {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
