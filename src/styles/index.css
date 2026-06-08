@@ -301,33 +301,12 @@ body {
   color: var(--color-primary-50);
 }
 
-.dark .service-card {
-  background-color: var(--color-primary-800);
-  border-color: var(--color-primary-700);
+.dark .service-card .text-primary-900 {
+  color: var(--color-primary-900);
 }
 
-.dark .service-card__action {
-  color: var(--color-primary-50);
-}
-
-.dark .service-card__icon-wrap {
-  background-color: var(--color-primary-700);
-  color: var(--color-primary-50);
-}
-.dark .service-card__tags .bg-secondary-200 {
-  color: var(
-    --color-primary-900
-  ); /*(design says to use --color-roadmap-blue: #012238; here in both light and dark mode tho?) */
-}
-
-@media (min-width: 768px) {
-  .dark .services-section__container::after {
-    background: linear-gradient(to right, transparent, var(--color-roadmap-blue));
-  }
-
-  .dark .services-section__container::before {
-    background: linear-gradient(to left, transparent, var(--color-roadmap-blue));
-  }
+.dark .service-card__tags .bg-primary-100 {
+  background-color: var(--color-primary-100);
 }
 
 .dark .mission-section {
@@ -1568,7 +1547,7 @@ label {
 
   /* One shared hit target: invisible native select over flag + dial + chevron */
   .phone-field__country-select {
-    @apply absolute inset-0 z-[1] m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
+    @apply absolute inset-0 z-1 m-0 h-full min-h-10 w-full cursor-pointer appearance-none border-0 bg-transparent p-0 opacity-0;
     font-size: var(--text-input);
     line-height: 1.2;
   }
