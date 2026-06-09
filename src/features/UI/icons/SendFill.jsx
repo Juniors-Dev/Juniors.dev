@@ -1,9 +1,6 @@
 /**
  * Filled paper-plane "send" icon
- * Uses `fill="currentColor"` so it inherits the surrounding text color,
- *
- * @param {object} props - Forwarded to the root <svg> (e.g. className, aria-*).
- * @returns {JSX.Element}
+ * Uses `fill="currentColor"` so it inherits the surrounding text color
  */
 function SendFill(props) {
   return (
