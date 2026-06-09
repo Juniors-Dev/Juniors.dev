@@ -1587,6 +1587,20 @@ label {
     color: currentColor;
   }
 
+  @media (min-width: 768px) {
+    .btn__icon-submit {
+      width: 1.625rem;
+      height: 1.625rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn__icon-submit {
+      width: 1.875rem;
+      height: 1.875rem;
+    }
+  }
+
   /* Roadmap */
   .roadmap-item {
     @apply grid grid-cols-[60px_64px_1fr] items-start gap-x-10 px-2 md:grid-cols-[120px_64px_1fr] md:gap-x-20;
