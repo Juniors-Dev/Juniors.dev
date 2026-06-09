@@ -585,7 +585,6 @@ body {
 
 .work-with-us-form-section {
   background-color: var(--color-primary-50);
-  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__label {
@@ -1580,16 +1579,8 @@ label {
   }
 
   /* Roadmap */
-  .roadmap-section {
-    color: var(--color-roadmap-blue);
-  }
-
   .roadmap-item {
     @apply grid grid-cols-[60px_64px_1fr] items-start gap-x-10 px-2 md:grid-cols-[120px_64px_1fr] md:gap-x-20;
-  }
-
-  .roadmap-item__year {
-    color: var(--color-roadmap-blue);
   }
 
   .roadmap-item__track {
@@ -1617,12 +1608,10 @@ label {
 
   .roadmap-item__title {
     @apply cursor-pointer list-none marker:content-[''];
-    color: var(--color-roadmap-blue);
   }
 
   .roadmap-item__body {
     @apply my-4 max-w-2xl pb-20;
-    color: var(--color-roadmap-blue);
   }
 }
 
