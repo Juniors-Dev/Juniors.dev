@@ -9,21 +9,21 @@ const featuredProjects = [
     title: "Productivity Graveyard",
     subtitle: "Community project",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: "https://placehold.co/600x450?text=Project",
   },
   {
     id: "junobot",
     title: "Junobot",
     subtitle: "Internal tool",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: "https://placehold.co/600x450?text=Project",
   },
   {
     id: "jonny-bayer",
     title: "Jonny Bayer",
     subtitle: "Client Site",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: "https://placehold.co/600x450?text=Project",
   },
 ];
 
