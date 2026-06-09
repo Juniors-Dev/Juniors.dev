@@ -301,8 +301,8 @@ body {
   color: var(--color-primary-50);
 }
 
-.dark .service-card .text-primary-900 {
-  color: var(--color-primary-900);
+.dark .service-card .text-roadmap-blue {
+  color: var(--color-roadmap-blue);
 }
 
 .dark .service-card__tags .bg-primary-100 {
@@ -1260,11 +1260,11 @@ label {
     font-size: 1.25rem;
     line-height: 1.2;
     font-weight: 500;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
   }
 
   .service-card__icon-wrap {
-    @apply inline-flex items-center justify-center rounded-full bg-primary-100 text-primary-900;
+    @apply inline-flex items-center justify-center rounded-full bg-primary-100 text-roadmap-blue;
     width: 2rem;
     height: 2rem;
   }
