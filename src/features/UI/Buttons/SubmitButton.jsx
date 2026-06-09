@@ -1,7 +1,7 @@
 import SendFill from "../icons/SendFill";
 
 /**
- * Submit button with optional Send icon.
+ * Submit button with optional send icon.
  *
  * Forwards all additional props (e.g. disabled, type) to the
  * underlying <button> element.
@@ -12,7 +12,7 @@ function SubmitButton({ children, variant = "primary", icon = false, className =
   const content = (
     <>
       {icon && (
-        <span className="" aria-hidden="true">
+        <span aria-hidden="true">
           <SendFill className="btn__icon-submit" />
         </span>
       )}
