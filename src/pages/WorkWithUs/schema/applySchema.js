@@ -1,40 +1,48 @@
 import { z } from "zod";
 
 const NAME_REGEX = /^[\p{L}\p{M}]+(?:[ '-][\p{L}\p{M}]+)*$/u;
+
 const normalizeUrl = (value) => {
   const v = String(value ?? "").trim();
   if (!v) return "";
   return /^https?:\/\//i.test(v) ? v : `https://${v}`;
 };
+
 const isHttpUrl = (value) => {
   try {
     const url = new URL(value);
-    return (url.protocol === "http:" || url.protocol === "https:") && Boolean(url.hostname);
+    return (
+      url.protocol === "http:" ||
+      (url.protocol === "https:" &&
+        Boolean(url.hostname) &&
+        url.hostname.includes(".") &&
+        url.hostname.split(".").pop().length >= 2)
+    );
   } catch {
     return false;
   }
 };
-const hostAllowed = (value, hosts) => {
-  try {
-    const hostname = new URL(value).hostname.toLowerCase();
-    return hosts.some((h) => hostname === h || hostname.endsWith(`.${h}`));
-  } catch {
-    return false;
-  }
-};
-const requiredUrl = (label, hosts = null) =>
-  z
-    .string()
-    .trim()
-    .min(1, `${label} is required.`)
-    .transform(normalizeUrl)
-    .refine(isHttpUrl, "Please enter a valid URL.")
-    .refine((v) => (hosts ? hostAllowed(v, hosts) : true), `Please enter a valid ${label}.`);
-const optionalUrl = z
+
+const optionalUrlList = z
   .string()
   .trim()
-  .transform((v) => (v ? normalizeUrl(v) : ""))
-  .refine((v) => v === "" || isHttpUrl(v), "Please enter a valid URL.");
+  .transform((v) => {
+    if (!v) return [];
+    return v
+      .split(/[\n,]+/)
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .map(normalizeUrl);
+  })
+  .pipe(
+    z
+      .array(z.string())
+      .refine(
+        (urls) => urls.every(isHttpUrl),
+        "One or more links are not valid URLs. One link per line or separate them by using comma."
+      )
+  );
+
 export const applySchema = z.object({
   firstName: z
     .string()
@@ -57,10 +65,7 @@ export const applySchema = z.object({
       const digitsOnly = normalized.replace(/\+/g, "");
       return /^\+?\d{6,15}$/.test(normalized) && digitsOnly.length >= 6;
     }, "Please enter a valid phone number."),
-  linkedinUrl: requiredUrl("LinkedIn link", ["linkedin.com"]),
-  githubUrl: requiredUrl("GitHub link", ["github.com"]),
-  portfolioUrl: optionalUrl,
-  otherUrl: optionalUrl,
-  message: z.string().trim().min(1, "Message is required."),
-  captchaToken: z.string().min(1),
+  portfolioUrl: optionalUrlList,
+  captchaToken: z.string().min(1, "Please complete the captcha"),
+  privacyPolicy: z.boolean().refine((val) => val === true, "You must agree to the Privacy Policy."),
 });

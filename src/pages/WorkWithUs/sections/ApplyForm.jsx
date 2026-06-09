@@ -16,6 +16,28 @@ if (!ACCESS_KEY) {
   console.error("VITE_WEB3FORMS_ACCESS_KEY is not set.");
 }
 
+function isValidUrlList(value) {
+  if (!value) return false;
+  return value
+    .split(/[\n,]+/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .every((url) => {
+      try {
+        const normalized = url.startsWith("http") ? url : `https://${url}`;
+        const u = new URL(normalized);
+        return (
+          (u.protocol === "http:" || u.protocol === "https:") &&
+          Boolean(u.hostname) &&
+          u.hostname.includes(".") &&
+          u.hostname.split(".").pop().length >= 2
+        );
+      } catch {
+        return false;
+      }
+    });
+}
+
 function ApplyForm() {
   const captchaRef = useRef(null);
   const t = useT(applyForm);
@@ -37,17 +59,17 @@ function ApplyForm() {
       email: "",
       phoneCountry: "no",
       phone: "",
-      linkedinUrl: "",
-      githubUrl: "",
       portfolioUrl: "",
-      otherUrl: "",
-      message: "",
+      privacyPolicy: false,
       captchaToken: "",
     },
   });
 
   const [submitStatus, setSubmitStatus] = useState("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const portfolioValue = watch("portfolioUrl");
+  const isPortfolioValid = isValidUrlList(portfolioValue);
 
   function handleCaptchaVerify(token) {
     setValue("captchaToken", token, { shouldValidate: true });
@@ -61,7 +83,11 @@ function ApplyForm() {
     setSubmitStatus("idle");
     setErrorMessage("");
 
-    const { captchaToken, ...fields } = data;
+    const { captchaToken, portfolioUrl, ...rest } = data;
+    const fields = {
+      ...rest,
+      portfolioUrl: portfolioUrl.join("\n"),
+    };
 
     try {
       const response = await fetch(WEB3FORMS_URL, {
@@ -130,6 +156,7 @@ function ApplyForm() {
             <InputField
               label={t.firstName}
               name="firstName"
+              placeholder={t.firstNamePlaceholder}
               required
               error={errors.firstName?.message}
               success={!errors.firstName && (touchedFields.firstName || isSubmitted)}
@@ -139,6 +166,7 @@ function ApplyForm() {
             <InputField
               label={t.lastName}
               name="lastName"
+              placeholder={t.lastNamePlaceholder}
               required
               error={errors.lastName?.message}
               success={!errors.lastName && (touchedFields.lastName || isSubmitted)}
@@ -148,9 +176,9 @@ function ApplyForm() {
             <InputField
               label={t.email}
               name="email"
+              placeholder={t.emailPlaceholder}
               type="email"
               required
-              autoComplete="email"
               error={errors.email?.message}
               success={!errors.email && (touchedFields.email || isSubmitted)}
               {...register("email")}
@@ -163,83 +191,76 @@ function ApplyForm() {
               touchedFields={touchedFields}
               isSubmitted={isSubmitted}
               labels={t.phoneLabels}
+              placeholder={t.phonePlaceholder}
               required
             />
 
-            <InputField
-              label={t.linkedinUrl}
-              name="linkedinUrl"
-              type="url"
-              required
-              placeholder={t.urlPlaceholder}
-              autoComplete="url"
-              error={errors.linkedinUrl?.message}
-              success={!errors.linkedinUrl && (touchedFields.linkedinUrl || isSubmitted)}
-              {...register("linkedinUrl")}
-            />
-            <InputField
-              label={t.portfolioUrl}
-              name="portfolioUrl"
-              type="url"
-              placeholder={t.urlPlaceholder}
-              autoComplete="url"
-              error={errors.portfolioUrl?.message}
-              success={!errors.portfolioUrl && (touchedFields.portfolioUrl || isSubmitted)}
-              {...register("portfolioUrl")}
-            />
-            <InputField
-              label={t.githubUrl}
-              name="githubUrl"
-              type="url"
-              required
-              placeholder={t.urlPlaceholder}
-              autoComplete="url"
-              error={errors.githubUrl?.message}
-              success={!errors.githubUrl && (touchedFields.githubUrl || isSubmitted)}
-              {...register("githubUrl")}
-            />
-
-            <InputField
-              label={t.otherUrl}
-              name="otherUrl"
-              type="url"
-              placeholder={t.urlPlaceholder}
-              autoComplete="url"
-              error={errors.otherUrl?.message}
-              success={!errors.otherUrl && (touchedFields.otherUrl || isSubmitted)}
-              {...register("otherUrl")}
-            />
-
-            <div className="site-form__message">
-              <InputField
-                as="textarea"
-                label={t.message}
-                name="message"
-                required
-                rows={5}
-                error={errors.message?.message}
-                success={!errors.message && (touchedFields.message || isSubmitted)}
-                {...register("message")}
-                inputClassName="resize-none"
-              />
-
-              <div className="site-form__message-footer">
-                <HCaptcha
-                  sitekey={HCAPTCHA_SITEKEY}
-                  reCaptchaCompat={false}
-                  onVerify={handleCaptchaVerify}
-                  onExpire={handleCaptchaExpire}
-                  ref={captchaRef}
+            <div className="col-span-full flex flex-col gap-1 ">
+              <label htmlFor="portfolioUrl" className="input-field__label">
+                {t.portfolioUrl}
+              </label>
+              <div className="input-field__control input-field__control--textarea">
+                <textarea
+                  className="input-field__input"
+                  id="portfolioUrl"
+                  rows={3}
+                  placeholder={t.urlPlaceholder}
+                  aria-invalid={errors.portfolioUrl ? "true" : undefined}
+                  aria-describedby={errors.portfolioUrl ? "portfolioUrl-error" : undefined}
+                  {...register("portfolioUrl")}
                 />
-                {errors.captchaToken ? (
-                  <p className="input-field__error">{t.captchaError}</p>
+                {touchedFields.portfolioUrl && isPortfolioValid ? (
+                  <span className="input-field__icon" aria-hidden="true">
+                    ✓
+                  </span>
                 ) : null}
-                <FormSubmitButton isLoading={isSubmitting} loadingLabel={t.submitting}>
-                  {t.submit}
-                </FormSubmitButton>
               </div>
+              {errors.portfolioUrl?.message ? (
+                <p id="portfolioUrl-error" className="input-field__error">
+                  {errors.portfolioUrl.message}
+                </p>
+              ) : null}
+            </div>
+
+            <div className="site-form__privacy-section">
+              <label className="site-form__privacy-checkbox">
+                <input
+                  id="privacyPolicy"
+                  type="checkbox"
+                  aria-invalid={errors.privacyPolicy ? "true" : undefined}
+                  aria-describedby={errors.privacyPolicy ? "privacyPolicy-error" : undefined}
+                  {...register("privacyPolicy")}
+                />
+                <span>
+                  {t.privacyAgreement}{" "}
+                  <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                    {t.privacyPolicyLink}
+                  </a>
+                  .{t.privacyDisclaimer}
+                </span>
+              </label>
+              {errors.privacyPolicy ? (
+                <p id="privacyPolicy-error" className="input-field__error">
+                  {t.privacyErrorMessage}
+                </p>
+              ) : null}
+            </div>
+            <div className="col-span-full">
+              <HCaptcha
+                sitekey={HCAPTCHA_SITEKEY}
+                reCaptchaCompat={false}
+                onVerify={handleCaptchaVerify}
+                onExpire={handleCaptchaExpire}
+                ref={captchaRef}
+              />
+              {errors.captchaToken?.message ? (
+                <p className="input-field__error mt-2">{errors.captchaToken.message}</p>
+              ) : null}
             </div>
           </div>
+          <FormSubmitButton className="mt-6" isLoading={isSubmitting} loadingLabel={t.submitting}>
+            {t.submit}
+          </FormSubmitButton>
         </form>
       </div>
     </Section>
