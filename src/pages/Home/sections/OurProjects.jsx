@@ -2,6 +2,9 @@ import { Section, NavIconButton } from "../../../features/UI";
 import ProjectCard from "../../../features/ProjectCard/ProjectCard";
 import { projects } from "../translations/projects";
 import { useT } from "../../../stores/languageStore";
+import graveyardImg from "@/assets/projects/productivity-graveyard.webp";
+import junobotImg from "@/assets/projects/junobot.webp";
+import jonnyBayerImg from "@/assets/projects/jonny-bayer.webp";
 
 const featuredProjects = [
   {
@@ -9,21 +12,22 @@ const featuredProjects = [
     title: "Productivity Graveyard",
     subtitle: "Community project",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: graveyardImg,
   },
   {
     id: "junobot",
     title: "Junobot",
     subtitle: "Internal tool",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: junobotImg,
+    imagePosition: "center",
   },
   {
     id: "jonny-bayer",
     title: "Jonny Bayer",
     subtitle: "Client Site",
     tags: ["UX/UI", "Software development", "Framework"],
-    imageSrc: "https://placehold.co/800x400?text=Project",
+    imageSrc: jonnyBayerImg,
   },
 ];
 
