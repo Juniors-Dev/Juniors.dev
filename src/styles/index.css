@@ -1625,10 +1625,24 @@ label {
   }
 
   .btn__icon-submit {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.25rem;
+    height: 1.25rem;
     flex-shrink: 0;
     color: currentColor;
+  }
+
+  @media (min-width: 768px) {
+    .btn__icon-submit {
+      width: 1.625rem;
+      height: 1.625rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn__icon-submit {
+      width: 1.875rem;
+      height: 1.875rem;
+    }
   }
 
   /* Roadmap */
