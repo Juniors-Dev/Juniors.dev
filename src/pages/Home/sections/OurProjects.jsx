@@ -2,9 +2,9 @@ import { Section, NavIconButton } from "../../../features/UI";
 import ProjectCard from "../../../features/ProjectCard/ProjectCard";
 import { projects } from "../translations/projects";
 import { useT } from "../../../stores/languageStore";
-import graveyardImg from "@/assets/projects/productivity-graveyard.png";
-import junobotImg from "@/assets/projects/junobot.png";
-import jonnyBayerImg from "@/assets/projects/jonny-bayer.png";
+import graveyardImg from "@/assets/projects/productivity-graveyard.jpg";
+import junobotImg from "@/assets/projects/junobot.jpg";
+import jonnyBayerImg from "@/assets/projects/jonny-bayer.jpg";
 
 const featuredProjects = [
   {
