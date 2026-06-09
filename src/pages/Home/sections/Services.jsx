@@ -8,7 +8,7 @@ function OurServices() {
   const language = useLanguageStore((state) => state.language);
   return (
     <Section className="bg-primary-100 relative">
-      <h2 className="text-primary-800">{t.heading}</h2>
+      <h2>{t.heading}</h2>
 
       <div className="services-section__container">
         <div className="services-rail">

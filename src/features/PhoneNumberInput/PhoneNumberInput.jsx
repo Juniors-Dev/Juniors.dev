@@ -122,7 +122,7 @@ function PhoneNumberInput({
             ))}
           </select>
           <span
-            className="phone-field__country-display pointer-events-none flex items-center gap-1 text-primary-900"
+            className="phone-field__country-display pointer-events-none flex items-center gap-1"
             aria-hidden
           >
             <img

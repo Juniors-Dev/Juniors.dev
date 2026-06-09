@@ -168,7 +168,7 @@
 }
 
 body {
-  @apply bg-off-white text-primary-900;
+  @apply bg-off-white text-roadmap-blue;
 }
 
 .dark {
@@ -585,15 +585,15 @@ body {
 
 .work-with-us-form-section {
   background-color: var(--color-primary-50);
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__label {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__input {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section input:-webkit-autofill,
@@ -602,7 +602,7 @@ body {
 .work-with-us-form-section textarea:-webkit-autofill,
 .work-with-us-form-section textarea:-webkit-autofill:hover,
 .work-with-us-form-section textarea:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--color-primary-900);
+  -webkit-text-fill-color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__control {
@@ -616,7 +616,7 @@ body {
 }
 
 .work-with-us-form-section .phone-field__country-display {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .phone-field__control:focus-within {
@@ -1414,7 +1414,7 @@ label {
     font-size: 0.875rem;
     line-height: 1.2;
     font-weight: 500;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
   }
 
   .input-field__label--error {
@@ -1437,7 +1437,7 @@ label {
   textarea:-webkit-autofill,
   textarea:-webkit-autofill:hover,
   textarea:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--color-primary-900);
+    -webkit-text-fill-color: var(--color-roadmap-blue);
     -webkit-box-shadow: 0 0 0 1000px transparent inset;
     box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 9999s ease-in-out 0s;
@@ -1484,7 +1484,7 @@ label {
     font-size: var(--text-input);
     line-height: 1.2;
     font-weight: 400;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
     padding: 0.75rem;
   }
 
