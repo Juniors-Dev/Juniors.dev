@@ -2,9 +2,9 @@ import { Section, NavIconButton } from "../../../features/UI";
 import ProjectCard from "../../../features/ProjectCard/ProjectCard";
 import { projects } from "../translations/projects";
 import { useT } from "../../../stores/languageStore";
-import graveyardImg from "@/assets/projects/productivity-graveyard.jpg";
-import junobotImg from "@/assets/projects/junobot.jpg";
-import jonnyBayerImg from "@/assets/projects/jonny-bayer.jpg";
+import graveyardImg from "@/assets/projects/productivity-graveyard.webp";
+import junobotImg from "@/assets/projects/junobot.webp";
+import jonnyBayerImg from "@/assets/projects/jonny-bayer.webp";
 
 const featuredProjects = [
   {
@@ -20,6 +20,7 @@ const featuredProjects = [
     subtitle: "Internal tool",
     tags: ["UX/UI", "Software development", "Framework"],
     imageSrc: junobotImg,
+    imagePosition: "center",
   },
   {
     id: "jonny-bayer",

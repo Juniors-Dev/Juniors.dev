@@ -10,17 +10,28 @@ import { Tag } from "../UI";
  * @param {string} props.subtitle
  * @param {string[]} props.tags
  * @param {string} props.imageSrc
+ * @param {string} [props.imagePosition] - CSS object-position override for the preview crop (defaults to the stylesheet's top anchor).
  * @param {string} [props.className=""]
  * @param {string} [props.tagClassName=""]
  * @returns {JSX.Element}
  */
-function ProjectCard({ id, title, subtitle, tags, imageSrc, className = "", tagClassName = "" }) {
+function ProjectCard({
+  id,
+  title,
+  subtitle,
+  tags,
+  imageSrc,
+  imagePosition,
+  className = "",
+  tagClassName = "",
+}) {
   return (
     <Link to={`/projects/${id}`} className={`project-card ${className}`}>
       <img
         src={imageSrc}
         alt={`${title} project preview`}
         className="project-card__image"
+        style={imagePosition ? { objectPosition: imagePosition } : undefined}
         loading="lazy"
         decoding="async"
       />

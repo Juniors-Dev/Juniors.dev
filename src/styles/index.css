@@ -1117,9 +1117,10 @@ label {
   }
 
   .project-card__image {
-    @apply block w-full rounded-[0.3125rem] object-contain;
+    @apply block w-full rounded-[0.3125rem] object-cover;
     aspect-ratio: 20 / 9;
-    background-color: var(--color-primary-800);
+    object-position: top;
+    background-color: var(--color-grey-100);
   }
 
   .project-card .project-card__subtitle {
@@ -1202,6 +1203,10 @@ label {
   @media (min-width: 1024px) {
     .project-card {
       @apply p-4.5;
+    }
+
+    .project-card__image {
+      aspect-ratio: 8 / 5;
     }
 
     .project-card .project-card__subtitle {
