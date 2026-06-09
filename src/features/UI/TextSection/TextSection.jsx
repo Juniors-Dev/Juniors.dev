@@ -14,8 +14,8 @@ function TextSection({
   aside,
   sectionClassName = "bg-off-white",
   containerClassName = "",
-  titleClassName = "text-h2 w-fit text-pretty text-primary-900",
-  paragraphClassName = "text-body text-primary-900 text-pretty",
+  titleClassName = "text-h2 w-fit text-pretty",
+  paragraphClassName = "text-body text-pretty",
   asideClassName = "w-full shrink-0 md:max-w-md lg:max-w-lg xl:max-w-xl",
   contentRowClassName = "md:items-center",
 }) {
@@ -26,7 +26,7 @@ function TextSection({
       >
         <div className="flex max-w-3xl flex-1 flex-col gap-6 text-left">
           <h2 className={titleClassName}>{title}</h2>
-          {intro ? <p className="text-subheading-1 text-primary-900 text-pretty">{intro}</p> : null}
+          {intro ? <p className="text-subheading-1 text-pretty">{intro}</p> : null}
           <div className="flex flex-col gap-4">
             {paragraphs.map((text, i) => (
               <p key={i} className={paragraphClassName}>

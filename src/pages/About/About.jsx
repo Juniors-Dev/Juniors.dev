@@ -16,8 +16,8 @@ function About() {
         title={tMission.title}
         intro={tMission.intro}
         paragraphs={[tMission.body]}
-        titleClassName="mission-section__title text-h2 w-fit text-pretty text-primary-900"
-        paragraphClassName="mission-section__body text-body text-grey-700 text-pretty"
+        titleClassName="mission-section__title text-h2 w-fit text-pretty"
+        paragraphClassName="mission-section__body text-body text-pretty"
         contentRowClassName="mission-section__layout md:items-start md:basis-3/5 xl:items-center xl:basis-1/2"
         aside={
           <TextSectionQuoteAside

@@ -9,7 +9,7 @@ function RealExperienceSection() {
     <TextSection
       title={t.title}
       sectionClassName="real-experience-section bg-off-white"
-      titleClassName="text-h2 w-fit text-pretty text-roadmap-blue"
+      titleClassName="text-h2 w-fit text-pretty"
       paragraphs={t.paragraphs}
       aside={
         <TextSectionBraceAside

@@ -168,7 +168,7 @@
 }
 
 body {
-  @apply bg-off-white text-primary-900;
+  @apply bg-off-white text-roadmap-blue;
 }
 
 .dark {
@@ -188,6 +188,11 @@ body {
 
 .dark .bg-primary-800 {
   background-color: var(--color-primary-800);
+  color: var(--color-primary-50);
+}
+
+.dark .contact-section-bg {
+  background-color: var(--color-roadmap-blue);
   color: var(--color-primary-50);
 }
 
@@ -296,28 +301,12 @@ body {
   color: var(--color-primary-50);
 }
 
-.dark .service-card {
-  background-color: var(--color-primary-800);
-  border-color: var(--color-primary-700);
+.dark .service-card .text-roadmap-blue {
+  color: var(--color-roadmap-blue);
 }
 
-.dark .service-card__action {
-  color: var(--color-primary-50);
-}
-
-.dark .service-card__icon-wrap {
-  background-color: var(--color-primary-700);
-  color: var(--color-primary-50);
-}
-
-@media (min-width: 768px) {
-  .dark .services-section__container::after {
-    background: linear-gradient(to right, transparent, var(--color-roadmap-blue));
-  }
-
-  .dark .services-section__container::before {
-    background: linear-gradient(to left, transparent, var(--color-roadmap-blue));
-  }
+.dark .service-card__tags .bg-primary-100 {
+  background-color: var(--color-primary-100);
 }
 
 .dark .mission-section {
@@ -596,15 +585,14 @@ body {
 
 .work-with-us-form-section {
   background-color: var(--color-primary-50);
-  color: var(--color-primary-900);
 }
 
 .work-with-us-form-section .input-field__label {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__input {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section input:-webkit-autofill,
@@ -613,7 +601,7 @@ body {
 .work-with-us-form-section textarea:-webkit-autofill,
 .work-with-us-form-section textarea:-webkit-autofill:hover,
 .work-with-us-form-section textarea:-webkit-autofill:focus {
-  -webkit-text-fill-color: var(--color-primary-900);
+  -webkit-text-fill-color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .input-field__control {
@@ -627,7 +615,7 @@ body {
 }
 
 .work-with-us-form-section .phone-field__country-display {
-  color: var(--color-primary-900);
+  color: var(--color-roadmap-blue);
 }
 
 .work-with-us-form-section .phone-field__control:focus-within {
@@ -1044,7 +1032,6 @@ label {
     @apply inline-flex items-center justify-center rounded-full;
     font-family: var(--font-body);
     font-size: 0.75rem;
-    line-height: auto;
     font-weight: 400;
     padding: 0.1875rem 0.5rem;
   }
@@ -1235,7 +1222,7 @@ label {
   }
 
   .service-card {
-    @apply block max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
+    @apply flex flex-col max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
   }
 
   .service-card:hover {
@@ -1248,7 +1235,7 @@ label {
   }
 
   .service-card__panel {
-    @apply m-1 rounded-[0.1875rem] p-3.5 pt-4;
+    @apply flex-1 flex flex-col m-1 rounded-[0.1875rem] p-3.5 pt-4;
     min-height: 9rem;
   }
 
@@ -1265,7 +1252,7 @@ label {
   }
 
   .service-card__tags {
-    @apply mt-4 flex flex-wrap gap-2;
+    @apply mt-auto flex flex-wrap gap-2;
   }
 
   .service-card__footer {
@@ -1277,11 +1264,11 @@ label {
     font-size: 1.25rem;
     line-height: 1.2;
     font-weight: 500;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
   }
 
   .service-card__icon-wrap {
-    @apply inline-flex items-center justify-center rounded-full bg-primary-100 text-primary-900;
+    @apply inline-flex items-center justify-center rounded-full bg-primary-100 text-roadmap-blue;
     width: 2rem;
     height: 2rem;
   }
@@ -1293,30 +1280,9 @@ label {
 
   @media (min-width: 768px) {
     .services-rail {
-      display: flex;
-      justify-content: start;
-      flex-wrap: nowrap;
       gap: 1rem;
-      overflow-x: auto;
       padding-top: 1.5rem;
       padding-bottom: 0.5rem;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .services-rail::-webkit-scrollbar {
-      display: none;
-    }
-
-    .services-rail > * {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-    }
-
-    .service-card {
-      width: 19rem;
-      scroll-snap-align: start;
     }
 
     .service-card__panel {
@@ -1342,37 +1308,18 @@ label {
       width: 1.25rem;
       height: 1.25rem;
     }
-
-    .services-section__container::after {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      right: 0;
-      bottom: 0.5rem;
-      width: 3rem;
-      pointer-events: none;
-      background: linear-gradient(to right, transparent, var(--color-primary-100));
-    }
-    .services-section__container::before {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      left: 0;
-      bottom: 0.5rem;
-      width: 3rem;
-      pointer-events: none;
-      background: linear-gradient(to left, transparent, var(--color-primary-100));
-    }
   }
 
   @media (min-width: 1024px) {
-    .service-card {
-      width: 22rem;
-    }
-
     .service-card__details {
       @apply mb-16;
       font-size: 1.875rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .services-rail {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
@@ -1471,7 +1418,7 @@ label {
     font-size: 0.875rem;
     line-height: 1.2;
     font-weight: 500;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
   }
 
   .input-field__label--error {
@@ -1494,7 +1441,7 @@ label {
   textarea:-webkit-autofill,
   textarea:-webkit-autofill:hover,
   textarea:-webkit-autofill:focus {
-    -webkit-text-fill-color: var(--color-primary-900);
+    -webkit-text-fill-color: var(--color-roadmap-blue);
     -webkit-box-shadow: 0 0 0 1000px transparent inset;
     box-shadow: 0 0 0 1000px transparent inset;
     transition: background-color 9999s ease-in-out 0s;
@@ -1541,7 +1488,7 @@ label {
     font-size: var(--text-input);
     line-height: 1.2;
     font-weight: 400;
-    color: var(--color-primary-900);
+    color: var(--color-roadmap-blue);
     padding: 0.5rem;
   }
 
@@ -1641,16 +1588,8 @@ label {
   }
 
   /* Roadmap */
-  .roadmap-section {
-    color: var(--color-roadmap-blue);
-  }
-
   .roadmap-item {
     @apply grid grid-cols-[60px_64px_1fr] items-start gap-x-10 px-2 md:grid-cols-[120px_64px_1fr] md:gap-x-20;
-  }
-
-  .roadmap-item__year {
-    color: var(--color-roadmap-blue);
   }
 
   .roadmap-item__track {
@@ -1678,12 +1617,10 @@ label {
 
   .roadmap-item__title {
     @apply cursor-pointer list-none marker:content-[''];
-    color: var(--color-roadmap-blue);
   }
 
   .roadmap-item__body {
     @apply my-4 max-w-2xl pb-20;
-    color: var(--color-roadmap-blue);
   }
 }
 
