@@ -17,7 +17,13 @@ import { Tag } from "../UI";
 function ProjectCard({ id, title, subtitle, tags, imageSrc, className = "", tagClassName = "" }) {
   return (
     <Link to={`/projects/${id}`} className={`project-card ${className}`}>
-      <img src={imageSrc} alt="" className="project-card__image" />
+      <img
+        src={imageSrc}
+        alt={`${title} project preview`}
+        className="project-card__image"
+        loading="lazy"
+        decoding="async"
+      />
 
       <div className="project-card__content">
         <p className="project-card__subtitle">{subtitle}</p>
