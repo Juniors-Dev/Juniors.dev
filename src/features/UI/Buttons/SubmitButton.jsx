@@ -1,4 +1,4 @@
-import { Send } from "lucide-react";
+import SendFill from "../icons/SendFill";
 
 /**
  * Submit button with optional Send icon.
@@ -13,7 +13,7 @@ function SubmitButton({ children, variant = "primary", icon = false, className =
     <>
       {icon && (
         <span className="" aria-hidden="true">
-          <Send className="btn__icon-submit" />
+          <SendFill className="btn__icon-submit" />
         </span>
       )}
       <span className="btn__label">{children}</span>
