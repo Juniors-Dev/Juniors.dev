@@ -92,6 +92,7 @@
   --color-secondary-800: #5e7c04;
   --color-secondary-900: #3c4f03;
   /* Figma-exact accents (revert on request) */
+  --color-card-border: #fcfdff;
   --color-card-blue-border: #033dd7;
   --color-accent-lime: #ceff29;
   --color-figma-green: #5e7c04;
@@ -1218,11 +1219,11 @@ label {
   }
 
   .service-card {
-    @apply flex flex-col max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
+    @apply flex flex-col max-w-lg overflow-hidden rounded-[5px] border-[0.5px] border-card-border bg-off-white transition-colors duration-200;
   }
 
   .service-card__panel {
-    @apply flex-1 flex flex-col m-1 rounded-[0.1875rem] p-3.5 pt-4;
+    @apply flex-1 flex flex-col m-1.5 rounded-[3px] p-3.5 pt-4;
     min-height: 9rem;
   }
 
@@ -1249,8 +1250,12 @@ label {
       padding-bottom: 0.5rem;
     }
 
+    .service-card {
+      @apply rounded-[6.87px] border-[1px];
+    }
+
     .service-card__panel {
-      @apply p-5;
+      @apply m-[8.25px] rounded-[4.13px] p-5;
       min-height: 11rem;
     }
 
@@ -1261,6 +1266,14 @@ label {
   }
 
   @media (min-width: 1024px) {
+    .service-card {
+      @apply rounded-[12.81px] border-[1.5px];
+    }
+
+    .service-card__panel {
+      @apply m-[15px] rounded-[7.69px];
+    }
+
     .service-card__details {
       @apply mb-16;
       font-size: 1.875rem;
