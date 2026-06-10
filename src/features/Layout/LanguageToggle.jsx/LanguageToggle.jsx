@@ -11,6 +11,7 @@ function LanguageToggle() {
         type="checkbox"
         checked={language === "no"}
         onChange={toggleLanguage}
+        aria-label={language === "en" ? "Switch to Norwegian" : "Switch to English"}
         className="sr-only peer"
       />
       <div className="h-8 w-14 rounded-full border border-primary-50 bg-transparent" />
