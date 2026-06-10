@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { getSystemPreference, useThemeStore } from "../../stores/themeProvider";
+import { useLanguageStore } from "../../stores/languageStore";
 
 function applyTheme(theme) {
   document.documentElement.classList.toggle("dark", theme === "dark");
@@ -10,10 +11,15 @@ function applyTheme(theme) {
 
 function Layout() {
   const userTheme = useThemeStore((state) => state.userTheme);
+  const language = useLanguageStore((state) => state.language);
 
   useEffect(() => {
     applyTheme(useThemeStore.getState().getTheme());
   }, [userTheme]);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
