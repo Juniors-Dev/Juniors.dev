@@ -53,7 +53,7 @@ function Button({ children, onClick, variant = "primary", size = "md", disabled 
   return (
     <button
       onClick={onClick}
-      className={`rounded-lg border border-transparent font-bold cursor-pointer transition-all duration-250
+      className={`rounded-lg border border-transparent font-bold transition-all duration-250
         ${variants[variant]}
         ${sizes[size]}
         ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
