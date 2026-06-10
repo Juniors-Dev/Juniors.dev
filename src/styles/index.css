@@ -301,10 +301,6 @@ body {
   color: var(--color-primary-50);
 }
 
-.dark .service-card .text-roadmap-blue {
-  color: var(--color-roadmap-blue);
-}
-
 .dark .service-card__tags .bg-primary-100 {
   background-color: var(--color-primary-100);
 }
@@ -1225,15 +1221,6 @@ label {
     @apply flex flex-col max-w-lg overflow-hidden rounded-[0.3125rem] border border-primary-200 bg-off-white transition-colors duration-200;
   }
 
-  .service-card:hover {
-    @apply shadow-[0_1px_4px_4px_rgba(116,153,3,0.09)];
-  }
-
-  .service-card:focus-visible {
-    @apply outline-none border-primary-600;
-    box-shadow: 0 0 0 2px var(--color-primary-600);
-  }
-
   .service-card__panel {
     @apply flex-1 flex flex-col m-1 rounded-[0.1875rem] p-3.5 pt-4;
     min-height: 9rem;
@@ -1255,29 +1242,6 @@ label {
     @apply mt-auto flex flex-wrap gap-2;
   }
 
-  .service-card__footer {
-    @apply flex items-center justify-between px-4 pb-4 pt-2;
-  }
-
-  .service-card__action {
-    font-family: var(--font-body);
-    font-size: 1.25rem;
-    line-height: 1.2;
-    font-weight: 500;
-    color: var(--color-roadmap-blue);
-  }
-
-  .service-card__icon-wrap {
-    @apply inline-flex items-center justify-center rounded-full bg-primary-100 text-roadmap-blue;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .service-card__icon {
-    width: 1rem;
-    height: 1rem;
-  }
-
   @media (min-width: 768px) {
     .services-rail {
       gap: 1rem;
@@ -1293,20 +1257,6 @@ label {
     .service-card__details {
       @apply mb-9.5;
       font-size: 1rem;
-    }
-
-    .service-card__action {
-      font-size: 1.875rem;
-    }
-
-    .service-card__icon-wrap {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
-
-    .service-card__icon {
-      width: 1.25rem;
-      height: 1.25rem;
     }
   }
 

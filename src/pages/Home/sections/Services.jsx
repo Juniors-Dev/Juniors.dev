@@ -18,7 +18,6 @@ function OurServices() {
             return (
               <ServiceCard
                 key={card.id}
-                id={card.id}
                 title={content.title}
                 details={content.details}
                 tags={content.tags}
