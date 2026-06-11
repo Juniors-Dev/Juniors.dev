@@ -1223,12 +1223,12 @@ label {
   }
 
   .service-card {
-    @apply flex flex-col max-w-lg overflow-hidden rounded-[5px] border-[0.5px] border-card-border bg-off-white transition-colors duration-200;
+    @apply flex flex-col max-w-lg overflow-hidden rounded-md border-[0.5px] border-card-border bg-off-white transition-colors duration-200;
   }
 
   .service-card__panel {
-    @apply flex-1 flex flex-col rounded-[3px] p-3.5 pt-4;
-    margin: min(3.4%, 8px);
+    @apply flex-1 flex flex-col rounded-sm p-3.5 pt-4;
+    margin: min(3.4%, 0.5rem);
     min-height: 9rem;
   }
 
@@ -1256,11 +1256,11 @@ label {
     }
 
     .service-card {
-      @apply rounded-[6.87px] border;
+      @apply border;
     }
 
     .service-card__panel {
-      @apply rounded-[4.13px] p-5;
+      @apply p-5;
       min-height: 11rem;
     }
 
@@ -1272,11 +1272,11 @@ label {
 
   @media (min-width: 1024px) {
     .service-card {
-      @apply rounded-[12.81px] border-[1.5px];
+      @apply rounded-xl border-[1.5px];
     }
 
     .service-card__panel {
-      @apply rounded-[7.69px];
+      @apply rounded-lg;
     }
 
     .service-card__details {
