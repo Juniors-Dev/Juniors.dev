@@ -37,7 +37,7 @@ export const serviceCards = [
       details: "lorem ipsumlorem ipsumlorem ipsum",
       tags: ["Nettside", "Nettside", "Nettside"],
     },
-    panelClassName: "bg-secondary-500 hover:bg-secondary-600 text-roadmap-blue",
+    panelClassName: "bg-secondary-200 hover:bg-secondary-600 text-roadmap-blue",
     tagClassName: "bg-secondary-200 text-roadmap-blue",
   },
   {
