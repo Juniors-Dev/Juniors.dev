@@ -302,6 +302,10 @@ body {
   color: var(--color-primary-50);
 }
 
+.dark .service-card .text-roadmap-blue {
+  color: var(--color-roadmap-blue);
+}
+
 .dark .service-card__tags .bg-primary-100 {
   background-color: var(--color-primary-100);
 }
@@ -1223,7 +1227,8 @@ label {
   }
 
   .service-card__panel {
-    @apply flex-1 flex flex-col m-[3.4%] rounded-[3px] p-3.5 pt-4;
+    @apply flex-1 flex flex-col rounded-[3px] p-3.5 pt-4;
+    margin: min(3.4%, 8px);
     min-height: 9rem;
   }
 
