@@ -37,8 +37,8 @@ export const serviceCards = [
       details: "lorem ipsumlorem ipsumlorem ipsum",
       tags: ["Nettside", "Nettside", "Nettside"],
     },
-    panelClassName: "bg-secondary-500 hover:bg-secondary-600 text-primary-900",
-    tagClassName: "bg-secondary-200 text-primary-900",
+    panelClassName: "bg-secondary-500 hover:bg-secondary-600 text-roadmap-blue",
+    tagClassName: "bg-secondary-200 text-roadmap-blue",
   },
   {
     id: "backend",
@@ -52,8 +52,8 @@ export const serviceCards = [
       details: "lorem ipsumlorem ipsumlorem ipsum",
       tags: ["Nettside", "Nettside", "Nettside"],
     },
-    panelClassName: "bg-primary-200 hover:bg-primary-300 text-primary-900",
-    tagClassName: "bg-primary-100 text-primary-900",
+    panelClassName: "bg-primary-200 hover:bg-primary-300 text-roadmap-blue",
+    tagClassName: "bg-primary-100 text-roadmap-blue",
   },
   {
     id: "coaching",
