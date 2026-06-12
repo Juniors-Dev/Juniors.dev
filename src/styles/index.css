@@ -171,6 +171,13 @@ body {
   @apply bg-off-white text-roadmap-blue;
 }
 
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 .dark {
   color-scheme: dark;
 }
