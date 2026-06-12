@@ -1766,3 +1766,127 @@ label {
     @apply grid-cols-2;
   }
 }
+
+.privacy-page {
+  @apply bg-primary-50 dark:bg-roadmap-blue;
+}
+
+.privacy-hero {
+  @apply bg-primary-900 text-white;
+}
+
+.privacy-hero__inner {
+  @apply mx-auto max-w-6xl px-6 py-20 md:py-28;
+}
+
+.privacy-hero__label {
+  @apply mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-secondary-500;
+}
+
+.privacy-hero__title {
+  @apply max-w-3xl text-4xl font-bold md:text-6xl;
+}
+
+.privacy-hero__intro {
+  @apply mt-6 max-w-2xl text-lg text-primary-100;
+}
+
+.privacy-hero__date {
+  @apply text-secondary-500;
+}
+
+.privacy-layout {
+  @apply grid gap-10 lg:grid-cols-[280px_minmax(0,760px)] lg:gap-20;
+}
+
+.privacy-nav {
+  @apply sticky top-24 rounded-2xl border border-primary-200 bg-white p-6 shadow-sm dark:border-primary-700 dark:bg-primary-800;
+}
+
+.privacy-nav__title {
+  @apply mb-6 text-xs font-bold uppercase tracking-[0.3em] text-primary-600 dark:text-secondary-300;
+}
+
+.privacy-nav__list {
+  @apply space-y-1;
+}
+
+.privacy-nav__link {
+  @apply flex items-center gap-3 rounded-lg border-l-2 border-transparent px-3 py-2 transition-all duration-200 hover:border-secondary-500 hover:bg-primary-100 dark:hover:bg-primary-700;
+}
+
+.privacy-nav__number {
+  @apply text-xs font-semibold text-secondary-600 dark:text-secondary-300;
+}
+
+.privacy-nav__text {
+  @apply text-sm transition-colors;
+}
+
+.privacy-nav__link--active {
+  @apply border-secondary-500 bg-primary-100 dark:bg-primary-700;
+}
+
+.privacy-nav__link--active .privacy-nav__text {
+  color: var(--color-primary-500);
+}
+
+.dark .privacy-nav__link--active .privacy-nav__text {
+  color: var(--color-secondary-300);
+}
+
+.privacy-nav__link:hover .privacy-nav__text {
+  color: var(--color-primary-500);
+}
+
+.dark .privacy-nav__link:hover .privacy-nav__text {
+  color: var(--color-secondary-300);
+}
+
+.privacy-content {
+  @apply space-y-12;
+}
+
+.privacy-section {
+  @apply scroll-mt-28;
+}
+
+.privacy-section__title {
+  @apply border-b border-secondary-500 pb-3 text-2xl font-bold;
+}
+
+.privacy-section__body {
+  @apply mt-6 space-y-4 px-4 leading-7;
+}
+
+.privacy-list {
+  @apply list-disc space-y-3 ps-6 marker:text-secondary-600 dark:marker:text-secondary-300;
+}
+
+.privacy-list__item {
+  @apply pl-2;
+}
+
+.privacy-contact-card {
+  @apply rounded-2xl border border-primary-200 bg-primary-100 p-6 dark:border-primary-700 dark:bg-primary-800;
+}
+
+.privacy-subsection {
+  @apply space-y-3;
+}
+
+.privacy-subsection__title {
+  @apply text-lg font-semibold text-primary-700;
+}
+
+.dark .privacy-subsection__title {
+  color: var(--color-secondary-300);
+}
+
+.privacy-contact-card__title {
+  @apply font-bold;
+}
+
+.privacy-contact-card__email {
+  @apply font-medium text-primary-600 underline-offset-4 hover:underline dark:text-secondary-300;
+}
