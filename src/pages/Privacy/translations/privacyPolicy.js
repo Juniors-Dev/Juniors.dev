@@ -27,11 +27,11 @@ export const privacySections = [
       body: [
         {
           type: "paragraph",
-          text: "Juniors.dev is a web development and design startup based in Norway, operated through a sole proprietorship with organization number 920 748 473.",
+          text: "Juniors.dev is a web development and design startup based in Norway, operated through a sole proprietorship with organization number 920 748 473. We are committed to protecting your privacy and handling your personal data in accordance with applicable laws, including GDPR and the Norwegian Personal Data Act.",
         },
         {
           type: "paragraph",
-          text: "We are the data controller and handle personal data in accordance with GDPR and the Norwegian Personal Data Act.",
+          text: "We are the data controller for the personal data we process through our website and services.",
         },
       ],
     },
@@ -41,11 +41,11 @@ export const privacySections = [
       body: [
         {
           type: "paragraph",
-          text: "Juniors.dev er en webutviklings- og designstartup basert i Norge, drevet gjennom enkeltpersonforetak med organisasjonsnummer 920 748 473.",
+          text: "Juniors.dev er en webutviklings- og designstartup basert i Norge, drevet gjennom enkeltpersonforetak med organisasjonsnummer 920 748 473. Vi er opptatt av å beskytte personvernet ditt og behandle personopplysninger i samsvar med gjeldende lovverk, inkludert GDPR og personopplysningsloven.",
         },
         {
           type: "paragraph",
-          text: "Vi er behandlingsansvarlig og behandler personopplysninger i samsvar med GDPR og personopplysningsloven.",
+          text: "Vi er behandlingsansvarlig for personopplysningene vi behandler gjennom nettstedet vårt og tjenestene våre.",
         },
       ],
     },
@@ -57,12 +57,30 @@ export const privacySections = [
       title: "Information we collect",
       body: [
         {
-          type: "list",
+          type: "subsection",
+          title: "Information you provide",
           items: [
-            "Name, email address, phone number, and company name.",
+            "Name",
+            "Email address",
+            "Phone number",
+            "Company name",
             "Project details or other information submitted via contact forms or email.",
-            "IP address, browser type, device type, visited pages, and time spent on the site.",
           ],
+        },
+        {
+          type: "subsection",
+          title: "Automatically collected information",
+          items: [
+            "IP address",
+            "Browser type and version",
+            "Device type",
+            "Pages visited and time spent on the site.",
+          ],
+        },
+        {
+          type: "subsection",
+          title: "Third-party tools",
+          items: ["Web3Forms — contact form handling."],
         },
       ],
     },
@@ -71,12 +89,30 @@ export const privacySections = [
       title: "Hvilke opplysninger vi samler inn",
       body: [
         {
-          type: "list",
+          type: "subsection",
+          title: "Opplysninger du oppgir selv",
           items: [
-            "Navn, e-postadresse, telefonnummer og selskapsnavn.",
+            "Navn",
+            "E-postadresse",
+            "Telefonnummer",
+            "Selskapsnavn",
             "Prosjektdetaljer eller annen informasjon sendt via kontaktskjema eller e-post.",
-            "IP-adresse, nettlesertype, enhetstype, besøkte sider og tidsbruk.",
           ],
+        },
+        {
+          type: "subsection",
+          title: "Opplysninger som samles inn automatisk",
+          items: [
+            "IP-adresse",
+            "Nettlesertype og -versjon",
+            "Enhetstype",
+            "Besøkte sider og tidsbruk på nettstedet.",
+          ],
+        },
+        {
+          type: "subsection",
+          title: "Tredjepartstjenester",
+          items: ["Web3Forms — håndtering av kontaktskjema."],
         },
       ],
     },

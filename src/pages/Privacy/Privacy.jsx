@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Section } from "../../features/UI";
 import { privacyPolicy, privacySections } from "./translations/privacyPolicy";
 import { useT, useLanguageStore } from "../../stores/languageStore";
@@ -5,6 +6,34 @@ import { useT, useLanguageStore } from "../../stores/languageStore";
 function PrivacyPolicy() {
   const t = useT(privacyPolicy);
   const language = useLanguageStore((state) => state.language);
+  const [activeSectionId, setActiveSectionId] = useState(privacySections[0].id);
+
+  useEffect(() => {
+    const sections = privacySections
+      .map((section) => document.getElementById(section.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry) {
+          setActiveSectionId(visibleEntry.target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -65% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="privacy-page">
@@ -15,7 +44,7 @@ function PrivacyPolicy() {
           <h1 className="privacy-hero__title">{t.title}</h1>
 
           <p className="privacy-hero__intro">
-            {t.updatedPrefix}: <span className="text-secondary-500">{t.lastUpdated}</span> ·{" "}
+            {t.updatedPrefix}: <span className="privacy-hero__date">{t.lastUpdated}</span> ·{" "}
             {t.intro}
           </p>
         </div>
@@ -33,7 +62,12 @@ function PrivacyPolicy() {
 
                   return (
                     <li key={section.id}>
-                      <a href={`#${section.id}`} className="privacy-nav__link">
+                      <a
+                        href={`#${section.id}`}
+                        className={`privacy-nav__link ${
+                          activeSectionId === section.id ? "privacy-nav__link--active" : ""
+                        }`}
+                      >
                         <span className="privacy-nav__number">
                           {String(index + 1).padStart(2, "0")}
                         </span>
@@ -87,6 +121,22 @@ function PrivacyPolicy() {
                             >
                               {block.email}
                             </a>
+                          </div>
+                        );
+                      }
+
+                      if (block.type === "subsection") {
+                        return (
+                          <div key={blockIndex} className="privacy-subsection">
+                            <h3 className="privacy-subsection__title">{block.title}</h3>
+
+                            <ul className="privacy-list">
+                              {block.items.map((item, itemIndex) => (
+                                <li key={itemIndex} className="privacy-list__item">
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
                           </div>
                         );
                       }

@@ -1784,6 +1784,10 @@ label {
   @apply mt-6 max-w-2xl text-lg text-primary-100;
 }
 
+.privacy-hero__date {
+  @apply text-secondary-500;
+}
+
 .privacy-layout {
   @apply grid gap-10 lg:grid-cols-[280px_minmax(0,760px)] lg:gap-20;
 }
@@ -1812,6 +1816,18 @@ label {
   @apply text-sm transition-colors;
 }
 
+.privacy-nav__link--active {
+  @apply border-secondary-500 bg-primary-100 dark:bg-primary-700;
+}
+
+.privacy-nav__link--active .privacy-nav__text {
+  color: var(--color-primary-500);
+}
+
+.dark .privacy-nav__link--active .privacy-nav__text {
+  color: var(--color-secondary-300);
+}
+
 .privacy-nav__link:hover .privacy-nav__text {
   color: var(--color-primary-500);
 }
@@ -1829,11 +1845,11 @@ label {
 }
 
 .privacy-section__title {
-  @apply border-b border-secondary-500 pb-3 text-2xl font-bold text-primary-900 dark:border-secondary-300 dark:text-primary-50;
+  @apply border-b border-secondary-500 pb-3 text-2xl font-bold;
 }
 
 .privacy-section__body {
-  @apply px-4 mt-6 space-y-4 leading-7;
+  @apply mt-6 space-y-4 px-4 leading-7;
 }
 
 .privacy-list {
@@ -1848,8 +1864,20 @@ label {
   @apply rounded-2xl border border-primary-200 bg-primary-100 p-6 dark:border-primary-700 dark:bg-primary-800;
 }
 
+.privacy-subsection {
+  @apply space-y-3;
+}
+
+.privacy-subsection__title {
+  @apply text-lg font-semibold text-primary-700;
+}
+
+.dark .privacy-subsection__title {
+  color: var(--color-secondary-300);
+}
+
 .privacy-contact-card__title {
-  @apply font-bold text-primary-900 dark:text-primary-50;
+  @apply font-bold;
 }
 
 .privacy-contact-card__email {
