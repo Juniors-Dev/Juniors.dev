@@ -7,16 +7,14 @@ function PrivacyPolicy() {
   const language = useLanguageStore((state) => state.language);
 
   return (
-    <div className="bg-primary-50 text-primary-900 dark:bg-roadmap-blue dark:text-primary-50">
-      <section className="bg-primary-900 text-white ">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-secondary-500">
-            {t.label}
-          </p>
+    <div className="privacy-page">
+      <section className="privacy-hero">
+        <div className="privacy-hero__inner">
+          <p className="privacy-hero__label">{t.label}</p>
 
-          <h1 className="max-w-3xl text-4xl font-bold md:text-6xl">{t.title}</h1>
+          <h1 className="privacy-hero__title">{t.title}</h1>
 
-          <p className="mt-6 max-w-2xl text-lg text-primary-100">
+          <p className="privacy-hero__intro">
             {t.updatedPrefix}: <span className="text-secondary-500">{t.lastUpdated}</span> ·{" "}
             {t.intro}
           </p>
@@ -24,52 +22,23 @@ function PrivacyPolicy() {
       </section>
 
       <Section className="bg-primary-50 dark:bg-roadmap-blue">
-        <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,760px)] lg:gap-20">
+        <div className="privacy-layout">
           <aside className="hidden lg:block">
-            <nav className="sticky top-24 rounded-2xl border border-primary-200 bg-white p-6 shadow-sm dark:border-primary-700 dark:bg-primary-800">
-              <p className="mb-6 text-xs font-bold uppercase tracking-[0.3em] text-primary-600 dark:text-secondary-300">
-                {t.contents}
-              </p>
+            <nav className="privacy-nav">
+              <p className="privacy-nav__title">{t.contents}</p>
 
-              <ul className="space-y-1">
+              <ul className="privacy-nav__list">
                 {privacySections.map((section, index) => {
                   const content = section[language];
 
                   return (
                     <li key={section.id}>
-                      <a
-                        href={`#${section.id}`}
-                        className="
-                group flex items-center gap-3 rounded-lg
-                border-l-2 border-transparent
-                px-3 py-2 transition-all duration-200
-
-                hover:border-secondary-500
-                hover:bg-primary-100
-                dark:hover:bg-primary-700
-              "
-                      >
-                        <span
-                          className="
-                  text-xs font-semibold
-                  text-secondary-600
-                  dark:text-secondary-300
-                "
-                        >
+                      <a href={`#${section.id}`} className="privacy-nav__link">
+                        <span className="privacy-nav__number">
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        <span
-                          className="
-                  text-sm text-primary-800
-                  transition-colors
-                  group-hover:text-primary-500
-                  dark:text-primary-50
-                  dark:group-hover:text-secondary-300
-                "
-                        >
-                          {content.navTitle}
-                        </span>
+                        <span className="privacy-nav__text">{content.navTitle}</span>
                       </a>
                     </li>
                   );
@@ -78,17 +47,17 @@ function PrivacyPolicy() {
             </nav>
           </aside>
 
-          <div className="space-y-12">
+          <div className="privacy-content">
             {privacySections.map((section, index) => {
               const content = section[language];
 
               return (
-                <section key={section.id} id={section.id} className="scroll-mt-28">
-                  <h2 className="border-b border-secondary-500 pb-3 text-2xl font-bold text-primary-900 dark:border-secondary-300 dark:text-primary-50">
+                <section key={section.id} id={section.id} className="privacy-section">
+                  <h2 className="privacy-section__title">
                     {index + 1}. {content.title}
                   </h2>
 
-                  <div className="px-4 mt-6 space-y-4 leading-7 text-primary-800 dark:text-primary-50">
+                  <div className="privacy-section__body">
                     {content.body.map((block, blockIndex) => {
                       if (block.type === "paragraph") {
                         return <p key={blockIndex}>{block.text}</p>;
@@ -96,15 +65,9 @@ function PrivacyPolicy() {
 
                       if (block.type === "list") {
                         return (
-                          <ul
-                            key={blockIndex}
-                            className="list-disc space-y-3 ps-6 marker:text-secondary-600 dark:marker:text-secondary-300"
-                          >
+                          <ul key={blockIndex} className="privacy-list">
                             {block.items.map((item, itemIndex) => (
-                              <li
-                                key={itemIndex}
-                                className="pl-2 text-primary-800 dark:text-primary-50"
-                              >
+                              <li key={itemIndex} className="privacy-list__item">
                                 {item}
                               </li>
                             ))}
@@ -114,18 +77,13 @@ function PrivacyPolicy() {
 
                       if (block.type === "contact") {
                         return (
-                          <div
-                            key={blockIndex}
-                            className="rounded-2xl border border-primary-200 bg-primary-100 p-6 dark:border-primary-700 dark:bg-primary-800"
-                          >
-                            <p className="font-bold text-primary-900 dark:text-primary-50">
-                              Juniors.dev
-                            </p>
+                          <div key={blockIndex} className="privacy-contact-card">
+                            <p className="privacy-contact-card__title">Juniors.dev</p>
                             <p>{block.address}</p>
                             <p>{block.org}</p>
                             <a
                               href={`mailto:${block.email}`}
-                              className="font-medium text-primary-600 underline-offset-4 hover:underline dark:text-secondary-300"
+                              className="privacy-contact-card__email"
                             >
                               {block.email}
                             </a>
