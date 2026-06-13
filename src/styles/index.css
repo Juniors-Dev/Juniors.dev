@@ -142,6 +142,9 @@
   --color-grey-800: #262626;
   --color-grey-900: #0d0d0d;
 
+  /* Fonts */
+  --font-body: "Helvetica Neue", "Helvetica", "Inter", "Arial", sans-serif;
+
   /* Typography scale (v4 syntax) */
   --text-h1: var(--text-h1);
   --text-h1--line-height: var(--leading-heading);
@@ -1226,6 +1229,7 @@ label {
   @media (min-width: 400px) {
     .services-rail {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      flex-wrap: wrap;
     }
   }
 
@@ -1241,11 +1245,14 @@ label {
 
   .service-card__title {
     @apply mb-2;
+    font: var(--font-body);
+    font-size: var(--text-h3);
+    font-weight: 600;
   }
 
   .service-card__details {
     @apply mt-2 mb-6.5;
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
     line-height: 99.925%;
@@ -1257,6 +1264,7 @@ label {
 
   @media (min-width: 768px) {
     .services-rail {
+      flex-wrap: wrap;
       gap: 1rem;
       padding-top: 1.5rem;
       padding-bottom: 0.5rem;

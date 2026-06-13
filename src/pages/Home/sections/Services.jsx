@@ -7,7 +7,7 @@ function OurServices() {
   const t = useT(services);
   const language = useLanguageStore((state) => state.language);
   return (
-    <Section className="bg-primary-100 relative">
+    <Section className="bg-primary-100 relative font-body text-pretty">
       <h2>{t.heading}</h2>
 
       <div className="services-section__container">

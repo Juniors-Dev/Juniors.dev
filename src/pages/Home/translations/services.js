@@ -65,13 +65,15 @@ export const serviceCards = [
     id: "coaching",
     en: {
       title: "Coaching",
-      details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Web site", "Web site", "Web site"],
+      details:
+        "Support developers with guidance, feedback, and mentorship to accelerate growth and build real-world confidence.",
+      tags: ["Technical Guidance", "Performance Feedback", "Mentorship", "Code Review"],
     },
     no: {
       title: "Veiledning",
-      details: "lorem ipsumlorem ipsumlorem ipsum",
-      tags: ["Nettside", "Nettside", "Nettside"],
+      details:
+        "Støtter utviklere med veiledning, tilbakemeldinger og veiledning for å akselerere vekst og bygge selvtillit i den virkelige verden.",
+      tags: ["Teknisk veiledning", "Ytelsestilbakemelding", "Mentorordning", "Kodegjennomgang"],
     },
     panelClassName: "bg-primary-900 hover:bg-primary-600 text-off-white",
     tagClassName: "bg-primary-700 dark:bg-tag-dark-blue text-primary-100",
