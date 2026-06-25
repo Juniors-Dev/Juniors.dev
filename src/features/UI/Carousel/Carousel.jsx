@@ -36,7 +36,7 @@ function Carousel({
 
   const isMobileGrid = useCallback(() => {
     return (
-      className.includes("carousel--grid-mobile") && window.matchMedia("(max-width: 767px)").matches
+      className.includes("carousel--grid-mobile") && window.matchMedia("(max-width: 766px)").matches
     );
   }, [className]);
 

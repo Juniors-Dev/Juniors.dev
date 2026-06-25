@@ -32,7 +32,7 @@
 function Section({ children, className = "", containerClassName = "" }) {
   return (
     <section className={`py-10 md:py-14 lg:py-20 ${className}`}>
-      <div className={`mx-auto w-full max-w-app px-4 md:px-8 lg:px-12 ${containerClassName}`}>
+      <div className={`mx-auto w-full max-w-app px-4 lg:px-12 ${containerClassName}`}>
         {children}
       </div>
     </section>
