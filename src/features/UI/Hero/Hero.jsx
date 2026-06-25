@@ -56,7 +56,7 @@ function Hero({
   children,
 }) {
   return (
-    <Section className={className}>
+    <Section className={`hero-section ${className}`.trim()}>
       <div
         className={`mx-auto flex flex-col gap-14 text-left md:flex-row md:items-center md:justify-between ${rowClassName}`}
       >
