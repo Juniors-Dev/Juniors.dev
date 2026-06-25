@@ -10,6 +10,10 @@
     "Helvetica Neue Medium", "HelveticaNeue-Medium", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-main-heading: var(--font-hero);
   --font-heading: var(--font-body);
+  --font-body-light:
+    "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", "Inter", "Arial", sans-serif;
+  --font-body-bold:
+    "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-card-body: "Noto Sans", sans-serif;
 
   /* Mobile (base) */
@@ -1048,6 +1052,12 @@ summary.roadmap-item__title.text-subheading-1 {
     @apply whitespace-nowrap;
   }
 
+  .btn-nav .btn__label {
+    font-family: var(--font-body-bold);
+    font-weight: 700;
+    font-synthesis: none;
+  }
+
   .btn__icon-wrap {
     @apply inline-flex shrink-0 items-center justify-center rounded-full bg-primary-800 text-off-white;
     width: 3.375rem;
@@ -1161,18 +1171,22 @@ summary.roadmap-item__title.text-subheading-1 {
   }
 
   .project-card .project-card__subtitle {
-    font-family: var(--font-body);
+    font-family: var(--font-body-light);
     font-size: 0.75rem !important;
     line-height: 1.2;
     font-weight: 300 !important;
+    font-style: normal;
+    font-synthesis: none;
   }
 
   .project-card .project-card__title {
     @apply mt-1;
-    font-family: var(--font-body);
+    font-family: var(--font-body-bold);
     font-size: 0.875rem;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-synthesis: none;
   }
 
   .project-card__tags {
