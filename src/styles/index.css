@@ -2,9 +2,14 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --font-main-heading: "Sora", sans-serif;
-  --font-heading: "Sora", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", "Arial", sans-serif;
+  --font-hero: "Sora", sans-serif;
+  --font-hero-subheading:
+    "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", "Inter", "Arial", sans-serif;
+  --font-heading-medium:
+    "Helvetica Neue Medium", "HelveticaNeue-Medium", "Helvetica Neue", "Inter", "Arial", sans-serif;
+  --font-main-heading: var(--font-hero);
+  --font-heading: var(--font-body);
   --font-body-light:
     "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-body-bold:
@@ -174,6 +179,8 @@
 
 body {
   @apply bg-off-white text-roadmap-blue;
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 @layer base {
@@ -296,7 +303,10 @@ body {
 }
 
 .dark .roadmap-item__dot--highlighted {
-  box-shadow: 0 0 0 8px rgb(228 255 137 / 0.22);
+  box-shadow:
+    0 0 0 2px rgb(228 255 137 / 0.12),
+    0 0 18px 8px rgb(228 255 137 / 0.2),
+    0 0 36px 16px rgb(228 255 137 / 0.08);
 }
 
 .dark .project-card {
@@ -437,9 +447,7 @@ body {
   }
 
   .about-hero-section__body {
-    font-family: var(--font-body);
     font-size: 1.125rem;
-    font-weight: 300;
     line-height: 1.2;
     max-width: 22.1875rem;
   }
@@ -525,9 +533,7 @@ body {
   }
 
   .about-hero-section__body {
-    font-family: var(--font-body);
     font-size: 1.625rem;
-    font-weight: 300;
     line-height: 1.29;
     max-width: 36.5625rem;
   }
@@ -542,9 +548,7 @@ body {
   }
 
   .about-hero-section__body {
-    font-family: var(--font-body);
     font-size: 1.125rem;
-    font-weight: 300;
     line-height: 1.2;
   }
 }
@@ -576,9 +580,7 @@ body {
   width: 100%;
   max-width: min(646px, 92vw);
   margin-inline: auto;
-  font-family: var(--font-body);
   font-size: var(--text-subheading-2);
-  font-weight: 300;
   line-height: 1.29;
   text-wrap: normal;
 }
@@ -742,34 +744,74 @@ label {
 }
 
 .text-subheading-1 {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-subheading-1);
   line-height: var(--leading-heading);
   font-weight: var(--text-subheading-1-weight);
 }
 
+.roadmap-item__year.text-subheading-1,
+summary.roadmap-item__title.text-subheading-1 {
+  font-family: var(--font-heading-medium);
+  font-weight: 500;
+  font-synthesis: none;
+}
+
 .text-subheading-2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-subheading-2);
   line-height: var(--leading-heading);
   font-weight: var(--text-subheading-2-weight);
 }
 
+.text-h1,
+.text-h3 {
+  font-family: var(--font-body);
+}
+
+.text-h2 {
+  font-family: var(--font-heading-medium);
+  font-weight: 500;
+  font-synthesis: none;
+}
+
+.hero-section h1,
+.hero-section .text-h1 {
+  font-family: var(--font-hero);
+}
+
+.hero-section .text-subheading-2,
+.hero-section__body,
+.home-hero-section__body,
+.about-hero-section__body {
+  font-family: var(--font-hero-subheading);
+  font-weight: 300;
+  font-synthesis: none;
+}
+
 @layer components {
-  /* Typography */
+  /* Typography — Helvetica Neue for sections; Sora reserved for hero headings */
   h1 {
     @apply text-h1;
-    font-family: var(--font-main-heading);
+    font-family: var(--font-body);
+    font-weight: var(--text-h1-weight);
   }
 
   h2 {
     @apply text-h2;
-    font-family: var(--font-heading);
+    font-family: var(--font-heading-medium);
+    font-weight: var(--text-h2-weight);
+    font-synthesis: none;
   }
 
   h3 {
     @apply text-h3;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    font-weight: var(--text-h3-weight);
+  }
+
+  .hero-section h1 {
+    font-family: var(--font-hero);
   }
 
   /* Navigation and Header */
@@ -1615,7 +1657,10 @@ label {
   }
 
   .roadmap-item__dot--highlighted {
-    box-shadow: 0 0 0 8px rgb(228 255 137 / 0.22);
+    box-shadow:
+      0 0 0 3px rgb(188 229 62 / 0.22),
+      0 0 14px 5px rgb(188 229 62 / 0.38),
+      0 0 28px 12px rgb(188 229 62 / 0.2);
   }
 
   .roadmap-item__title {
@@ -1834,7 +1879,7 @@ label {
 }
 
 .privacy-section__title {
-  @apply border-b border-secondary-500 pb-3 text-2xl font-bold;
+  @apply border-b border-secondary-500 pb-3 text-2xl;
 }
 
 .privacy-section__body {
