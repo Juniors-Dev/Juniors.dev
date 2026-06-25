@@ -5,6 +5,8 @@
   --font-main-heading: "Sora", sans-serif;
   --font-heading: "Sora", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", "Arial", sans-serif;
+  --font-body-bold:
+    "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-card-body: "Noto Sans", sans-serif;
 
   /* Mobile (base) */
@@ -1004,6 +1006,12 @@ label {
 
   .btn__label {
     @apply whitespace-nowrap;
+  }
+
+  .btn-nav .btn__label {
+    font-family: var(--font-body-bold);
+    font-weight: 700;
+    font-synthesis: none;
   }
 
   .btn__icon-wrap {
