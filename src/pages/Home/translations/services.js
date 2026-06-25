@@ -2,10 +2,16 @@ export const services = {
   en: {
     heading: "Our services",
     cta: "Explore our services",
+    carouselPrev: "Previous service",
+    carouselNext: "Next service",
+    carouselDot: "Go to service",
   },
   no: {
     heading: "Våre tjenester",
     cta: "Utforsk tjenestene våre",
+    carouselPrev: "Forrige tjeneste",
+    carouselNext: "Neste tjeneste",
+    carouselDot: "Gå til tjeneste",
   },
 };
 
@@ -24,7 +30,7 @@ export const serviceCards = [
         "Juniors.dev analyserer brukerpersonaer, vurderer tilgjengelighet, beste tiltak for samsvar og andre kritiske UX/UI-parametere.",
       tags: ["Brukersentrert design", "Designsystem", "Tilgjengelighet", "Prototyping"],
     },
-    panelClassName: "bg-primary-500 hover:bg-primary-600 text-off-white",
+    panelClassName: "bg-primary-500 text-off-white",
     tagClassName: "bg-primary-700 dark:bg-tag-dark-blue text-primary-100",
   },
   {
@@ -41,7 +47,7 @@ export const serviceCards = [
         "Juniors.dev bygger raske, responsive grensesnitt som gir sømløse og tilgjengelige brukeropplevelser på tvers av enheter.",
       tags: ["Responsivt design", "Ytelsesoptimalisering", "Tilgjengelighet", "Moderne rammeverk"],
     },
-    panelClassName: "bg-secondary-200 hover:bg-secondary-500 text-roadmap-blue",
+    panelClassName: "bg-secondary-200 text-roadmap-blue",
     tagClassName: "bg-secondary-300 text-roadmap-blue",
   },
   {
@@ -58,7 +64,7 @@ export const serviceCards = [
         "Juniors.dev utvikler skalerbare, sikre systemer som styrker ytelse, datahåndtering og pålitelig applikasjonsfunksjonalitet.",
       tags: ["Skalerbar arkitektur", "API-utvikling", "Databasehåndtering", "Sikkerhet"],
     },
-    panelClassName: "bg-primary-200 hover:bg-primary-300 text-roadmap-blue",
+    panelClassName: "bg-primary-200 text-roadmap-blue",
     tagClassName: "bg-primary-100 text-roadmap-blue",
   },
   {
@@ -75,7 +81,7 @@ export const serviceCards = [
         "Støtter utviklere med veiledning, tilbakemeldinger og veiledning for å akselerere vekst og bygge selvtillit i den virkelige verden.",
       tags: ["Teknisk veiledning", "Ytelsestilbakemelding", "Mentorordning", "Kodegjennomgang"],
     },
-    panelClassName: "bg-primary-900 hover:bg-primary-600 text-off-white",
+    panelClassName: "bg-primary-900 text-off-white",
     tagClassName: "bg-primary-700 dark:bg-tag-dark-blue text-primary-100",
   },
 ];
