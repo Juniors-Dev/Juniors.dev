@@ -1356,12 +1356,13 @@ label {
     transform: scale(1.15);
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 766px) {
     .carousel--grid-mobile .carousel__track {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 245px);
       grid-auto-rows: auto;
       align-items: stretch;
+      justify-content: center;
       gap: 0.5rem;
       overflow-x: hidden;
       scroll-snap-type: none;
@@ -1370,14 +1371,19 @@ label {
 
     .carousel--grid-mobile .carousel__slide-wrap {
       flex: unset;
-      width: 100%;
-      min-width: 0;
+      width: 245px;
+      min-width: 245px;
+      max-width: 245px;
+    }
+
+    .carousel--grid-mobile .carousel__slide.service-card {
+      max-width: none;
     }
   }
 
-  @media (max-width: 359px) {
+  @media (max-width: 549px) {
     .carousel--grid-mobile .carousel__track {
-      grid-template-columns: 1fr;
+      grid-template-columns: 245px;
     }
   }
 
@@ -1410,7 +1416,7 @@ label {
     @apply mt-auto flex flex-wrap gap-2;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 767px) {
     .carousel__track {
       display: flex;
       gap: 1rem;
@@ -1420,7 +1426,8 @@ label {
     }
 
     .carousel__slide-wrap {
-      flex: 0 0 242px;
+      flex: 0 0 270px;
+      width: 270px;
     }
 
     .carousel__slide .service-card__panel {
@@ -1445,6 +1452,11 @@ label {
   @media (min-width: 1024px) {
     .carousel__slide-wrap {
       flex: 0 0 451px;
+      width: 451px;
+    }
+
+    .carousel .service-card {
+      max-width: none;
     }
 
     .carousel__slide .service-card__panel {
