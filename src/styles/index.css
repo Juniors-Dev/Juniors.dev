@@ -1010,6 +1010,12 @@ label {
     @apply whitespace-nowrap;
   }
 
+  .btn-nav .btn__label {
+    font-family: var(--font-body-bold);
+    font-weight: 700;
+    font-synthesis: none;
+  }
+
   .btn__icon-wrap {
     @apply inline-flex shrink-0 items-center justify-center rounded-full bg-primary-800 text-off-white;
     width: 3.375rem;
