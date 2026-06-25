@@ -28,7 +28,7 @@ function ThemeToggle() {
       {isDark ? (
         <Moon size={24} fill="currentColor" strokeWidth={0} />
       ) : (
-        <Sun size={24} strokeWidth={2} />
+        <Sun size={24} fill="currentColor" strokeWidth={2} />
       )}
     </button>
   );
