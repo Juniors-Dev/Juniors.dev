@@ -5,6 +5,8 @@
   --font-main-heading: "Sora", sans-serif;
   --font-heading: "Sora", sans-serif;
   --font-body: "Helvetica Neue", "Helvetica", "Inter", "Arial", sans-serif;
+  --font-body-light:
+    "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-body-bold:
     "Helvetica Neue Bold", "HelveticaNeue-Bold", "Helvetica Neue", "Inter", "Arial", sans-serif;
   --font-card-body: "Noto Sans", sans-serif;
@@ -1127,18 +1129,22 @@ label {
   }
 
   .project-card .project-card__subtitle {
-    font-family: var(--font-body);
+    font-family: var(--font-body-light);
     font-size: 0.75rem !important;
     line-height: 1.2;
     font-weight: 300 !important;
+    font-style: normal;
+    font-synthesis: none;
   }
 
   .project-card .project-card__title {
     @apply mt-1;
-    font-family: var(--font-body);
+    font-family: var(--font-body-bold);
     font-size: 0.875rem;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 700 !important;
+    font-style: normal;
+    font-synthesis: none;
   }
 
   .project-card__tags {
