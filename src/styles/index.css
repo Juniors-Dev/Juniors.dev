@@ -1399,7 +1399,7 @@ label {
 
   .service-card__title {
     @apply mb-2;
-    font: var(--font-body);
+    font-family: var(--font-body);
     font-size: var(--text-h3);
     font-weight: 600;
   }
