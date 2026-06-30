@@ -21,7 +21,7 @@ export const serviceCards = [
     en: {
       title: "UX/UI",
       details:
-        "Juniors.dev analyzses user personas, acssessing accessibility, best practices for compliance & other critical UX/UI parameters.",
+        "Juniors.dev analyses user personas, assessing accessibility, best practices for compliance & other critical UX/UI parameters.",
       tags: ["User-centered Design", "Design System", "Accessibility", "Prototyping"],
     },
     no: {
