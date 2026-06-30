@@ -1,5 +1,7 @@
-import { Children, useRef, useState, useEffect, useCallback } from "react";
+import { Children } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import { useCarousel } from "./useCarousel";
 
 /**
  * Horizontal scroll carousel with prev/next controls and dot pagination.
@@ -28,130 +30,18 @@ function Carousel({
   nextLabel = "Next slide",
   dotLabel = "Go to slide",
 }) {
-  const trackRef = useRef(null);
-  const slideRefs = useRef([]);
   const slides = Children.toArray(children);
-  const [activePage, setActivePage] = useState(0);
-  const [canScroll, setCanScroll] = useState(false);
 
-  const isMobileGrid = useCallback(() => {
-    return (
-      className.includes("carousel--grid-mobile") && window.matchMedia("(max-width: 766px)").matches
-    );
-  }, [className]);
-
-  const equalizeSlideHeights = useCallback(() => {
-    const slides = slideRefs.current.filter(Boolean);
-    if (!slides.length) return;
-
-    slides.forEach((slide) => {
-      slide.style.minHeight = "";
-    });
-
-    const maxHeight = Math.max(...slides.map((slide) => slide.offsetHeight));
-
-    if (maxHeight > 0) {
-      slides.forEach((slide) => {
-        slide.style.minHeight = `${maxHeight}px`;
-      });
-    }
-  }, []);
-
-  const updateState = useCallback(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    if (isMobileGrid()) {
-      setCanScroll(false);
-      return;
-    }
-
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    setCanScroll(maxScroll > 4);
-
-    if (pageCount <= 1) {
-      setActivePage(0);
-      return;
-    }
-
-    const ratio = maxScroll > 0 ? track.scrollLeft / maxScroll : 0;
-    setActivePage(Math.round(ratio * (pageCount - 1)));
-  }, [isMobileGrid, pageCount]);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    equalizeSlideHeights();
-    updateState();
-
-    const handleResize = () => {
-      equalizeSlideHeights();
-      updateState();
-    };
-
-    track.addEventListener("scroll", updateState, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    const observer = new ResizeObserver(handleResize);
-    observer.observe(track);
-    slideRefs.current.filter(Boolean).forEach((slide) => observer.observe(slide));
-
-    return () => {
-      track.removeEventListener("scroll", updateState);
-      window.removeEventListener("resize", handleResize);
-      observer.disconnect();
-    };
-  }, [equalizeSlideHeights, updateState, children]);
-
-  const scrollToPage = (page) => {
-    const track = trackRef.current;
-    if (!track || pageCount <= 1) return;
-
-    if (page === 0) {
-      slideRefs.current[0]?.scrollIntoView({
-        behavior: "smooth",
-        inline: "start",
-        block: "nearest",
-      });
-      return;
-    }
-
-    if (page === pageCount - 1) {
-      slideRefs.current[slides.length - 1]?.scrollIntoView({
-        behavior: "smooth",
-        inline: "start",
-        block: "nearest",
-      });
-      return;
-    }
-
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    track.scrollTo({
-      left: (maxScroll * page) / (pageCount - 1),
-      behavior: "smooth",
-    });
-  };
-
-  const handlePrev = () => {
-    scrollToPage(Math.max(0, activePage - 1));
-  };
-
-  const handleNext = () => {
-    scrollToPage(Math.min(pageCount - 1, activePage + 1));
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      handlePrev();
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      handleNext();
-    }
-  };
+  const {
+    trackRef,
+    setSlideRef,
+    activePage,
+    canScroll,
+    scrollToPage,
+    handlePrev,
+    handleNext,
+    handleKeyDown,
+  } = useCarousel({ className, pageCount, slideCount: slides.length });
 
   return (
     <section
@@ -168,9 +58,7 @@ function Carousel({
         {slides.map((slide, index) => (
           <div
             key={slide.key ?? index}
-            ref={(element) => {
-              slideRefs.current[index] = element;
-            }}
+            ref={(element) => setSlideRef(index, element)}
             className="carousel__slide-wrap"
             aria-roledescription="slide"
             aria-label={`${index + 1} of ${slides.length}`}
