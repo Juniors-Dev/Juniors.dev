@@ -78,7 +78,7 @@ export const serviceCards = [
     no: {
       title: "Veiledning",
       details:
-        "Støtter utviklere med veiledning, tilbakemeldinger og veiledning for å akselerere vekst og bygge selvtillit i den virkelige verden.",
+        "Støtter utviklere med veiledning, tilbakemeldinger og mentorskap for å akselerere vekst og bygge selvtillit i den virkelige verden.",
       tags: ["Teknisk veiledning", "Ytelsestilbakemelding", "Mentorordning", "Kodegjennomgang"],
     },
     panelClassName: "bg-primary-900 text-off-white",
