@@ -1,6 +1,7 @@
 export { default as Tag } from "./Tag/Tag";
 export { default as Logo } from "./Logo/Logo";
 export { default as Section } from "./Section/Section";
+export { default as Carousel } from "./Carousel/Carousel";
 export { default as TextSection } from "./TextSection/TextSection";
 export { default as TextSectionBraceAside } from "./TextSection/TextSectionBraceAside";
 export { default as TextSectionQuoteAside } from "./TextSection/TextSectionQuoteAside";
