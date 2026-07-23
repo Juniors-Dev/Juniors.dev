@@ -6,13 +6,7 @@ import { useT } from "../../../stores/languageStore";
 import { translations } from "../translations/ui";
 import LanguageToggle from "../LanguageToggle.jsx/LanguageToggle";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
-
-const navLinks = [
-  { to: "/", key: "home", end: true },
-  { to: "/projects", key: "projects" },
-  { to: "/about", key: "about" },
-  { to: "/work-with-us", key: "work" },
-];
+import { headerNavLinks as navLinks } from "../navLinks";
 
 function Header() {
   const t = useT(translations);

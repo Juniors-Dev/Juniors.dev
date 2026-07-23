@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./features/Layout/Layout";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
@@ -6,6 +6,7 @@ import ProjectDetails from "./pages/Projects/ProjectDetails";
 import About from "./pages/About/About";
 import WorkWithUs from "./pages/WorkWithUs/WorkWithUs";
 import PrivacyPolicy from "./pages/Privacy/Privacy";
+import { WORK_WITH_US_ENABLED } from "./config/features";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/about" element={<About />} />
-          <Route path="/work-with-us" element={<WorkWithUs />} />
+          <Route
+            path="/work-with-us"
+            element={WORK_WITH_US_ENABLED ? <WorkWithUs /> : <Navigate to="/" replace />}
+          />
           <Route path="/privacy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
