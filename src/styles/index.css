@@ -43,6 +43,7 @@
 
   --leading-heading: 1.44;
   --leading-body: 1.44;
+  --letter-spacing-body: 0;
 }
 
 @media (min-width: 768px) {
@@ -175,6 +176,10 @@
   --text-caption: 0.75rem; /* 12px */
   --text-caption--line-height: 1rem;
   --text-caption--font-weight: 400;
+
+  /* Letter spacing — never below 0 (Figma 0% minimum) */
+  --tracking-tighter: 0em;
+  --tracking-tight: 0em;
 }
 
 body {
@@ -184,6 +189,10 @@ body {
 }
 
 @layer base {
+  html {
+    letter-spacing: var(--letter-spacing-body);
+  }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -903,7 +912,7 @@ summary.roadmap-item__title.text-subheading-1 {
     font-size: var(--text-label);
     line-height: 1.2;
     font-weight: 300;
-    letter-spacing: -0.0625rem;
+    letter-spacing: var(--letter-spacing-body);
   }
 
   .footer-link:hover {
