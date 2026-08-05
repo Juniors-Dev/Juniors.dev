@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { Tag } from "../UI";
-
-/** Re-enable when single project pages are ready. Routes stay wired in App.jsx. */
-const PROJECT_DETAIL_LINKS_ENABLED = false;
+import { PROJECT_DETAIL_PAGES_ENABLED } from "../../config/features";
 
 /**
  * Preview card for a project.
@@ -29,7 +27,7 @@ function ProjectCard({
   tagClassName = "",
 }) {
   const cardClassName =
-    `project-card ${PROJECT_DETAIL_LINKS_ENABLED ? "" : "project-card--static"} ${className}`.trim();
+    `project-card ${PROJECT_DETAIL_PAGES_ENABLED ? "" : "project-card--static"} ${className}`.trim();
 
   const content = (
     <>
@@ -57,7 +55,7 @@ function ProjectCard({
     </>
   );
 
-  if (PROJECT_DETAIL_LINKS_ENABLED) {
+  if (PROJECT_DETAIL_PAGES_ENABLED) {
     return (
       <Link to={`/projects/${id}`} className={cardClassName}>
         {content}
