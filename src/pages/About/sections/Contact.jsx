@@ -96,7 +96,7 @@ function ContactSection() {
   }
 
   return (
-    <Section className="bg-off-white contact-section-bg">
+    <Section id="contact" className="bg-off-white contact-section-bg">
       <div className="contact-section">
         <div className="contact-section__intro">
           <h2>{t.heading}</h2>
