@@ -2,13 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useT } from "../../../stores/languageStore";
 import { translations } from "../translations/ui";
 import { Logo } from "../../UI";
-
-const navLinks = [
-  { to: "/", key: "home", end: true },
-  { to: "/work-with-us", key: "work" },
-  { to: "/about", key: "about" },
-  { to: "/projects", key: "projects" },
-];
+import { footerNavLinks as navLinks } from "../navLinks";
 
 const socialLinks = [
   { href: "https://github.com/Juniors-Dev", label: "GitHub" },

@@ -43,6 +43,7 @@
 
   --leading-heading: 1.44;
   --leading-body: 1.44;
+  --letter-spacing-body: 0;
   --roadmap-dot-glow-shadow: 0 0 16px 4px rgb(116 153 3 / 0.28);
   --roadmap-dot-glow-gradient: radial-gradient(
     circle,
@@ -186,6 +187,10 @@
   --text-caption: 0.75rem; /* 12px */
   --text-caption--line-height: 1rem;
   --text-caption--font-weight: 400;
+
+  /* Letter spacing — never below 0 (Figma 0% minimum) */
+  --tracking-tighter: 0em;
+  --tracking-tight: 0em;
 }
 
 body {
@@ -195,6 +200,10 @@ body {
 }
 
 @layer base {
+  html {
+    letter-spacing: var(--letter-spacing-body);
+  }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -911,11 +920,12 @@ summary.roadmap-item__title.text-subheading-1 {
 
   .footer-link {
     @apply text-off-white transition-colors duration-200;
-    font-family: var(--font-body);
+    font-family: var(--font-body-light);
     font-size: var(--text-label);
     line-height: 1.2;
     font-weight: 300;
-    letter-spacing: -0.0625rem;
+    font-synthesis: none;
+    letter-spacing: var(--letter-spacing-body);
   }
 
   .footer-link:hover {
@@ -929,7 +939,7 @@ summary.roadmap-item__title.text-subheading-1 {
 
   .footer-link--active {
     @apply text-secondary-400;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .footer-copyright {
