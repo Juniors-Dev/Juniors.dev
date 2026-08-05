@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Tag } from "../UI";
+import { PROJECT_DETAIL_PAGES_ENABLED } from "../../config/features";
 
 /**
  * Preview card for a project.
@@ -25,8 +26,11 @@ function ProjectCard({
   className = "",
   tagClassName = "",
 }) {
-  return (
-    <Link to={`/projects/${id}`} className={`project-card ${className}`}>
+  const cardClassName =
+    `project-card ${PROJECT_DETAIL_PAGES_ENABLED ? "" : "project-card--static"} ${className}`.trim();
+
+  const content = (
+    <>
       <img
         src={imageSrc}
         alt={`${title} project preview`}
@@ -48,7 +52,21 @@ function ProjectCard({
           ))}
         </div>
       </div>
-    </Link>
+    </>
+  );
+
+  if (PROJECT_DETAIL_PAGES_ENABLED) {
+    return (
+      <Link to={`/projects/${id}`} className={cardClassName}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <article className={cardClassName} data-project-id={id}>
+      {content}
+    </article>
   );
 }
 

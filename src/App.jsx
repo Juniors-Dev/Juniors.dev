@@ -6,7 +6,7 @@ import ProjectDetails from "./pages/Projects/ProjectDetails";
 import About from "./pages/About/About";
 import WorkWithUs from "./pages/WorkWithUs/WorkWithUs";
 import PrivacyPolicy from "./pages/Privacy/Privacy";
-import { WORK_WITH_US_ENABLED } from "./config/features";
+import { WORK_WITH_US_ENABLED, PROJECT_DETAIL_PAGES_ENABLED } from "./config/features";
 
 function App() {
   return (
@@ -15,7 +15,16 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetails />} />
+          <Route
+            path="/projects/:id"
+            element={
+              PROJECT_DETAIL_PAGES_ENABLED ? (
+                <ProjectDetails />
+              ) : (
+                <Navigate to="/projects" replace />
+              )
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route
             path="/work-with-us"
