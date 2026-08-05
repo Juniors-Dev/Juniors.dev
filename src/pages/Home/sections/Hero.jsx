@@ -21,7 +21,7 @@ function HeroSection() {
       titleClassName="home-hero-section__title"
       bodyClassName="home-hero-section__body"
     >
-      <NavIconButton to="#contact" variant="nav" icon>
+      <NavIconButton to="/about#contact" variant="nav" icon>
         {t.cta}
       </NavIconButton>
     </Hero>
